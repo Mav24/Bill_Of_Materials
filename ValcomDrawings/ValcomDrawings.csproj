@@ -173,6 +173,7 @@
     <EmbeddedResource Include="QuantityOfJob.resx">
       <DependentUpon>QuantityOfJob.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />
     <None Include="PrintingDataSet.xsc">
       <DependentUpon>PrintingDataSet.xsd</DependentUpon>

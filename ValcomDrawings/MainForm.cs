@@ -172,5 +172,13 @@ namespace ValcomDrawings
         {
             MessageBox.Show($"{AboutandHelp.About()}", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintingMainForm printing = new PrintingMainForm();
+            printing.drawing = drawing;
+            printing.drawingLineItems = drawingLineItemsList;
+            printing.ShowDialog();
+        }
     }
 }
