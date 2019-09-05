@@ -94,6 +94,11 @@
     <Compile Include="PartsPage.Designer.cs">
       <DependentUpon>PartsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintingDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintingDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuantityOfJob.cs">
@@ -140,6 +145,17 @@
     <EmbeddedResource Include="QuantityOfJob.resx">
       <DependentUpon>QuantityOfJob.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="PrintingDataSet.xsc">
+      <DependentUpon>PrintingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintingDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintingDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintingDataSet.xss">
+      <DependentUpon>PrintingDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\ValcomData.Drawing.datasource" />
     <None Include="Properties\DataSources\ValcomData.DrawingLine.datasource" />
     <None Include="Properties\DataSources\ValcomData.Manufacturer.datasource" />
