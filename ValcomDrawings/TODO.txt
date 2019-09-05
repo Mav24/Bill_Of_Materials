@@ -1,0 +1,16 @@
+﻿This is a list of things to fix or do
+
+**** Found an issue where transaction doesn't seem to work in the update drawing method.***** Maybe look in to lock while updating
+
+- Add parts discription option to line items
+
+- Need to update graphics for exit button etc..
+
+- Add blank column(s) to print option.
+
+- Fix sizing on createjob page
+
+- Need to fix the issue when updating a drawing line, drawing line will not pass the part description when updating...
+
+- EditLineItem page seem to not display the edit part description, even though it sends it over.. need to look in to this
+

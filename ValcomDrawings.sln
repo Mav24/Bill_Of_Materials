@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValcomDrawings", "ValcomDrawings\ValcomDrawings.csproj", "{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValcomData", "ValcomData\ValcomData.csproj", "{8F15E859-9D25-4643-98BB-38700A7F0278}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F15E859-9D25-4643-98BB-38700A7F0278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F15E859-9D25-4643-98BB-38700A7F0278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F15E859-9D25-4643-98BB-38700A7F0278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F15E859-9D25-4643-98BB-38700A7F0278}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34102BAC-8747-439A-8481-83DB88C7731D}
+	EndGlobalSection
+EndGlobal
