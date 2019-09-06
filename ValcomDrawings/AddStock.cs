@@ -22,6 +22,7 @@ namespace ValcomDrawings
 
         private void AddStock_Load(object sender, EventArgs e)
         {
+            this.Text = $"Add Stock for {drawing.BOMDescription}";
             drawingLineBindingSource.DataSource = drawingLineItems;
         }
 
@@ -44,10 +45,11 @@ namespace ValcomDrawings
                 item.IndentFactor = Convert.ToInt32(row.Cells[9].Value);
                 item.QANote = row.Cells[10].Value.ToString();
                 item.Comment = row.Cells[11].Value.ToString();
-                item.Stock = Convert.ToInt32(row.Cells[12].Value);
+                item.Stock = Convert.ToDouble(row.Cells[12].Value);
+                
                 stock.Add(item);
 
-                #region Might need this later. Mark for delete
+                #region Might need this later. Mark for delete Sept. 6th 2019
                 //foreach (DataGridViewCell dc in row.Cells)
                 //{
                 //    item.ID = Convert.ToInt32(dc.Value);
@@ -78,6 +80,30 @@ namespace ValcomDrawings
                 createJob.lineItemStock = stock;
                 createJob.drawing = drawing;
                 createJob.ShowDialog();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{AboutandHelp.About()}", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void drawingLineDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "";
+            double newDouble;
+
+            if (drawingLineDataGridView.Rows[e.RowIndex].IsNewRow) { return; }
+            if (!double.TryParse(e.FormattedValue.ToString(), out newDouble) || newDouble < 0)
+            {
+                e.Cancel = true;
+                // Use this if you want to place the error right in the datagridview
+                drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "The value must be a numeric in stock column!";
             }
         }
     }

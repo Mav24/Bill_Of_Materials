@@ -20,6 +20,6 @@ namespace ValcomData
         public int IndentFactor { get; set; }
         public string QANote { get; set; }
         public string Comment { get; set; }
-        public int Stock { get; set; }
+        public double Stock { get; set; }
     }
 }

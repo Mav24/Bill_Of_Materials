@@ -154,6 +154,8 @@ namespace ValcomDrawings
             addStock.drawingLineItems = drawingLineItemsList;
             addStock.drawing = drawing;
             addStock.ShowDialog();
+
+            #region This is the old method for creating a job Marked for delete Sept. 6th 2019
             //QuantityOfJob quantityOfJob = new QuantityOfJob();
 
             //DialogResult result = quantityOfJob.ShowDialog();
@@ -165,6 +167,7 @@ namespace ValcomDrawings
             //    createJob.drawing = drawing;
             //    createJob.ShowDialog();
             //}
+            #endregion
         }
 
         private void toolmnuExit_Click(object sender, EventArgs e)

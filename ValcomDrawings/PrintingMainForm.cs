@@ -22,6 +22,7 @@ namespace ValcomDrawings
 
         private void PrintingMainForm_Load(object sender, EventArgs e)
         {
+            this.Text = $"Drawing Printout for {drawing.BOMDescription}";
             DataTable1BindingSource.DataSource = drawingLineItems;
             this.reportViewer1.RefreshReport();
         }
