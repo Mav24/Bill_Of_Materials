@@ -152,6 +152,7 @@ namespace ValcomDrawings
         {
             AddStock addStock = new AddStock();
             addStock.drawingLineItems = drawingLineItemsList;
+            addStock.drawing = drawing;
             addStock.ShowDialog();
             //QuantityOfJob quantityOfJob = new QuantityOfJob();
 

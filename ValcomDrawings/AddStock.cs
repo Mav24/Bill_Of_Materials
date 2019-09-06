@@ -18,6 +18,7 @@ namespace ValcomDrawings
             InitializeComponent();
         }
         public List<DrawingLine> drawingLineItems;
+        public Drawing drawing;
 
         private void AddStock_Load(object sender, EventArgs e)
         {
@@ -65,6 +66,18 @@ namespace ValcomDrawings
                 //    stock.Add(item);
                 //}
                 #endregion
+            }
+
+            QuantityOfJob quantityOfJob = new QuantityOfJob();
+
+            DialogResult result = quantityOfJob.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                CreateJob createJob = new CreateJob();
+                createJob.jobAmount = quantityOfJob.amount;
+                createJob.lineItemStock = stock;
+                createJob.drawing = drawing;
+                createJob.ShowDialog();
             }
         }
     }

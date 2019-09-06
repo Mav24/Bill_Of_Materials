@@ -36,9 +36,9 @@ namespace ValcomDrawings
             List<string> partIdList = new List<string>();
 
 
-            foreach (var item in drawingLineItemsList)
+            foreach (var item in lineItemStock)
             {
-                var value1 = item.QTYU * item.IndentFactor * jobAmount;
+                var value1 = item.QTYU * item.IndentFactor * jobAmount - item.Stock;
                 var newQTYU = item.QTYU;
                 if (partIdList.Contains(item.PartID))
                 {

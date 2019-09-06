@@ -51,6 +51,8 @@
             // 
             // drawingLineDataGridView
             // 
+            this.drawingLineDataGridView.AllowUserToAddRows = false;
+            this.drawingLineDataGridView.AllowUserToDeleteRows = false;
             this.drawingLineDataGridView.AutoGenerateColumns = false;
             this.drawingLineDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.drawingLineDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
