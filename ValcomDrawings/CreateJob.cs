@@ -21,6 +21,7 @@ namespace ValcomDrawings
         public Drawing drawing;
         public DrawingLine drawingLine;
         public List<DrawingLine> drawingLineItemsList;
+        public List<LineItemStock> lineItemStock;
 
 
         private void CreateJob_Load(object sender, EventArgs e)

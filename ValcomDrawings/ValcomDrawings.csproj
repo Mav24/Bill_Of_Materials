@@ -82,6 +82,12 @@
     <Compile Include="AddModifyParts.Designer.cs">
       <DependentUpon>AddModifyParts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStock.Designer.cs">
+      <DependentUpon>AddStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddModifyParts.resx">
       <DependentUpon>AddModifyParts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStock.resx">
+      <DependentUpon>AddStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeNotes.resx">
       <DependentUpon>ChangeNotes.cs</DependentUpon>

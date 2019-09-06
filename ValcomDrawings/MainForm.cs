@@ -150,17 +150,20 @@ namespace ValcomDrawings
 
         private void btnCreateJob_Click(object sender, EventArgs e)
         {
-            QuantityOfJob quantityOfJob = new QuantityOfJob();
+            AddStock addStock = new AddStock();
+            addStock.drawingLineItems = drawingLineItemsList;
+            addStock.ShowDialog();
+            //QuantityOfJob quantityOfJob = new QuantityOfJob();
 
-            DialogResult result = quantityOfJob.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                CreateJob createJob = new CreateJob();
-                createJob.jobAmount = quantityOfJob.amount;
-                createJob.drawingLineItemsList = drawingLineItemsList;
-                createJob.drawing = drawing;
-                createJob.ShowDialog();
-            }
+            //DialogResult result = quantityOfJob.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    CreateJob createJob = new CreateJob();
+            //    createJob.jobAmount = quantityOfJob.amount;
+            //    createJob.drawingLineItemsList = drawingLineItemsList;
+            //    createJob.drawing = drawing;
+            //    createJob.ShowDialog();
+            //}
         }
 
         private void toolmnuExit_Click(object sender, EventArgs e)
