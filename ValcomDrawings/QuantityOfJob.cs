@@ -20,8 +20,12 @@ namespace ValcomDrawings
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            amount = int.Parse(txtAmount.Text);
-            DialogResult = DialogResult.OK;
+            if (IsValidate())
+            {
+                amount = int.Parse(txtAmount.Text);
+                DialogResult = DialogResult.OK;
+            }
+            
         }
 
         private bool IsValidate()
