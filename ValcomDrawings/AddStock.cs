@@ -99,7 +99,9 @@ namespace ValcomDrawings
             double newDouble;
 
             if (drawingLineDataGridView.Rows[e.RowIndex].IsNewRow) { return; }
-            if (!double.TryParse(e.FormattedValue.ToString(), out newDouble) || newDouble < 0)
+
+            // Might need to set an or so it checks for negitive value.. 
+            if (!double.TryParse(e.FormattedValue.ToString(), out newDouble))
             {
                 e.Cancel = true;
                 // Use this if you want to place the error right in the datagridview
