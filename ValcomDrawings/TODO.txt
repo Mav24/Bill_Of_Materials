@@ -16,6 +16,6 @@ Sept 6th 2019
 
 - Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box.
 
-- Look in to issue where you can't close the create job page, because its checking for stock items
+- Look in to issue where you can't close the create job page, because its checking for stock items *This has be resolved check note on page*
 
 

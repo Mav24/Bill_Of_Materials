@@ -123,6 +123,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PrintingDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PrintingJobAmounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingJobAmounts.Designer.cs">
+      <DependentUpon>PrintingJobAmounts.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintingMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="PartsPage.resx">
       <DependentUpon>PartsPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintingJobAmounts.resx">
+      <DependentUpon>PrintingJobAmounts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrintingMainForm.resx">
       <DependentUpon>PrintingMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +192,7 @@
       <DependentUpon>QuantityOfJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <None Include="packages.config" />
     <None Include="PrintingDataSet.xsc">
       <DependentUpon>PrintingDataSet.xsd</DependentUpon>
