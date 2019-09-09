@@ -29,7 +29,7 @@ namespace ValcomDrawings
 
         private void AddLineItems_Load(object sender, EventArgs e)
         {
-            this.Text = $"Add Line Items to Drawing: {drawing.DrawingID} ";
+            this.Text = $"Add Line Items to Drawing: {drawing.BOMDescription} ";
             // Puts DrawingID in to text box
             txtDrawingID.Text = drawing.DrawingID;
 

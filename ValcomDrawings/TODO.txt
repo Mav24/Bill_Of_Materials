@@ -8,8 +8,14 @@ The date I went back to was commit Aug 22 2019 on repository DrawingPOs in devel
 
 This application is on my git hub as Drawings.
 
-- Add blank column(s) to print option.
 
-- Fix sizing on createjob page
+Sept 6th 2019
+- Need to add more style to the pages. was thinking of adding the valcom logo. But waiting until i get most of the coding done
+
+- still need to add in the print page for the final create job page
+
+- Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box.
+
+- Look in to issue where you can't close the create job page, because its checking for stock items
 
 
