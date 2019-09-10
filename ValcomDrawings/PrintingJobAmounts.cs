@@ -12,27 +12,29 @@ using ValcomData;
 
 namespace ValcomDrawings
 {
-    public partial class PrintingMainForm : Form
+    public partial class PrintingJobAmounts : Form
     {
-        public PrintingMainForm()
+        public PrintingJobAmounts()
         {
             InitializeComponent();
         }
-        public List<DrawingLine> drawingLineItems;
         public Drawing drawing;
+        public List<TempJob> tempDrawingLines;
+        public int quantity;
 
-        private void PrintingMainForm_Load(object sender, EventArgs e)
+        private void PrintingJobAmounts_Load(object sender, EventArgs e)
         {
+            Text = $"Order Amount Printout for drawing {drawing.BOMDescription}";
             try
             {
-                this.Text = $"Drawing Printout for {drawing.BOMDescription}";
                 ReportParameter[] rParams = new ReportParameter[]
-                {
+            {
                 new ReportParameter("Description", drawing.BOMDescription),
-                new ReportParameter("PrintDate", DateTime.Now.ToLongDateString())
-                };
+                new ReportParameter("DateCreated", DateTime.Now.ToLongDateString()),
+                new ReportParameter("Quanitity", quantity.ToString())
+            };
                 reportViewer1.LocalReport.SetParameters(rParams);
-                DataTable1BindingSource.DataSource = drawingLineItems;
+                DataTable2BindingSource.DataSource = tempDrawingLines;
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception)
@@ -40,6 +42,7 @@ namespace ValcomDrawings
 
                 MessageBox.Show("Look like there was an issue trying to display the report for printing, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
     }
 }

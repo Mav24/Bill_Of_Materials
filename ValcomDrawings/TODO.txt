@@ -12,10 +12,8 @@ This application is on my git hub as Drawings.
 Sept 6th 2019
 - Need to add more style to the pages. was thinking of adding the valcom logo. But waiting until i get most of the coding done
 
-- still need to add in the print page for the final create job page
-
 - Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box.
 
-- Look in to issue where you can't close the create job page, because its checking for stock items
+- Look in to issue where you can't close the create job page, because its checking for stock items *This has be resolved check note on page*
 
 

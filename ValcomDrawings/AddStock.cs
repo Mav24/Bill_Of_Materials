@@ -76,7 +76,7 @@ namespace ValcomDrawings
             if (result == DialogResult.OK)
             {
                 CreateJob createJob = new CreateJob();
-                createJob.jobAmount = quantityOfJob.amount;
+                createJob.quantity = quantityOfJob.amount;
                 createJob.lineItemStock = stock;
                 createJob.drawing = drawing;
                 createJob.ShowDialog();

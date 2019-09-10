@@ -667,7 +667,7 @@ namespace ValcomDrawings {
             
             private global::System.Data.DataColumn columnDWGNO;
             
-            private global::System.Data.DataColumn columnParDescription;
+            private global::System.Data.DataColumn columnPartDescription;
             
             private global::System.Data.DataColumn columnQTYU;
             
@@ -744,9 +744,9 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ParDescriptionColumn {
+            public global::System.Data.DataColumn PartDescriptionColumn {
                 get {
-                    return this.columnParDescription;
+                    return this.columnPartDescription;
                 }
             }
             
@@ -819,14 +819,14 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable2Row AddDataTable2Row(string LineNumber, string ProductionCode, string PartID, string DWGNO, string ParDescription, string QTYU, string Units, string IndentFactor, string AmountNeed) {
+            public DataTable2Row AddDataTable2Row(string LineNumber, string ProductionCode, string PartID, string DWGNO, string PartDescription, string QTYU, string Units, string IndentFactor, string AmountNeed) {
                 DataTable2Row rowDataTable2Row = ((DataTable2Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         LineNumber,
                         ProductionCode,
                         PartID,
                         DWGNO,
-                        ParDescription,
+                        PartDescription,
                         QTYU,
                         Units,
                         IndentFactor,
@@ -857,7 +857,7 @@ namespace ValcomDrawings {
                 this.columnProductionCode = base.Columns["ProductionCode"];
                 this.columnPartID = base.Columns["PartID"];
                 this.columnDWGNO = base.Columns["DWGNO"];
-                this.columnParDescription = base.Columns["ParDescription"];
+                this.columnPartDescription = base.Columns["PartDescription"];
                 this.columnQTYU = base.Columns["QTYU"];
                 this.columnUnits = base.Columns["Units"];
                 this.columnIndentFactor = base.Columns["IndentFactor"];
@@ -875,8 +875,8 @@ namespace ValcomDrawings {
                 base.Columns.Add(this.columnPartID);
                 this.columnDWGNO = new global::System.Data.DataColumn("DWGNO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDWGNO);
-                this.columnParDescription = new global::System.Data.DataColumn("ParDescription", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnParDescription);
+                this.columnPartDescription = new global::System.Data.DataColumn("PartDescription", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPartDescription);
                 this.columnQTYU = new global::System.Data.DataColumn("QTYU", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQTYU);
                 this.columnUnits = new global::System.Data.DataColumn("Units", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1330,17 +1330,17 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ParDescription {
+            public string PartDescription {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable2.ParDescriptionColumn]));
+                        return ((string)(this[this.tableDataTable2.PartDescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ParDescription\' in table \'DataTable2\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PartDescription\' in table \'DataTable2\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable2.ParDescriptionColumn] = value;
+                    this[this.tableDataTable2.PartDescriptionColumn] = value;
                 }
             }
             
@@ -1458,14 +1458,14 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsParDescriptionNull() {
-                return this.IsNull(this.tableDataTable2.ParDescriptionColumn);
+            public bool IsPartDescriptionNull() {
+                return this.IsNull(this.tableDataTable2.PartDescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetParDescriptionNull() {
-                this[this.tableDataTable2.ParDescriptionColumn] = global::System.Convert.DBNull;
+            public void SetPartDescriptionNull() {
+                this[this.tableDataTable2.PartDescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
