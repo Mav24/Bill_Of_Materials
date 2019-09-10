@@ -31,20 +31,19 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStock));
             this.drawingLineDataGridView = new System.Windows.Forms.DataGridView();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCreateJob = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,11 +57,14 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drawingLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // drawingLineDataGridView
@@ -93,6 +95,13 @@
             this.drawingLineDataGridView.TabIndex = 1;
             this.drawingLineDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.drawingLineDataGridView_CellValidating);
             // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MaxInputLength = 5;
+            this.Stock.Name = "Stock";
+            this.Stock.Width = 50;
+            // 
             // btnCreateJob
             // 
             this.btnCreateJob.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -106,6 +115,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnCreateJob);
             this.panel1.Controls.Add(this.label1);
@@ -115,22 +125,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1018, 131);
             this.panel1.TabIndex = 3;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.drawingLineDataGridView);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 131);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1018, 392);
-            this.panel2.TabIndex = 4;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MaxInputLength = 5;
-            this.Stock.Name = "Stock";
-            this.Stock.Width = 50;
             // 
             // btnCancel
             // 
@@ -149,7 +143,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(367, 37);
+            this.label1.Location = new System.Drawing.Point(367, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(362, 32);
             this.label1.TabIndex = 4;
@@ -176,16 +170,6 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.newToolStripMenuItem.Text = "Calculate Po\'s";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.btnCreateJob_Click);
-            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -210,14 +194,23 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(113, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.drawingLineDataGridView);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 131);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1018, 392);
+            this.panel2.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -317,6 +310,26 @@
             // 
             this.drawingLineBindingSource.DataSource = typeof(ValcomData.DrawingLine);
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
+            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.newToolStripMenuItem.Text = "Calculate Po\'s";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.btnCreateJob_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ValcomDrawings.Properties.Resources.ValcomLogoMF;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(189, 98);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -325,18 +338,20 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "AddStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddStock";
+            this.Text = "Add Stock";
             this.Load += new System.EventHandler(this.AddStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,5 +386,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -42,18 +42,20 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtpartID = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             defaultSupplierLabel = new System.Windows.Forms.Label();
             partDescriptionLabel = new System.Windows.Forms.Label();
             partIDLabel = new System.Windows.Forms.Label();
             qANoteLabel = new System.Windows.Forms.Label();
             stockLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultSupplierLabel
             // 
             defaultSupplierLabel.AutoSize = true;
-            defaultSupplierLabel.Location = new System.Drawing.Point(12, 166);
+            defaultSupplierLabel.Location = new System.Drawing.Point(210, 138);
             defaultSupplierLabel.Name = "defaultSupplierLabel";
             defaultSupplierLabel.Size = new System.Drawing.Size(94, 15);
             defaultSupplierLabel.TabIndex = 6;
@@ -62,7 +64,7 @@
             // partDescriptionLabel
             // 
             partDescriptionLabel.AutoSize = true;
-            partDescriptionLabel.Location = new System.Drawing.Point(12, 82);
+            partDescriptionLabel.Location = new System.Drawing.Point(210, 54);
             partDescriptionLabel.Name = "partDescriptionLabel";
             partDescriptionLabel.Size = new System.Drawing.Size(94, 15);
             partDescriptionLabel.TabIndex = 2;
@@ -71,7 +73,7 @@
             // partIDLabel
             // 
             partIDLabel.AutoSize = true;
-            partIDLabel.Location = new System.Drawing.Point(12, 40);
+            partIDLabel.Location = new System.Drawing.Point(210, 12);
             partIDLabel.Name = "partIDLabel";
             partIDLabel.Size = new System.Drawing.Size(45, 15);
             partIDLabel.TabIndex = 0;
@@ -80,7 +82,7 @@
             // qANoteLabel
             // 
             qANoteLabel.AutoSize = true;
-            qANoteLabel.Location = new System.Drawing.Point(12, 124);
+            qANoteLabel.Location = new System.Drawing.Point(210, 96);
             qANoteLabel.Name = "qANoteLabel";
             qANoteLabel.Size = new System.Drawing.Size(53, 15);
             qANoteLabel.TabIndex = 4;
@@ -89,7 +91,7 @@
             // stockLabel
             // 
             stockLabel.AutoSize = true;
-            stockLabel.Location = new System.Drawing.Point(407, 166);
+            stockLabel.Location = new System.Drawing.Point(605, 138);
             stockLabel.Name = "stockLabel";
             stockLabel.Size = new System.Drawing.Size(39, 15);
             stockLabel.TabIndex = 8;
@@ -99,7 +101,7 @@
             // 
             this.txtSupplier.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSupplier.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "DefaultSupplier", true));
-            this.txtSupplier.Location = new System.Drawing.Point(112, 163);
+            this.txtSupplier.Location = new System.Drawing.Point(310, 135);
             this.txtSupplier.Name = "txtSupplier";
             this.txtSupplier.Size = new System.Drawing.Size(289, 23);
             this.txtSupplier.TabIndex = 7;
@@ -113,7 +115,7 @@
             // 
             this.txtDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "PartDescription", true));
-            this.txtDescription.Location = new System.Drawing.Point(112, 79);
+            this.txtDescription.Location = new System.Drawing.Point(310, 51);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(444, 23);
             this.txtDescription.TabIndex = 3;
@@ -122,7 +124,7 @@
             // txtQANote
             // 
             this.txtQANote.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "QANote", true));
-            this.txtQANote.Location = new System.Drawing.Point(112, 121);
+            this.txtQANote.Location = new System.Drawing.Point(310, 93);
             this.txtQANote.Name = "txtQANote";
             this.txtQANote.Size = new System.Drawing.Size(444, 23);
             this.txtQANote.TabIndex = 5;
@@ -131,7 +133,7 @@
             // txtStock
             // 
             this.txtStock.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "Stock", true));
-            this.txtStock.Location = new System.Drawing.Point(452, 163);
+            this.txtStock.Location = new System.Drawing.Point(650, 135);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(64, 23);
             this.txtStock.TabIndex = 9;
@@ -139,7 +141,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(481, 226);
+            this.btnCancel.Location = new System.Drawing.Point(679, 174);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -149,7 +151,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(400, 226);
+            this.btnUpdate.Location = new System.Drawing.Point(598, 174);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 10;
@@ -161,18 +163,29 @@
             // 
             this.txtpartID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtpartID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "PartID", true));
-            this.txtpartID.Location = new System.Drawing.Point(112, 37);
+            this.txtpartID.Location = new System.Drawing.Point(310, 9);
             this.txtpartID.Name = "txtpartID";
             this.txtpartID.Size = new System.Drawing.Size(444, 23);
             this.txtpartID.TabIndex = 1;
             this.txtpartID.Tag = "Part ID";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ValcomDrawings.Properties.Resources.ValcomLogoMF;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(166, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddModifyParts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 261);
+            this.ClientSize = new System.Drawing.Size(768, 209);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtpartID);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCancel);
@@ -193,6 +206,7 @@
             this.Text = "Add/Modifiy Part";
             this.Load += new System.EventHandler(this.AddModifyParts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +222,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtpartID;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
