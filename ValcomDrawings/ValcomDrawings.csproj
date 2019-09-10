@@ -7,7 +7,7 @@
     <ProjectGuid>{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ValcomDrawings</RootNamespace>
-    <AssemblyName>ValcomDrawings</AssemblyName>
+    <AssemblyName>Valcom Pos</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
