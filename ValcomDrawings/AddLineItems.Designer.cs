@@ -39,6 +39,7 @@
             System.Windows.Forms.Label qANoteLabel;
             System.Windows.Forms.Label qTYULabel;
             System.Windows.Forms.Label unitsLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddLineItems));
             this.drawingLineDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -503,9 +504,11 @@
             // 
             // logo
             // 
+            this.logo.Image = global::ValcomDrawings.Properties.Resources.ValcomLogoMF;
             this.logo.Location = new System.Drawing.Point(12, 12);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(148, 123);
+            this.logo.Size = new System.Drawing.Size(192, 86);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logo.TabIndex = 26;
             this.logo.TabStop = false;
             // 
@@ -534,9 +537,9 @@
             this.EntryPanel.Controls.Add(this.txtQANotes);
             this.EntryPanel.Controls.Add(qANoteLabel);
             this.EntryPanel.Controls.Add(this.cboBoxParts);
-            this.EntryPanel.Location = new System.Drawing.Point(166, 12);
+            this.EntryPanel.Location = new System.Drawing.Point(210, 12);
             this.EntryPanel.Name = "EntryPanel";
-            this.EntryPanel.Size = new System.Drawing.Size(1079, 153);
+            this.EntryPanel.Size = new System.Drawing.Size(1047, 153);
             this.EntryPanel.TabIndex = 1;
             // 
             // buttonPanel
@@ -577,6 +580,7 @@
             this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddLineItems";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Line Items";
