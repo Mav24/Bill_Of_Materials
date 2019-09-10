@@ -48,7 +48,7 @@ namespace ValcomDrawings
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 
