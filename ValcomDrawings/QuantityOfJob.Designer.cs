@@ -59,6 +59,7 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(64, 23);
             this.txtAmount.TabIndex = 1;
+            this.txtAmount.Tag = "Amount";
             // 
             // btnCancel
             // 

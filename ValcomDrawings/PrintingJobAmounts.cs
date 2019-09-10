@@ -25,15 +25,24 @@ namespace ValcomDrawings
         private void PrintingJobAmounts_Load(object sender, EventArgs e)
         {
             Text = $"Order Amount Printout for drawing {drawing.BOMDescription}";
-            ReportParameter[] rParams = new ReportParameter[]
+            try
+            {
+                ReportParameter[] rParams = new ReportParameter[]
             {
                 new ReportParameter("Description", drawing.BOMDescription),
                 new ReportParameter("DateCreated", DateTime.Now.ToLongDateString()),
                 new ReportParameter("Quanitity", quantity.ToString())
             };
-            reportViewer1.LocalReport.SetParameters(rParams);
-            DataTable2BindingSource.DataSource = tempDrawingLines;
-            this.reportViewer1.RefreshReport();
+                reportViewer1.LocalReport.SetParameters(rParams);
+                DataTable2BindingSource.DataSource = tempDrawingLines;
+                this.reportViewer1.RefreshReport();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Look like there was an issue trying to display the report for printing, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
