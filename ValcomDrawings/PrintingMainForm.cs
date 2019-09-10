@@ -23,15 +23,23 @@ namespace ValcomDrawings
 
         private void PrintingMainForm_Load(object sender, EventArgs e)
         {
-            this.Text = $"Drawing Printout for {drawing.BOMDescription}";
-            ReportParameter[] rParams = new ReportParameter[]
+            try
             {
+                this.Text = $"Drawing Printout for {drawing.BOMDescription}";
+                ReportParameter[] rParams = new ReportParameter[]
+                {
                 new ReportParameter("Description", drawing.BOMDescription),
                 new ReportParameter("PrintDate", DateTime.Now.ToLongDateString())
-            };
-            reportViewer1.LocalReport.SetParameters(rParams);
-            DataTable1BindingSource.DataSource = drawingLineItems;
-            this.reportViewer1.RefreshReport();
+                };
+                reportViewer1.LocalReport.SetParameters(rParams);
+                DataTable1BindingSource.DataSource = drawingLineItems;
+                this.reportViewer1.RefreshReport();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Look like there was an issue trying to display the report for printing, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
