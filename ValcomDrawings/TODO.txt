@@ -21,4 +21,8 @@ Sept 10th 2019
 - Ready to look in to installer for this application. 
 - Look in to installer with update option. use Tester branch for testing this.. Make sure to update developers branch first
 
+Sept 11 2019
+- Look in to more icons for all forms
+- Need to look in to nulls in the database, write some statements to catch the errors.
+
 

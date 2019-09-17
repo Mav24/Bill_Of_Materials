@@ -106,11 +106,16 @@ namespace ValcomData
                 {
                     drawing.ID = (int)reader["ID"];
                     drawing.DrawingID = reader["DrawingID"].ToString();
-                    drawing.DateCreated = (DateTime)reader["DateCreated"];
+                    //string date = reader["DateCreated"].ToString();
+                    //drawing.DateCreated = (DateTime)reader["DateCreated"];
+                    if (reader["DateCreated"] == DBNull.Value)
+                        drawing.DateCreated = DateTime.Now;
+                    else
+                        drawing.DateCreated = (DateTime)reader["DateCreated"];
                     drawing.BOMDescription = reader["BOMDescription"].ToString();
                     drawing.NSN = reader["NSN"].ToString();
                     drawing.AddedBy = reader["AddedBy"].ToString();
-                    drawing.DateModified = (reader["DateModified"].ToString());
+                    drawing.DateModified = reader["DateModified"].ToString();
                     if (reader["DateModified"] == DBNull.Value)
                     {
                         drawing.DateModifedNotNull = drawing.DateCreated;

@@ -395,9 +395,9 @@
             // 
             this.btnAdd.Image = global::ValcomDrawings.Properties.Resources.AddLine;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(11, 3);
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(68, 44);
+            this.btnAdd.Size = new System.Drawing.Size(76, 44);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
