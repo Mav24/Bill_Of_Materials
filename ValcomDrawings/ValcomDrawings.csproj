@@ -7,11 +7,26 @@
     <ProjectGuid>{EE0FEC5F-3548-4B1A-B1A1-1F309F4FD3CB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ValcomDrawings</RootNamespace>
-    <AssemblyName>ValcomDrawings</AssemblyName>
+    <AssemblyName>Valcom Pos</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +47,28 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>valcomlogomf.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +100,12 @@
     <Compile Include="AddModifyParts.Designer.cs">
       <DependentUpon>AddModifyParts.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStock.Designer.cs">
+      <DependentUpon>AddStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChangeNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +136,23 @@
     <Compile Include="PartsPage.Designer.cs">
       <DependentUpon>PartsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintingDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintingDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingJobAmounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingJobAmounts.Designer.cs">
+      <DependentUpon>PrintingJobAmounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingMainForm.Designer.cs">
+      <DependentUpon>PrintingMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuantityOfJob.cs">
@@ -102,6 +161,7 @@
     <Compile Include="QuantityOfJob.Designer.cs">
       <DependentUpon>QuantityOfJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validator.cs" />
     <EmbeddedResource Include="AddLineItems.resx">
       <DependentUpon>AddLineItems.cs</DependentUpon>
@@ -111,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddModifyParts.resx">
       <DependentUpon>AddModifyParts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStock.resx">
+      <DependentUpon>AddStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeNotes.resx">
       <DependentUpon>ChangeNotes.cs</DependentUpon>
@@ -127,6 +190,12 @@
     <EmbeddedResource Include="PartsPage.resx">
       <DependentUpon>PartsPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintingJobAmounts.resx">
+      <DependentUpon>PrintingJobAmounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingMainForm.resx">
+      <DependentUpon>PrintingMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -140,6 +209,20 @@
     <EmbeddedResource Include="QuantityOfJob.resx">
       <DependentUpon>QuantityOfJob.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <None Include="packages.config" />
+    <None Include="PrintingDataSet.xsc">
+      <DependentUpon>PrintingDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrintingDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrintingDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PrintingDataSet.xss">
+      <DependentUpon>PrintingDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\ValcomData.Drawing.datasource" />
     <None Include="Properties\DataSources\ValcomData.DrawingLine.datasource" />
     <None Include="Properties\DataSources\ValcomData.Manufacturer.datasource" />
@@ -165,11 +248,38 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="valcomlogomf.ico" />
     <None Include="Resources\Exitsmall.png" />
     <None Include="Resources\AddLine.png" />
     <None Include="Resources\create.png" />
     <None Include="Resources\EditNew.png" />
+    <None Include="Resources\ValcomLogoMF.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -48,7 +48,7 @@ namespace ValcomDrawings
             catch (Exception ex)
             {
 
-                throw ex;
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
         }
 
@@ -150,17 +150,24 @@ namespace ValcomDrawings
 
         private void btnCreateJob_Click(object sender, EventArgs e)
         {
-            QuantityOfJob quantityOfJob = new QuantityOfJob();
+            AddStock addStock = new AddStock();
+            addStock.drawingLineItems = drawingLineItemsList;
+            addStock.drawing = drawing;
+            addStock.ShowDialog();
 
-            DialogResult result = quantityOfJob.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                CreateJob createJob = new CreateJob();
-                createJob.jobAmount = quantityOfJob.amount;
-                createJob.drawingLineItemsList = drawingLineItemsList;
-                createJob.drawing = drawing;
-                createJob.ShowDialog();
-            }
+            #region This is the old method for creating a job Marked for delete Sept. 6th 2019
+            //QuantityOfJob quantityOfJob = new QuantityOfJob();
+
+            //DialogResult result = quantityOfJob.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    CreateJob createJob = new CreateJob();
+            //    createJob.jobAmount = quantityOfJob.amount;
+            //    createJob.drawingLineItemsList = drawingLineItemsList;
+            //    createJob.drawing = drawing;
+            //    createJob.ShowDialog();
+            //}
+            #endregion
         }
 
         private void toolmnuExit_Click(object sender, EventArgs e)
@@ -171,6 +178,14 @@ namespace ValcomDrawings
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"{AboutandHelp.About()}", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintingMainForm printing = new PrintingMainForm();
+            printing.drawing = drawing;
+            printing.drawingLineItems = drawingLineItemsList;
+            printing.ShowDialog();
         }
     }
 }

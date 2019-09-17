@@ -34,13 +34,13 @@
             System.Windows.Forms.Label drawingIDLabel;
             System.Windows.Forms.Label nSNLabel;
             this.txtAddedBy = new System.Windows.Forms.TextBox();
-            this.drawingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtBOMDescription = new System.Windows.Forms.TextBox();
             this.txtDrawingID = new System.Windows.Forms.TextBox();
             this.txtNSN = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.drawingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             addedByLabel = new System.Windows.Forms.Label();
             bOMDescriptionLabel = new System.Windows.Forms.Label();
             drawingIDLabel = new System.Windows.Forms.Label();
@@ -55,16 +55,16 @@
             addedByLabel.Name = "addedByLabel";
             addedByLabel.Size = new System.Drawing.Size(61, 15);
             addedByLabel.TabIndex = 4;
-            addedByLabel.Text = "Added By:";
+            addedByLabel.Text = "&Added By:";
             // 
             // bOMDescriptionLabel
             // 
             bOMDescriptionLabel.AutoSize = true;
             bOMDescriptionLabel.Location = new System.Drawing.Point(45, 96);
             bOMDescriptionLabel.Name = "bOMDescriptionLabel";
-            bOMDescriptionLabel.Size = new System.Drawing.Size(97, 15);
+            bOMDescriptionLabel.Size = new System.Drawing.Size(100, 15);
             bOMDescriptionLabel.TabIndex = 6;
-            bOMDescriptionLabel.Text = "BOMDescription:";
+            bOMDescriptionLabel.Text = "&BOM Description:";
             // 
             // drawingIDLabel
             // 
@@ -73,7 +73,7 @@
             drawingIDLabel.Name = "drawingIDLabel";
             drawingIDLabel.Size = new System.Drawing.Size(68, 15);
             drawingIDLabel.TabIndex = 0;
-            drawingIDLabel.Text = "Drawing ID:";
+            drawingIDLabel.Text = "Drawing &ID:";
             // 
             // nSNLabel
             // 
@@ -82,7 +82,7 @@
             nSNLabel.Name = "nSNLabel";
             nSNLabel.Size = new System.Drawing.Size(34, 15);
             nSNLabel.TabIndex = 2;
-            nSNLabel.Text = "NSN:";
+            nSNLabel.Text = "&NSN:";
             // 
             // txtAddedBy
             // 
@@ -93,10 +93,6 @@
             this.txtAddedBy.Size = new System.Drawing.Size(200, 23);
             this.txtAddedBy.TabIndex = 5;
             this.txtAddedBy.Tag = "AddedBy";
-            // 
-            // drawingBindingSource
-            // 
-            this.drawingBindingSource.DataSource = typeof(ValcomData.Drawing);
             // 
             // txtBOMDescription
             // 
@@ -135,7 +131,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "&Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -145,7 +141,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -155,9 +151,13 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 9;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // drawingBindingSource
+            // 
+            this.drawingBindingSource.DataSource = typeof(ValcomData.Drawing);
             // 
             // AddModifyDrawing
             // 
@@ -178,6 +178,8 @@
             this.Controls.Add(this.txtNSN);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddModifyDrawing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add/Modify Drawing";

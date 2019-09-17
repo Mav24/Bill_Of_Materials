@@ -17,27 +17,32 @@ namespace ValcomDrawings
         {
             InitializeComponent();
         }
-        public int jobAmount;
+        public int quantity;
         public Drawing drawing;
         public DrawingLine drawingLine;
         public List<DrawingLine> drawingLineItemsList;
+        public List<LineItemStock> lineItemStock;
+        private List<TempJob> tempDrawingLines;
 
 
         private void CreateJob_Load(object sender, EventArgs e)
         {
-            this.Text = $"Create Job for {drawing.DrawingID}";
+            this.Text = $"Created Job for {drawing.BOMDescription}";
             CreateNewJob();
         }
 
         private void CreateNewJob()
         {
-            List<TempJob> tempDrawingLines = new List<TempJob>();
+            tempDrawingLines = new List<TempJob>();
             List<string> partIdList = new List<string>();
 
 
-            foreach (var item in drawingLineItemsList)
+            foreach (var item in lineItemStock)
             {
-                var value1 = item.QTYU * item.IndentFactor * jobAmount;
+                var value1 = item.QTYU * item.IndentFactor * quantity - item.Stock;
+                // Check if value is less then 0, if yes then set order amount to 0
+                if (value1 < 0)
+                    value1 = 0;
                 var newQTYU = item.QTYU;
                 if (partIdList.Contains(item.PartID))
                 {
@@ -111,6 +116,20 @@ namespace ValcomDrawings
         private void toolMenuExit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{AboutandHelp.About()}", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void toolMenuPrint_Click(object sender, EventArgs e)
+        {
+            PrintingJobAmounts printing = new PrintingJobAmounts();
+            printing.drawing = drawing;
+            printing.quantity = quantity;
+            printing.tempDrawingLines = tempDrawingLines;
+            printing.ShowDialog();
         }
     }
 }

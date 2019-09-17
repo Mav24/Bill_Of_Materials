@@ -39,6 +39,7 @@
             System.Windows.Forms.Label qANoteLabel;
             System.Windows.Forms.Label qTYULabel;
             System.Windows.Forms.Label unitsLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddLineItems));
             this.drawingLineDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +71,12 @@
             this.cboProductionCode = new System.Windows.Forms.ComboBox();
             this.cboPartsDescription = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.topPanel = new System.Windows.Forms.Panel();
+            this.logo = new System.Windows.Forms.PictureBox();
+            this.EntryPanel = new System.Windows.Forms.Panel();
+            this.buttonPanel = new System.Windows.Forms.Panel();
+            this.bottomPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             commentsLabel = new System.Windows.Forms.Label();
             dLDrawingIDLabel = new System.Windows.Forms.Label();
             dWGNOLabel = new System.Windows.Forms.Label();
@@ -83,39 +90,45 @@
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).BeginInit();
+            this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            this.EntryPanel.SuspendLayout();
+            this.buttonPanel.SuspendLayout();
+            this.bottomPanel.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // commentsLabel
             // 
             commentsLabel.AutoSize = true;
-            commentsLabel.Location = new System.Drawing.Point(543, 95);
+            commentsLabel.Location = new System.Drawing.Point(555, 88);
             commentsLabel.Name = "commentsLabel";
             commentsLabel.Size = new System.Drawing.Size(69, 15);
-            commentsLabel.TabIndex = 18;
+            commentsLabel.TabIndex = 11;
             commentsLabel.Text = "&Comments:";
             // 
             // dLDrawingIDLabel
             // 
             dLDrawingIDLabel.AutoSize = true;
-            dLDrawingIDLabel.Location = new System.Drawing.Point(12, 23);
+            dLDrawingIDLabel.Location = new System.Drawing.Point(24, 16);
             dLDrawingIDLabel.Name = "dLDrawingIDLabel";
             dLDrawingIDLabel.Size = new System.Drawing.Size(68, 15);
             dLDrawingIDLabel.TabIndex = 0;
-            dLDrawingIDLabel.Text = "D&rawing ID:";
+            dLDrawingIDLabel.Text = "Drawing ID:";
             // 
             // dWGNOLabel
             // 
             dWGNOLabel.AutoSize = true;
-            dWGNOLabel.Location = new System.Drawing.Point(12, 59);
+            dWGNOLabel.Location = new System.Drawing.Point(24, 52);
             dWGNOLabel.Name = "dWGNOLabel";
             dWGNOLabel.Size = new System.Drawing.Size(55, 15);
-            dWGNOLabel.TabIndex = 2;
+            dWGNOLabel.TabIndex = 1;
             dWGNOLabel.Text = "D&WGNO:";
             // 
             // indentFactorLabel
             // 
             indentFactorLabel.AutoSize = true;
-            indentFactorLabel.Location = new System.Drawing.Point(712, 23);
+            indentFactorLabel.Location = new System.Drawing.Point(724, 16);
             indentFactorLabel.Name = "indentFactorLabel";
             indentFactorLabel.Size = new System.Drawing.Size(80, 15);
             indentFactorLabel.TabIndex = 12;
@@ -124,55 +137,55 @@
             // lineNumberLabel
             // 
             lineNumberLabel.AutoSize = true;
-            lineNumberLabel.Location = new System.Drawing.Point(543, 23);
+            lineNumberLabel.Location = new System.Drawing.Point(555, 16);
             lineNumberLabel.Name = "lineNumberLabel";
             lineNumberLabel.Size = new System.Drawing.Size(79, 15);
-            lineNumberLabel.TabIndex = 8;
+            lineNumberLabel.TabIndex = 7;
             lineNumberLabel.Text = "&Line Number:";
             // 
             // partIDLabel
             // 
             partIDLabel.AutoSize = true;
-            partIDLabel.Location = new System.Drawing.Point(12, 95);
+            partIDLabel.Location = new System.Drawing.Point(24, 88);
             partIDLabel.Name = "partIDLabel";
             partIDLabel.Size = new System.Drawing.Size(45, 15);
-            partIDLabel.TabIndex = 4;
+            partIDLabel.TabIndex = 3;
             partIDLabel.Text = "P&art ID:";
             // 
             // productionCodeLabel
             // 
             productionCodeLabel.AutoSize = true;
-            productionCodeLabel.Location = new System.Drawing.Point(543, 58);
+            productionCodeLabel.Location = new System.Drawing.Point(555, 51);
             productionCodeLabel.Name = "productionCodeLabel";
             productionCodeLabel.Size = new System.Drawing.Size(100, 15);
-            productionCodeLabel.TabIndex = 10;
+            productionCodeLabel.TabIndex = 9;
             productionCodeLabel.Text = "&Production Code:";
             // 
             // qANoteLabel
             // 
             qANoteLabel.AutoSize = true;
-            qANoteLabel.Location = new System.Drawing.Point(543, 131);
+            qANoteLabel.Location = new System.Drawing.Point(555, 124);
             qANoteLabel.Name = "qANoteLabel";
             qANoteLabel.Size = new System.Drawing.Size(53, 15);
-            qANoteLabel.TabIndex = 20;
+            qANoteLabel.TabIndex = 13;
             qANoteLabel.Text = "&QANote:";
             // 
             // qTYULabel
             // 
             qTYULabel.AutoSize = true;
-            qTYULabel.Location = new System.Drawing.Point(848, 23);
+            qTYULabel.Location = new System.Drawing.Point(860, 16);
             qTYULabel.Name = "qTYULabel";
             qTYULabel.Size = new System.Drawing.Size(46, 15);
-            qTYULabel.TabIndex = 16;
+            qTYULabel.TabIndex = 18;
             qTYULabel.Text = "Q&TY/U:";
             // 
             // unitsLabel
             // 
             unitsLabel.AutoSize = true;
-            unitsLabel.Location = new System.Drawing.Point(712, 52);
+            unitsLabel.Location = new System.Drawing.Point(724, 45);
             unitsLabel.Name = "unitsLabel";
             unitsLabel.Size = new System.Drawing.Size(37, 15);
-            unitsLabel.TabIndex = 14;
+            unitsLabel.TabIndex = 16;
             unitsLabel.Text = "&Units:";
             // 
             // drawingLineDataGridView
@@ -196,12 +209,13 @@
             this.Comment,
             this.Edit});
             this.drawingLineDataGridView.DataSource = this.drawingLineBindingSource;
-            this.drawingLineDataGridView.Location = new System.Drawing.Point(15, 171);
+            this.drawingLineDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drawingLineDataGridView.Location = new System.Drawing.Point(0, 0);
             this.drawingLineDataGridView.MultiSelect = false;
             this.drawingLineDataGridView.Name = "drawingLineDataGridView";
             this.drawingLineDataGridView.ReadOnly = true;
             this.drawingLineDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.drawingLineDataGridView.Size = new System.Drawing.Size(1242, 344);
+            this.drawingLineDataGridView.Size = new System.Drawing.Size(1269, 342);
             this.drawingLineDataGridView.TabIndex = 21;
             this.drawingLineDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.drawingLineDataGridView_CellContentClick);
             // 
@@ -241,11 +255,11 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn5.DataPropertyName = "PartID";
             this.dataGridViewTextBoxColumn5.HeaderText = "PartID";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 220;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -257,6 +271,7 @@
             // 
             // PartDescription
             // 
+            this.PartDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.PartDescription.DataPropertyName = "PartDescription";
             this.PartDescription.HeaderText = "PartDescription";
             this.PartDescription.Name = "PartDescription";
@@ -322,15 +337,15 @@
             // 
             // txtComments
             // 
-            this.txtComments.Location = new System.Drawing.Point(618, 92);
+            this.txtComments.Location = new System.Drawing.Point(630, 85);
             this.txtComments.Name = "txtComments";
             this.txtComments.Size = new System.Drawing.Size(407, 23);
-            this.txtComments.TabIndex = 19;
+            this.txtComments.TabIndex = 12;
             // 
             // txtDrawingID
             // 
             this.txtDrawingID.Enabled = false;
-            this.txtDrawingID.Location = new System.Drawing.Point(108, 20);
+            this.txtDrawingID.Location = new System.Drawing.Point(120, 13);
             this.txtDrawingID.Name = "txtDrawingID";
             this.txtDrawingID.Size = new System.Drawing.Size(407, 23);
             this.txtDrawingID.TabIndex = 1;
@@ -338,52 +353,52 @@
             // txtDWGNO
             // 
             this.txtDWGNO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDWGNO.Location = new System.Drawing.Point(108, 56);
+            this.txtDWGNO.Location = new System.Drawing.Point(120, 49);
             this.txtDWGNO.Name = "txtDWGNO";
             this.txtDWGNO.Size = new System.Drawing.Size(407, 23);
-            this.txtDWGNO.TabIndex = 3;
+            this.txtDWGNO.TabIndex = 2;
             this.txtDWGNO.Tag = "DWGNO";
             // 
             // txtIndentFactor
             // 
-            this.txtIndentFactor.Location = new System.Drawing.Point(798, 20);
+            this.txtIndentFactor.Location = new System.Drawing.Point(810, 13);
             this.txtIndentFactor.Name = "txtIndentFactor";
             this.txtIndentFactor.Size = new System.Drawing.Size(44, 23);
-            this.txtIndentFactor.TabIndex = 13;
+            this.txtIndentFactor.TabIndex = 15;
             this.txtIndentFactor.Tag = "Indent Factor";
             // 
             // txtQANotes
             // 
-            this.txtQANotes.Location = new System.Drawing.Point(618, 128);
+            this.txtQANotes.Location = new System.Drawing.Point(630, 121);
             this.txtQANotes.Name = "txtQANotes";
             this.txtQANotes.Size = new System.Drawing.Size(407, 23);
-            this.txtQANotes.TabIndex = 21;
+            this.txtQANotes.TabIndex = 14;
             // 
             // txtQTYU
             // 
-            this.txtQTYU.Location = new System.Drawing.Point(900, 20);
+            this.txtQTYU.Location = new System.Drawing.Point(912, 13);
             this.txtQTYU.Name = "txtQTYU";
             this.txtQTYU.Size = new System.Drawing.Size(44, 23);
-            this.txtQTYU.TabIndex = 17;
+            this.txtQTYU.TabIndex = 19;
             this.txtQTYU.Tag = "QTY/U";
             // 
             // txtUnits
             // 
             this.txtUnits.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUnits.Location = new System.Drawing.Point(798, 49);
+            this.txtUnits.Location = new System.Drawing.Point(810, 42);
             this.txtUnits.Name = "txtUnits";
             this.txtUnits.Size = new System.Drawing.Size(44, 23);
-            this.txtUnits.TabIndex = 15;
+            this.txtUnits.TabIndex = 17;
             this.txtUnits.Tag = "Units";
             // 
             // btnAdd
             // 
             this.btnAdd.Image = global::ValcomDrawings.Properties.Resources.AddLine;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(1189, 107);
+            this.btnAdd.Location = new System.Drawing.Point(3, 3);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(68, 44);
-            this.btnAdd.TabIndex = 23;
+            this.btnAdd.Size = new System.Drawing.Size(76, 44);
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "&Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -400,10 +415,10 @@
             this.cboBoxParts.DataSource = this.partsBindingSource;
             this.cboBoxParts.DisplayMember = "PartID";
             this.cboBoxParts.FormattingEnabled = true;
-            this.cboBoxParts.Location = new System.Drawing.Point(108, 92);
+            this.cboBoxParts.Location = new System.Drawing.Point(120, 85);
             this.cboBoxParts.Name = "cboBoxParts";
             this.cboBoxParts.Size = new System.Drawing.Size(407, 23);
-            this.cboBoxParts.TabIndex = 5;
+            this.cboBoxParts.TabIndex = 4;
             this.cboBoxParts.Tag = "Part";
             this.cboBoxParts.ValueMember = "ID";
             this.cboBoxParts.SelectedIndexChanged += new System.EventHandler(this.cboBoxParts_SelectedIndexChanged);
@@ -412,10 +427,10 @@
             // 
             this.Exit.Image = global::ValcomDrawings.Properties.Resources.Exitsmall;
             this.Exit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Exit.Location = new System.Drawing.Point(1189, 12);
+            this.Exit.Location = new System.Drawing.Point(85, 3);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(68, 44);
-            this.Exit.TabIndex = 22;
+            this.Exit.TabIndex = 1;
             this.Exit.Text = "E&xit";
             this.Exit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Exit.UseVisualStyleBackColor = true;
@@ -423,7 +438,7 @@
             // 
             // btnDeleteLineItem
             // 
-            this.btnDeleteLineItem.Location = new System.Drawing.Point(1133, 531);
+            this.btnDeleteLineItem.Location = new System.Drawing.Point(1151, 7);
             this.btnDeleteLineItem.Name = "btnDeleteLineItem";
             this.btnDeleteLineItem.Size = new System.Drawing.Size(106, 38);
             this.btnDeleteLineItem.TabIndex = 24;
@@ -433,10 +448,10 @@
             // 
             // txtLineNumber
             // 
-            this.txtLineNumber.Location = new System.Drawing.Point(649, 20);
+            this.txtLineNumber.Location = new System.Drawing.Point(661, 13);
             this.txtLineNumber.Name = "txtLineNumber";
             this.txtLineNumber.Size = new System.Drawing.Size(45, 23);
-            this.txtLineNumber.TabIndex = 9;
+            this.txtLineNumber.TabIndex = 8;
             this.txtLineNumber.Tag = "Line Number";
             // 
             // cboProductionCode
@@ -446,69 +461,126 @@
             this.cboProductionCode.Items.AddRange(new object[] {
             "P",
             "M"});
-            this.cboProductionCode.Location = new System.Drawing.Point(649, 55);
+            this.cboProductionCode.Location = new System.Drawing.Point(661, 48);
             this.cboProductionCode.Name = "cboProductionCode";
             this.cboProductionCode.Size = new System.Drawing.Size(44, 23);
-            this.cboProductionCode.TabIndex = 11;
+            this.cboProductionCode.TabIndex = 10;
             this.cboProductionCode.Tag = "Production Code";
             // 
             // cboPartsDescription
             // 
             this.cboPartsDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboPartsDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboPartsDescription.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource, "ID", true));
             this.cboPartsDescription.DataSource = this.partsBindingSource;
             this.cboPartsDescription.DisplayMember = "PartDescription";
             this.cboPartsDescription.FormattingEnabled = true;
-            this.cboPartsDescription.Location = new System.Drawing.Point(108, 128);
+            this.cboPartsDescription.Location = new System.Drawing.Point(120, 121);
             this.cboPartsDescription.Name = "cboPartsDescription";
             this.cboPartsDescription.Size = new System.Drawing.Size(407, 23);
-            this.cboPartsDescription.TabIndex = 7;
+            this.cboPartsDescription.TabIndex = 6;
             this.cboPartsDescription.Tag = "Part Description";
             this.cboPartsDescription.ValueMember = "ID";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 131);
+            this.label1.Location = new System.Drawing.Point(24, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 15);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Part Description:";
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Part &Description:";
+            // 
+            // topPanel
+            // 
+            this.topPanel.Controls.Add(this.logo);
+            this.topPanel.Controls.Add(this.EntryPanel);
+            this.topPanel.Controls.Add(this.buttonPanel);
+            this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topPanel.Location = new System.Drawing.Point(0, 0);
+            this.topPanel.Name = "topPanel";
+            this.topPanel.Size = new System.Drawing.Size(1269, 224);
+            this.topPanel.TabIndex = 1;
+            // 
+            // logo
+            // 
+            this.logo.Image = global::ValcomDrawings.Properties.Resources.ValcomLogoMF;
+            this.logo.Location = new System.Drawing.Point(12, 12);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(192, 86);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logo.TabIndex = 26;
+            this.logo.TabStop = false;
+            // 
+            // EntryPanel
+            // 
+            this.EntryPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.EntryPanel.Controls.Add(dLDrawingIDLabel);
+            this.EntryPanel.Controls.Add(dWGNOLabel);
+            this.EntryPanel.Controls.Add(this.txtDWGNO);
+            this.EntryPanel.Controls.Add(this.label1);
+            this.EntryPanel.Controls.Add(this.txtDrawingID);
+            this.EntryPanel.Controls.Add(this.txtUnits);
+            this.EntryPanel.Controls.Add(indentFactorLabel);
+            this.EntryPanel.Controls.Add(this.cboPartsDescription);
+            this.EntryPanel.Controls.Add(this.txtIndentFactor);
+            this.EntryPanel.Controls.Add(unitsLabel);
+            this.EntryPanel.Controls.Add(this.txtComments);
+            this.EntryPanel.Controls.Add(this.cboProductionCode);
+            this.EntryPanel.Controls.Add(lineNumberLabel);
+            this.EntryPanel.Controls.Add(this.txtQTYU);
+            this.EntryPanel.Controls.Add(commentsLabel);
+            this.EntryPanel.Controls.Add(this.txtLineNumber);
+            this.EntryPanel.Controls.Add(partIDLabel);
+            this.EntryPanel.Controls.Add(qTYULabel);
+            this.EntryPanel.Controls.Add(productionCodeLabel);
+            this.EntryPanel.Controls.Add(this.txtQANotes);
+            this.EntryPanel.Controls.Add(qANoteLabel);
+            this.EntryPanel.Controls.Add(this.cboBoxParts);
+            this.EntryPanel.Location = new System.Drawing.Point(210, 12);
+            this.EntryPanel.Name = "EntryPanel";
+            this.EntryPanel.Size = new System.Drawing.Size(1047, 153);
+            this.EntryPanel.TabIndex = 1;
+            // 
+            // buttonPanel
+            // 
+            this.buttonPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPanel.Controls.Add(this.btnAdd);
+            this.buttonPanel.Controls.Add(this.Exit);
+            this.buttonPanel.Location = new System.Drawing.Point(1092, 168);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(165, 50);
+            this.buttonPanel.TabIndex = 1;
+            // 
+            // bottomPanel
+            // 
+            this.bottomPanel.Controls.Add(this.btnDeleteLineItem);
+            this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bottomPanel.Location = new System.Drawing.Point(0, 566);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.Size = new System.Drawing.Size(1269, 57);
+            this.bottomPanel.TabIndex = 26;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.drawingLineDataGridView);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 224);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1269, 342);
+            this.panel3.TabIndex = 27;
             // 
             // AddLineItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 623);
-            this.ControlBox = false;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboPartsDescription);
-            this.Controls.Add(this.cboProductionCode);
-            this.Controls.Add(this.txtLineNumber);
-            this.Controls.Add(this.btnDeleteLineItem);
-            this.Controls.Add(this.cboBoxParts);
-            this.Controls.Add(this.Exit);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(commentsLabel);
-            this.Controls.Add(this.txtComments);
-            this.Controls.Add(dLDrawingIDLabel);
-            this.Controls.Add(this.txtDrawingID);
-            this.Controls.Add(dWGNOLabel);
-            this.Controls.Add(this.txtDWGNO);
-            this.Controls.Add(indentFactorLabel);
-            this.Controls.Add(this.txtIndentFactor);
-            this.Controls.Add(lineNumberLabel);
-            this.Controls.Add(partIDLabel);
-            this.Controls.Add(productionCodeLabel);
-            this.Controls.Add(qANoteLabel);
-            this.Controls.Add(this.txtQANotes);
-            this.Controls.Add(qTYULabel);
-            this.Controls.Add(this.txtQTYU);
-            this.Controls.Add(unitsLabel);
-            this.Controls.Add(this.txtUnits);
-            this.Controls.Add(this.drawingLineDataGridView);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.bottomPanel);
+            this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddLineItems";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Line Items";
@@ -516,8 +588,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsBindingSource)).EndInit();
+            this.topPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            this.EntryPanel.ResumeLayout(false);
+            this.EntryPanel.PerformLayout();
+            this.buttonPanel.ResumeLayout(false);
+            this.bottomPanel.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -542,6 +620,9 @@
         private System.Windows.Forms.ComboBox cboProductionCode;
         private System.Windows.Forms.ComboBox cboPartsDescription;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel topPanel;
+        private System.Windows.Forms.Panel bottomPanel;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -555,5 +636,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.Panel EntryPanel;
+        private System.Windows.Forms.Panel buttonPanel;
+        private System.Windows.Forms.PictureBox logo;
     }
 }

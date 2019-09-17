@@ -2,15 +2,27 @@
 
 **** Found an issue where transaction doesn't seem to work in the update drawing method.***** Maybe look in to lock while updating
 
-- Add parts discription option to line items
+*** Update Sept. 5th 2019 ***
+-I have created a new git of this project as the last one had crystal reports inbeded and i need to go back a few commits. 
+The date I went back to was commit Aug 22 2019 on repository DrawingPOs in developers branch. (only use DrawingPOs repository for referance). 
 
-- Need to update graphics for exit button etc..
+This application is on my git hub as Drawings.
 
-- Add blank column(s) to print option.
 
-- Fix sizing on createjob page
+Sept 6th 2019
+- Need to add more style to the pages. was thinking of adding the valcom logo. But waiting until i get most of the coding done
 
-- Need to fix the issue when updating a drawing line, drawing line will not pass the part description when updating...
+- Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box.
 
-- EditLineItem page seem to not display the edit part description, even though it sends it over.. need to look in to this
+- Look in to issue where you can't close the create job page, because its checking for stock items *This has be resolved check note on page*
+
+
+Sept 10th 2019
+- Ready to look in to installer for this application. 
+- Look in to installer with update option. use Tester branch for testing this.. Make sure to update developers branch first
+
+Sept 11 2019
+- Look in to more icons for all forms
+- Need to look in to nulls in the database, write some statements to catch the errors.
+
 

@@ -46,6 +46,7 @@
     <Compile Include="DrawingDB.cs" />
     <Compile Include="DrawingLine.cs" />
     <Compile Include="DrawingLineDB.cs" />
+    <Compile Include="LineItemStock.cs" />
     <Compile Include="Manufacturer.cs" />
     <Compile Include="Parts.cs" />
     <Compile Include="PartsDB.cs" />
