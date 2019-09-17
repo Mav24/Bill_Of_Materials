@@ -72,7 +72,7 @@
             this.partsDataGridView.Name = "partsDataGridView";
             this.partsDataGridView.ReadOnly = true;
             this.partsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.partsDataGridView.Size = new System.Drawing.Size(1133, 410);
+            this.partsDataGridView.Size = new System.Drawing.Size(1141, 410);
             this.partsDataGridView.TabIndex = 4;
             this.partsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.partsDataGridView_CellContentClick);
             // 
@@ -139,7 +139,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(395, 73);
+            this.btnSearch.Location = new System.Drawing.Point(396, 72);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -166,7 +166,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(558, 72);
+            this.btnAdd.Location = new System.Drawing.Point(558, 73);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;
@@ -176,7 +176,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(1070, 539);
+            this.btnDelete.Location = new System.Drawing.Point(1078, 535);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 5;
@@ -198,7 +198,7 @@
             // rdoPartDescription
             // 
             this.rdoPartDescription.AutoSize = true;
-            this.rdoPartDescription.Location = new System.Drawing.Point(69, 23);
+            this.rdoPartDescription.Location = new System.Drawing.Point(86, 23);
             this.rdoPartDescription.Name = "rdoPartDescription";
             this.rdoPartDescription.Size = new System.Drawing.Size(109, 19);
             this.rdoPartDescription.TabIndex = 1;
@@ -221,7 +221,7 @@
             // 
             // btnGetAllParts
             // 
-            this.btnGetAllParts.Location = new System.Drawing.Point(477, 72);
+            this.btnGetAllParts.Location = new System.Drawing.Point(477, 73);
             this.btnGetAllParts.Name = "btnGetAllParts";
             this.btnGetAllParts.Size = new System.Drawing.Size(75, 23);
             this.btnGetAllParts.TabIndex = 7;
@@ -231,11 +231,14 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1070, 30);
+            this.btnExit.Image = global::ValcomDrawings.Properties.Resources.Exitsmall;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(1085, 12);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(68, 44);
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

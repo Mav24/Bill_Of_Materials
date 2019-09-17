@@ -23,9 +23,10 @@ namespace ValcomDrawings
 
         private void PrintingMainForm_Load(object sender, EventArgs e)
         {
+            this.Text = $"Drawing Printout for {drawing.BOMDescription}";
             try
             {
-                this.Text = $"Drawing Printout for {drawing.BOMDescription}";
+                
                 ReportParameter[] rParams = new ReportParameter[]
                 {
                 new ReportParameter("Description", drawing.BOMDescription),

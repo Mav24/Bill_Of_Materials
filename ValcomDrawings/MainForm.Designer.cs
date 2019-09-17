@@ -139,7 +139,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(625, 163);
+            label1.Location = new System.Drawing.Point(625, 167);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(95, 17);
             label1.TabIndex = 5;
@@ -330,7 +330,7 @@
             // 
             this.dateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.drawingBindingSource, "DateModifedNotNull", true));
             this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(737, 157);
+            this.dateTimePicker1.Location = new System.Drawing.Point(737, 161);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(243, 25);
             this.dateTimePicker1.TabIndex = 6;
