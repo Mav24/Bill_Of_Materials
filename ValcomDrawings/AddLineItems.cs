@@ -106,8 +106,8 @@ namespace ValcomDrawings
                 };
                 PartsDB.AddPart(newParts);
                 DrawingLineDB.AddLineItem(drawing, newDrawingLine);
-                PopulateDataGridView();
                 ClearTextBoxes();
+                PopulateDataGridView();
                 // find last line item number
                 FindLastLineItemNumber();
                            
@@ -194,6 +194,11 @@ namespace ValcomDrawings
         private void PopulateDataGridView()
         {
             string drawingID = txtDrawingID.Text;
+            parts = PartsDB.GetPartsList();
+            cboBoxParts.DataSource = parts;
+            cboPartsDescription.DataSource = parts;
+            cboPartsDescription.SelectedIndex = -1;
+            cboBoxParts.SelectedIndex = -1;
             drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
             drawingLineDataGridView.DataSource = drawingLineItemsList;
         }
