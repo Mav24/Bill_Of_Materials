@@ -92,10 +92,19 @@ namespace ValcomDrawings
                 newDrawingLine.Units = txtUnits.Text;
                 newDrawingLine.QTYU = double.Parse(txtQTYU.Text);
                 newDrawingLine.DWGNO = txtDWGNO.Text;
-                newDrawingLine.PartID = cboBoxParts.Text;
-                newDrawingLine.PartDescription = cboPartsDescription.Text;
+                newDrawingLine.PartID = cboBoxParts.Text.ToUpper();
+                newDrawingLine.PartDescription = cboPartsDescription.Text.ToUpper();
                 newDrawingLine.QANote = txtQANotes.Text;
                 newDrawingLine.Comment = txtComments.Text;
+                Parts newParts = new Parts()
+                {
+                    PartID = cboBoxParts.Text.ToUpper(),
+                    PartDescription = cboPartsDescription.Text.ToUpper(),
+                    DefaultSupplier = "N/A",
+                    Stock = "0",
+                    QANote = ""
+                };
+                PartsDB.AddPart(newParts);
                 DrawingLineDB.AddLineItem(drawing, newDrawingLine);
                 PopulateDataGridView();
                 ClearTextBoxes();
