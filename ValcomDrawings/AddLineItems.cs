@@ -32,13 +32,13 @@ namespace ValcomDrawings
             this.Text = $"Add Line Items to Drawing: {drawing.BOMDescription} ";
             // Puts DrawingID in to text box
             txtDrawingID.Text = drawing.DrawingID;
-
             // Loads the Part list and binds it to the parts combobox
             parts = PartsDB.GetPartsList();
             cboBoxParts.DataSource = parts;
             cboPartsDescription.DataSource = parts;
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
+
 
 
 
@@ -232,6 +232,7 @@ namespace ValcomDrawings
 
         private void cboBoxParts_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cboBoxParts.SelectedIndex > -1)
             {
                 cboPartsDescription.SelectedValue = cboBoxParts.SelectedValue;
@@ -241,10 +242,16 @@ namespace ValcomDrawings
         // Marked for delete, Don't think i need this method, seems to work with out this
         private void cboPartsDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             //if (cboPartsDescription.SelectedIndex > -1)
             //{
-            //    //cboBoxParts.SelectedValue = cboProductionCode.SelectedValue;
+            //    cboBoxParts.SelectedValue = cboProductionCode.SelectedValue;
             //}
+        }
+
+        private void cboboxesToUpper_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
         }
     }
 }
