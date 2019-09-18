@@ -58,14 +58,6 @@ namespace ValcomDrawings
             {
                 drawingsList = DrawingDB.GetListofDrawings();
                 drawingIDComboBox.DataSource = drawingsList;
-
-                #region This is the List of drawings, don't forget to change drawingsList back to List<drawing>
-                //// Get the list of Drawings object
-                //// and bind the list with the combo box
-                //drawingsList = DrawingDB.GetListofDrawings();
-                //drawingIDComboBox.DataSource = drawingsList;
-                #endregion
-
             }
             catch (Exception ex)
             {
@@ -154,20 +146,6 @@ namespace ValcomDrawings
             addStock.drawingLineItems = drawingLineItemsList;
             addStock.drawing = drawing;
             addStock.ShowDialog();
-
-            #region This is the old method for creating a job Marked for delete Sept. 6th 2019
-            //QuantityOfJob quantityOfJob = new QuantityOfJob();
-
-            //DialogResult result = quantityOfJob.ShowDialog();
-            //if (result == DialogResult.OK)
-            //{
-            //    CreateJob createJob = new CreateJob();
-            //    createJob.jobAmount = quantityOfJob.amount;
-            //    createJob.drawingLineItemsList = drawingLineItemsList;
-            //    createJob.drawing = drawing;
-            //    createJob.ShowDialog();
-            //}
-            #endregion
         }
 
         private void toolmnuExit_Click(object sender, EventArgs e)
@@ -186,6 +164,12 @@ namespace ValcomDrawings
             printing.drawing = drawing;
             printing.drawingLineItems = drawingLineItemsList;
             printing.ShowDialog();
+        }
+
+        // Sets Combobox to upper case when typing
+        private void drawingIDComboBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
         }
     }
 }

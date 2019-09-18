@@ -32,13 +32,13 @@ namespace ValcomDrawings
             this.Text = $"Add Line Items to Drawing: {drawing.BOMDescription} ";
             // Puts DrawingID in to text box
             txtDrawingID.Text = drawing.DrawingID;
-
             // Loads the Part list and binds it to the parts combobox
             parts = PartsDB.GetPartsList();
             cboBoxParts.DataSource = parts;
             cboPartsDescription.DataSource = parts;
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
+
 
 
 
@@ -92,13 +92,22 @@ namespace ValcomDrawings
                 newDrawingLine.Units = txtUnits.Text;
                 newDrawingLine.QTYU = double.Parse(txtQTYU.Text);
                 newDrawingLine.DWGNO = txtDWGNO.Text;
-                newDrawingLine.PartID = cboBoxParts.Text;
-                newDrawingLine.PartDescription = cboPartsDescription.Text;
+                newDrawingLine.PartID = cboBoxParts.Text.ToUpper();
+                newDrawingLine.PartDescription = cboPartsDescription.Text.ToUpper();
                 newDrawingLine.QANote = txtQANotes.Text;
                 newDrawingLine.Comment = txtComments.Text;
+                Parts newParts = new Parts()
+                {
+                    PartID = cboBoxParts.Text.ToUpper(),
+                    PartDescription = cboPartsDescription.Text.ToUpper(),
+                    DefaultSupplier = "N/A",
+                    Stock = "0",
+                    QANote = ""
+                };
+                PartsDB.AddPart(newParts);
                 DrawingLineDB.AddLineItem(drawing, newDrawingLine);
-                PopulateDataGridView();
                 ClearTextBoxes();
+                PopulateDataGridView();
                 // find last line item number
                 FindLastLineItemNumber();
                            
@@ -185,6 +194,11 @@ namespace ValcomDrawings
         private void PopulateDataGridView()
         {
             string drawingID = txtDrawingID.Text;
+            parts = PartsDB.GetPartsList();
+            cboBoxParts.DataSource = parts;
+            cboPartsDescription.DataSource = parts;
+            cboPartsDescription.SelectedIndex = -1;
+            cboBoxParts.SelectedIndex = -1;
             drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
             drawingLineDataGridView.DataSource = drawingLineItemsList;
         }
@@ -218,6 +232,7 @@ namespace ValcomDrawings
 
         private void cboBoxParts_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cboBoxParts.SelectedIndex > -1)
             {
                 cboPartsDescription.SelectedValue = cboBoxParts.SelectedValue;
@@ -227,10 +242,16 @@ namespace ValcomDrawings
         // Marked for delete, Don't think i need this method, seems to work with out this
         private void cboPartsDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             //if (cboPartsDescription.SelectedIndex > -1)
             //{
-            //    //cboBoxParts.SelectedValue = cboProductionCode.SelectedValue;
+            //    cboBoxParts.SelectedValue = cboProductionCode.SelectedValue;
             //}
+        }
+
+        private void cboboxesToUpper_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = char.ToUpper(e.KeyChar);
         }
     }
 }

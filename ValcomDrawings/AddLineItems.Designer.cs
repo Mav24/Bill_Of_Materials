@@ -412,6 +412,7 @@
             // 
             this.cboBoxParts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cboBoxParts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboBoxParts.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partsBindingSource, "ID", true));
             this.cboBoxParts.DataSource = this.partsBindingSource;
             this.cboBoxParts.DisplayMember = "PartID";
             this.cboBoxParts.FormattingEnabled = true;
@@ -422,6 +423,7 @@
             this.cboBoxParts.Tag = "Part";
             this.cboBoxParts.ValueMember = "ID";
             this.cboBoxParts.SelectedIndexChanged += new System.EventHandler(this.cboBoxParts_SelectedIndexChanged);
+            this.cboBoxParts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboboxesToUpper_KeyPress);
             // 
             // Exit
             // 
@@ -481,6 +483,7 @@
             this.cboPartsDescription.TabIndex = 6;
             this.cboPartsDescription.Tag = "Part Description";
             this.cboPartsDescription.ValueMember = "ID";
+            this.cboPartsDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboboxesToUpper_KeyPress);
             // 
             // label1
             // 

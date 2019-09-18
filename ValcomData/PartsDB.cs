@@ -108,6 +108,11 @@ namespace ValcomData
                 "(PartID, PartDescription, DefaultSupplier, Stock, QANote) " +
                 "VALUES (@PartID, @PartDescription, @DefaultSupplier, @Stock, @QANote)";
 
+            // Check if part exist in Database
+            SqlCommand partExist = new SqlCommand("SELECT COUNT(*) FROM Parts WHERE PartID = @PartID AND PartDescription = @PartDescription", connection);
+            partExist.Parameters.AddWithValue("@PartID", part.PartID);
+            partExist.Parameters.AddWithValue("@PartDescription", part.PartDescription);
+
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
             insertCommand.Parameters.AddWithValue("@PartID", part.PartID);
             insertCommand.Parameters.AddWithValue("@PartDescription", part.PartDescription);
@@ -121,18 +126,30 @@ namespace ValcomData
             {
                 insertCommand.Parameters.AddWithValue("@QANote", part.QANote);
             }
-            
+
 
             try
             {
                 connection.Open();
-                insertCommand.ExecuteNonQuery();
-                return true;
+                int count = (int)partExist.ExecuteScalar();
+                if (count > 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    insertCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (SqlException ex)
             {
 
                 throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
         }
 
@@ -197,6 +214,10 @@ namespace ValcomData
             {
 
                 throw ex;
+            }
+            finally
+            {
+                connection.Close();
             }
 
 

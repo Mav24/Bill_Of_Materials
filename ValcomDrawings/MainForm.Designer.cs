@@ -325,6 +325,7 @@
             this.drawingIDComboBox.Size = new System.Drawing.Size(284, 25);
             this.drawingIDComboBox.TabIndex = 1;
             this.drawingIDComboBox.SelectedIndexChanged += new System.EventHandler(this.drawingIDComboBox_SelectedIndexChanged);
+            this.drawingIDComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.drawingIDComboBox_KeyPress);
             // 
             // dateTimePicker1
             // 
