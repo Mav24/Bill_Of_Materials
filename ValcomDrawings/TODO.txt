@@ -25,4 +25,12 @@ Sept 11 2019
 - Look in to more icons for all forms
 - Need to look in to nulls in the database, write some statements to catch the errors.
 
+Sept 17th 2019
+- Merged Testers with Master and developers branches on git hub.
+- Need to add comments to Create job page. (Did this Sept 17th 2019 @ 4:15pm)
+- Add Comments to printout. (Get rid of QANotes on database and all pages!)
+
+Sept 18 2019
+- Added option in to auto add part to parts list if typed in and doesn't exist in parts database (Done)
+
 
