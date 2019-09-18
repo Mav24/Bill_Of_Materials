@@ -149,6 +149,7 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSearch.Location = new System.Drawing.Point(72, 73);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(291, 23);
