@@ -56,6 +56,14 @@ namespace ValcomDrawings
                 newDrawingLine.Units = txtUnits.Text;
                 newDrawingLine.DWGNO = txtDWGNO.Text;
                 newDrawingLine.Comment = txtComment.Text;
+                Parts newPart = new Parts()
+                {
+                    PartID = cboBoxParts.Text.ToUpper(),
+                    PartDescription = cboPartDescription.Text.ToUpper(),
+                    DefaultSupplier = "N/A",
+                    Stock = "0",
+                    QANote = ""
+                };
                 if (!DrawingLineDB.UpdateLineItem(drawingLine, newDrawingLine))
                 {
                     MessageBox.Show($"Another user has updated or deleted this line item, please try again", "DataBase Error!");
@@ -63,6 +71,7 @@ namespace ValcomDrawings
                 }
                 else
                 {
+                    PartsDB.AddPart(newPart);
                     DrawingLineDB.UpdateLineItem(drawingLine, newDrawingLine);
                     MessageBox.Show("Line Item updated successfully!", "Updated!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.DialogResult = DialogResult.OK;

@@ -34,5 +34,6 @@ Sept 18 2019
 - Added option in to auto add part to parts list if typed in and doesn't exist in parts database (Done)
 - Add in print option to have two print outs, one for purchase order and one for manufacturing.
 - Add Comments to printout. (Get rid of QANotes on database and all pages!)
+-**** Look in to fixing when you search part by discription in the add drawing line page it wont select partID but works if you use partID?
 
 

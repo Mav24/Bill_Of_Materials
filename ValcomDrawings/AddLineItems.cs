@@ -131,6 +131,7 @@ namespace ValcomDrawings
             txtQTYU.Clear();
             txtUnits.Clear();
             txtIndentFactor.Clear();
+            cboProductionCode.SelectedIndex = -1;
             cboBoxParts.SelectedValue = -1;
             cboPartsDescription.SelectedIndex = -1;
         }
