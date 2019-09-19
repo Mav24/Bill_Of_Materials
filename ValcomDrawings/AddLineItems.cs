@@ -38,15 +38,10 @@ namespace ValcomDrawings
             cboPartsDescription.DataSource = parts;
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
-
-
-
-
+            
             // Fills datagrid with current line Items for current drawing
             drawingLineDataGridView.DataSource = drawingLineItemsList;
-
             
-
             // Get Next Line Item number
             
             FindLastLineItemNumber();
@@ -132,7 +127,7 @@ namespace ValcomDrawings
             txtUnits.Clear();
             txtIndentFactor.Clear();
             cboProductionCode.SelectedIndex = -1;
-            cboBoxParts.SelectedValue = -1;
+            cboBoxParts.SelectedIndex = -1;
             cboPartsDescription.SelectedIndex = -1;
         }
 
