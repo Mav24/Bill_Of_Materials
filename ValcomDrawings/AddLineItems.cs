@@ -111,10 +111,12 @@ namespace ValcomDrawings
 
         }
 
-        private void SortDataGrid()
-        {
-            drawingLineDataGridView.DataSource = drawingLineItemsList.OrderBy(x => x.LineNumber).ToList();
-        }
+        #region Marked for delete. I add this sort option in to return the list sorted by line number right in the call to the database
+        //private void SortDataGrid()
+        //{
+        //    drawingLineDataGridView.DataSource = drawingLineItemsList.OrderBy(x => x.LineNumber).ToList();
+        //}
+        #endregion
 
         // Clears all text boxes after entery.
         private void ClearTextBoxes()
@@ -235,14 +237,14 @@ namespace ValcomDrawings
             }
         }
 
-        // Marked for delete, Don't think i need this method, seems to work with out this
+        // Seems to work now that i have it >= 0.. keep eye on this 
         private void cboPartsDescription_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            //if (cboPartsDescription.SelectedIndex > -1)
-            //{
-            //    cboBoxParts.SelectedValue = cboProductionCode.SelectedValue;
-            //}
+
+            if (cboPartsDescription.SelectedIndex >= 0)
+            {
+                cboBoxParts.SelectedValue = cboProductionCode.SelectedValue;
+            }
         }
 
         private void cboboxesToUpper_KeyPress(object sender, KeyPressEventArgs e)
