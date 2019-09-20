@@ -131,5 +131,36 @@ namespace ValcomDrawings
             printing.tempDrawingLines = tempDrawingLines;
             printing.ShowDialog();
         }
+
+        // This is a work in progress
+        private void mPrintToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<LineItemStock> m = new List<LineItemStock>();
+            List<TempJob> newMJobs = new List<TempJob>();
+
+            foreach (var item in tempDrawingLines)
+            {
+                if (item.ProductionCode == "M")
+                {
+                    TempJob tempJob = new TempJob();
+
+                    tempJob.ID = item.ID;
+                    tempJob.DLDrawingID = item.DLDrawingID;
+                    tempJob.LineNumber = item.LineNumber;
+                    tempJob.ProductionCode = item.ProductionCode;
+                    tempJob.PartID = item.PartID;
+                    tempJob.DWGNO = item.DWGNO;
+                    tempJob.PartDescription = item.PartDescription;
+                    tempJob.QTYU = item.QTYU;
+                    tempJob.Units = item.Units;
+                    tempJob.IndentFactor = item.IndentFactor;
+                    tempJob.QANote = item.QANote;
+                    tempJob.Comment = item.Comment;
+                    tempJob.AmountNeed = item.AmountNeed;
+                    newMJobs.Add(tempJob);
+                }
+                
+            }
+        }
     }
 }
