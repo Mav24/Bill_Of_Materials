@@ -19,8 +19,8 @@ namespace ValcomDrawings
         }
         public int quantity;
         public Drawing drawing;
-        public DrawingLine drawingLine;
-        public List<DrawingLine> drawingLineItemsList;
+        //public DrawingLine drawingLine;
+        //public List<DrawingLine> drawingLineItemsList;
         public List<LineItemStock> lineItemStock;
         private List<TempJob> tempDrawingLines;
 

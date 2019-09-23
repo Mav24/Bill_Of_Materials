@@ -18,7 +18,8 @@ namespace ValcomDrawings
         {
             InitializeComponent();
         }
-        public List<DrawingLine> drawingLineItems;
+
+        //public List<DrawingLine> drawingLineItems;
         public Drawing drawing;
 
         private void PrintingMainForm_Load(object sender, EventArgs e)
@@ -33,7 +34,8 @@ namespace ValcomDrawings
                 new ReportParameter("PrintDate", DateTime.Now.ToLongDateString())
                 };
                 reportViewer1.LocalReport.SetParameters(rParams);
-                DataTable1BindingSource.DataSource = drawingLineItems;
+                DataTable1BindingSource.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
+                //DataTable1BindingSource.DataSource = drawingLineItems;
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception)

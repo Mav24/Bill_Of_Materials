@@ -20,9 +20,9 @@ namespace ValcomDrawings
 
         
         public Drawing drawing;
-        public DrawingLine drawingLine;
+        public DrawingLine drawingLine; 
         private DrawingLine newDrawingLine;
-        public List<DrawingLine> drawingLineItemsList;
+        //public List<DrawingLine> drawingLineItemsList; // Not sure I need this
         private List<Parts> parts;
 
 
@@ -38,9 +38,10 @@ namespace ValcomDrawings
             cboPartsDescription.DataSource = parts;
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
-            
+
             // Fills datagrid with current line Items for current drawing
-            drawingLineDataGridView.DataSource = drawingLineItemsList;
+            //drawingLineDataGridView.DataSource = drawingLineItemsList;
+            drawingLineDataGridView.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
             
             // Get Next Line Item number
             
@@ -102,7 +103,7 @@ namespace ValcomDrawings
                 PartsDB.AddPart(newParts);
                 DrawingLineDB.AddLineItem(drawing, newDrawingLine);
                 ClearTextBoxes();
-                PopulateDataGridView();
+                UpdateDataSources();
                 // find last line item number
                 FindLastLineItemNumber();
                            
@@ -182,23 +183,26 @@ namespace ValcomDrawings
                     int rowId = (int)drawingLineDataGridView.CurrentRow.Cells[0].Value;
                     DrawingLineDB.DeleteLineItems(rowId);
                     // refresh DataGridView
-                    PopulateDataGridView();
+                    UpdateDataSources();
                     // find last line item number
                     FindLastLineItemNumber();
                 }
             }
         }
 
-        private void PopulateDataGridView()
+        private void UpdateDataSources()
         {
-            string drawingID = txtDrawingID.Text;
+            //string drawingID = txtDrawingID.Text;
             parts = PartsDB.GetPartsList();
             cboBoxParts.DataSource = parts;
             cboPartsDescription.DataSource = parts;
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
-            drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
-            drawingLineDataGridView.DataSource = drawingLineItemsList;
+            drawingLineDataGridView.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
+
+            // The above call gets rid of these two lines of code. Must run through test to make sure everything is good
+            //drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
+            //drawingLineDataGridView.DataSource = drawingLineItemsList;
         }
 
         private void drawingLineDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -223,7 +227,7 @@ namespace ValcomDrawings
                 DialogResult result = editLineItem.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    PopulateDataGridView();
+                    UpdateDataSources();
                 }
             }
         }
