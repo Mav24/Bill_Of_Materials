@@ -17,18 +17,20 @@ namespace ValcomDrawings
         {
             InitializeComponent();
         }
-        public List<DrawingLine> drawingLineItems;
+        //public List<DrawingLine> drawingLineItems;
         public Drawing drawing;
 
         private void AddStock_Load(object sender, EventArgs e)
         {
             this.Text = $"Add Stock for {drawing.BOMDescription}";
-            drawingLineBindingSource.DataSource = drawingLineItems;
+            drawingLineBindingSource.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
+            // The Above code makes a freash call to the database
+            //drawingLineBindingSource.DataSource = drawingLineItems;
         }
 
         private void btnCreateJob_Click(object sender, EventArgs e)
         {
-            List<LineItemStock> stock = new List<LineItemStock>();
+            List<LineItemStock> lineItemsWithStock = new List<LineItemStock>();
 
             foreach (DataGridViewRow row in drawingLineDataGridView.Rows)
             {
@@ -47,7 +49,7 @@ namespace ValcomDrawings
                 item.Comment = row.Cells[11].Value.ToString();
                 item.Stock = Convert.ToDouble(row.Cells[12].Value);
                 
-                stock.Add(item);
+                lineItemsWithStock.Add(item);
 
                 #region Might need this later. Mark for delete Sept. 6th 2019
                 //foreach (DataGridViewCell dc in row.Cells)
@@ -77,7 +79,7 @@ namespace ValcomDrawings
             {
                 CreateJob createJob = new CreateJob();
                 createJob.quantity = quantityOfJob.amount;
-                createJob.lineItemStock = stock;
+                createJob.lineItemStock = lineItemsWithStock;
                 createJob.drawing = drawing;
                 createJob.ShowDialog();
             }
