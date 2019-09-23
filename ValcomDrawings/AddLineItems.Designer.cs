@@ -310,6 +310,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "QANote";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Visible = false;
             this.dataGridViewTextBoxColumn10.Width = 155;
             // 
             // Comment
@@ -440,6 +441,7 @@
             // 
             // btnDeleteLineItem
             // 
+            this.btnDeleteLineItem.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnDeleteLineItem.Location = new System.Drawing.Point(1151, 7);
             this.btnDeleteLineItem.Name = "btnDeleteLineItem";
             this.btnDeleteLineItem.Size = new System.Drawing.Size(106, 38);
@@ -626,6 +628,9 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel bottomPanel;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel EntryPanel;
+        private System.Windows.Forms.Panel buttonPanel;
+        private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -639,8 +644,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.Panel EntryPanel;
-        private System.Windows.Forms.Panel buttonPanel;
-        private System.Windows.Forms.PictureBox logo;
     }
 }

@@ -10,16 +10,11 @@ This application is on my git hub as Drawings.
 
 
 Sept 6th 2019
-- Need to add more style to the pages. was thinking of adding the valcom logo. But waiting until i get most of the coding done
+- Need to add more style to the pages. was thinking of adding the valcom logo. But waiting until i get most of the coding done (Done)
 
 - Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box.
 
 - Look in to issue where you can't close the create job page, because its checking for stock items *This has be resolved check note on page*
-
-
-Sept 10th 2019
-- Ready to look in to installer for this application. 
-- Look in to installer with update option. use Tester branch for testing this.. Make sure to update developers branch first
 
 Sept 11 2019
 - Look in to more icons for all forms
@@ -34,5 +29,13 @@ Sept 18 2019
 - Added option in to auto add part to parts list if typed in and doesn't exist in parts database (Done)
 - Add in print option to have two print outs, one for purchase order and one for manufacturing.
 - Add Comments to printout. (Get rid of QANotes on database and all pages!)
+
+Sept 19th 2019
+- Fixed issue where you would search part by description and it wouldn't auto fill the partID box. Seems to be working. See note on AddLineItem Page
+- Added in clear value for Production Code Combo Box
+
+
+- TODO - Started work on the printout options to have two printouts of P only and M only on different pages
+( Look in to setting it up to run in the back ground )
 
 

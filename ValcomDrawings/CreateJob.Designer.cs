@@ -54,6 +54,7 @@
             this.toolMenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mPrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -201,7 +202,6 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "Comment";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
             // 
             // drawingLineBindingSource
             // 
@@ -224,7 +224,8 @@
             this.toolStripSeparator,
             this.toolMenuPrint,
             this.toolStripSeparator2,
-            this.toolMenuExit});
+            this.toolMenuExit,
+            this.mPrintToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
@@ -232,26 +233,26 @@
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(96, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // toolMenuPrint
             // 
             this.toolMenuPrint.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuPrint.Image")));
             this.toolMenuPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolMenuPrint.Name = "toolMenuPrint";
-            this.toolMenuPrint.Size = new System.Drawing.Size(99, 22);
+            this.toolMenuPrint.Size = new System.Drawing.Size(180, 22);
             this.toolMenuPrint.Text = "&Print";
             this.toolMenuPrint.Click += new System.EventHandler(this.toolMenuPrint_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(96, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // toolMenuExit
             // 
             this.toolMenuExit.Name = "toolMenuExit";
-            this.toolMenuExit.Size = new System.Drawing.Size(99, 22);
+            this.toolMenuExit.Size = new System.Drawing.Size(180, 22);
             this.toolMenuExit.Text = "E&xit";
             this.toolMenuExit.Click += new System.EventHandler(this.toolMenuExit_Click);
             // 
@@ -269,6 +270,13 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // mPrintToolStripMenuItem
+            // 
+            this.mPrintToolStripMenuItem.Name = "mPrintToolStripMenuItem";
+            this.mPrintToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mPrintToolStripMenuItem.Text = "M Print";
+            this.mPrintToolStripMenuItem.Click += new System.EventHandler(this.mPrintToolStripMenuItem_Click);
             // 
             // CreateJob
             // 
@@ -320,5 +328,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountNeed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.ToolStripMenuItem mPrintToolStripMenuItem;
     }
 }

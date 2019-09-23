@@ -19,7 +19,7 @@ namespace ValcomDrawings
         }
 
         private Drawing drawing;
-        private List<string> drawingsList;
+        //private List<string> drawingsList;
         private List<DrawingLine> drawingLineItemsList;
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -56,8 +56,11 @@ namespace ValcomDrawings
         {
             try
             {
-                drawingsList = DrawingDB.GetListofDrawings();
-                drawingIDComboBox.DataSource = drawingsList;
+                #region Marked for delete I found that i could just pass the list right from the class
+                //drawingsList = DrawingDB.GetListofDrawings();
+                //drawingIDComboBox.DataSource = drawingsList;
+                #endregion
+                drawingIDComboBox.DataSource = DrawingDB.GetListofDrawings();
             }
             catch (Exception ex)
             {
