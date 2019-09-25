@@ -166,8 +166,8 @@ namespace ValcomDrawings
         {
             PrintingMainForm printing = new PrintingMainForm();
             printing.drawing = drawing;
-            //printing.drawingLineItems = drawingLineItemsList;
             printing.ShowDialog();
+            
         }
 
         // Sets Combobox to upper case when typing

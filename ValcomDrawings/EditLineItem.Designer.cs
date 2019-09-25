@@ -86,9 +86,9 @@
             dLDrawingIDLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dLDrawingIDLabel.Location = new System.Drawing.Point(12, 37);
             dLDrawingIDLabel.Name = "dLDrawingIDLabel";
-            dLDrawingIDLabel.Size = new System.Drawing.Size(82, 15);
+            dLDrawingIDLabel.Size = new System.Drawing.Size(37, 15);
             dLDrawingIDLabel.TabIndex = 3;
-            dLDrawingIDLabel.Text = "DLDrawing ID:";
+            dLDrawingIDLabel.Text = "BOM:";
             // 
             // dWGNOLabel
             // 

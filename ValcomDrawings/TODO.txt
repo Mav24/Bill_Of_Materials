@@ -40,4 +40,7 @@ Sept 20th 2019
 - TODO - Started work on the printout options to have two printouts of P only and M only on different pages
 ( Look in to setting it up to run in the back ground )
 
+Sept 25 2019
+- Made changes to the DLDrawingID it now is shown as BOM:
+
 

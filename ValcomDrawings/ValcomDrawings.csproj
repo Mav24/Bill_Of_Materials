@@ -136,6 +136,12 @@
     <Compile Include="PartsPage.Designer.cs">
       <DependentUpon>PartsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="PleaseWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PleaseWaitForm.Designer.cs">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintingDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PartsPage.resx">
       <DependentUpon>PartsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PleaseWaitForm.resx">
+      <DependentUpon>PleaseWaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintingJobAmounts.resx">
       <DependentUpon>PrintingJobAmounts.cs</DependentUpon>

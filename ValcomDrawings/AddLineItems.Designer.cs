@@ -112,9 +112,9 @@
             dLDrawingIDLabel.AutoSize = true;
             dLDrawingIDLabel.Location = new System.Drawing.Point(24, 16);
             dLDrawingIDLabel.Name = "dLDrawingIDLabel";
-            dLDrawingIDLabel.Size = new System.Drawing.Size(68, 15);
+            dLDrawingIDLabel.Size = new System.Drawing.Size(37, 15);
             dLDrawingIDLabel.TabIndex = 0;
-            dLDrawingIDLabel.Text = "Drawing ID:";
+            dLDrawingIDLabel.Text = "&BOM:";
             // 
             // dWGNOLabel
             // 
@@ -131,7 +131,7 @@
             indentFactorLabel.Location = new System.Drawing.Point(724, 16);
             indentFactorLabel.Name = "indentFactorLabel";
             indentFactorLabel.Size = new System.Drawing.Size(80, 15);
-            indentFactorLabel.TabIndex = 12;
+            indentFactorLabel.TabIndex = 15;
             indentFactorLabel.Text = "&Indent Factor:";
             // 
             // lineNumberLabel
@@ -150,7 +150,7 @@
             partIDLabel.Name = "partIDLabel";
             partIDLabel.Size = new System.Drawing.Size(45, 15);
             partIDLabel.TabIndex = 3;
-            partIDLabel.Text = "P&art ID:";
+            partIDLabel.Text = "&Part ID:";
             // 
             // productionCodeLabel
             // 
@@ -159,7 +159,7 @@
             productionCodeLabel.Name = "productionCodeLabel";
             productionCodeLabel.Size = new System.Drawing.Size(100, 15);
             productionCodeLabel.TabIndex = 9;
-            productionCodeLabel.Text = "&Production Code:";
+            productionCodeLabel.Text = "P&roduction Code:";
             // 
             // qANoteLabel
             // 
@@ -176,7 +176,7 @@
             qTYULabel.Location = new System.Drawing.Point(860, 16);
             qTYULabel.Name = "qTYULabel";
             qTYULabel.Size = new System.Drawing.Size(46, 15);
-            qTYULabel.TabIndex = 18;
+            qTYULabel.TabIndex = 19;
             qTYULabel.Text = "Q&TY/U:";
             // 
             // unitsLabel
@@ -185,7 +185,7 @@
             unitsLabel.Location = new System.Drawing.Point(724, 45);
             unitsLabel.Name = "unitsLabel";
             unitsLabel.Size = new System.Drawing.Size(37, 15);
-            unitsLabel.TabIndex = 16;
+            unitsLabel.TabIndex = 17;
             unitsLabel.Text = "&Units:";
             // 
             // drawingLineDataGridView
@@ -365,7 +365,7 @@
             this.txtIndentFactor.Location = new System.Drawing.Point(810, 13);
             this.txtIndentFactor.Name = "txtIndentFactor";
             this.txtIndentFactor.Size = new System.Drawing.Size(44, 23);
-            this.txtIndentFactor.TabIndex = 15;
+            this.txtIndentFactor.TabIndex = 16;
             this.txtIndentFactor.Tag = "Indent Factor";
             // 
             // txtQANotes
@@ -380,7 +380,7 @@
             this.txtQTYU.Location = new System.Drawing.Point(912, 13);
             this.txtQTYU.Name = "txtQTYU";
             this.txtQTYU.Size = new System.Drawing.Size(44, 23);
-            this.txtQTYU.TabIndex = 19;
+            this.txtQTYU.TabIndex = 20;
             this.txtQTYU.Tag = "QTY/U";
             // 
             // txtUnits
@@ -389,7 +389,7 @@
             this.txtUnits.Location = new System.Drawing.Point(810, 42);
             this.txtUnits.Name = "txtUnits";
             this.txtUnits.Size = new System.Drawing.Size(44, 23);
-            this.txtUnits.TabIndex = 17;
+            this.txtUnits.TabIndex = 18;
             this.txtUnits.Tag = "Units";
             // 
             // btnAdd

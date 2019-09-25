@@ -68,6 +68,7 @@
             this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PrintingMainForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrintingMainForm";
             this.Load += new System.EventHandler(this.PrintingMainForm_Load);

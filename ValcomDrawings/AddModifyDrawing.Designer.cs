@@ -34,13 +34,13 @@
             System.Windows.Forms.Label drawingIDLabel;
             System.Windows.Forms.Label nSNLabel;
             this.txtAddedBy = new System.Windows.Forms.TextBox();
+            this.drawingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtBOMDescription = new System.Windows.Forms.TextBox();
             this.txtDrawingID = new System.Windows.Forms.TextBox();
             this.txtNSN = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.drawingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             addedByLabel = new System.Windows.Forms.Label();
             bOMDescriptionLabel = new System.Windows.Forms.Label();
             drawingIDLabel = new System.Windows.Forms.Label();
@@ -64,16 +64,16 @@
             bOMDescriptionLabel.Name = "bOMDescriptionLabel";
             bOMDescriptionLabel.Size = new System.Drawing.Size(100, 15);
             bOMDescriptionLabel.TabIndex = 6;
-            bOMDescriptionLabel.Text = "&BOM Description:";
+            bOMDescriptionLabel.Text = "BOM &Description:";
             // 
             // drawingIDLabel
             // 
             drawingIDLabel.AutoSize = true;
             drawingIDLabel.Location = new System.Drawing.Point(45, 29);
             drawingIDLabel.Name = "drawingIDLabel";
-            drawingIDLabel.Size = new System.Drawing.Size(68, 15);
+            drawingIDLabel.Size = new System.Drawing.Size(37, 15);
             drawingIDLabel.TabIndex = 0;
-            drawingIDLabel.Text = "Drawing &ID:";
+            drawingIDLabel.Text = "BOM:";
             // 
             // nSNLabel
             // 
@@ -94,6 +94,10 @@
             this.txtAddedBy.TabIndex = 5;
             this.txtAddedBy.Tag = "AddedBy";
             // 
+            // drawingBindingSource
+            // 
+            this.drawingBindingSource.DataSource = typeof(ValcomData.Drawing);
+            // 
             // txtBOMDescription
             // 
             this.txtBOMDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -113,7 +117,7 @@
             this.txtDrawingID.Name = "txtDrawingID";
             this.txtDrawingID.Size = new System.Drawing.Size(200, 23);
             this.txtDrawingID.TabIndex = 1;
-            this.txtDrawingID.Tag = "DrawingID";
+            this.txtDrawingID.Tag = "BOM";
             // 
             // txtNSN
             // 
@@ -154,10 +158,6 @@
             this.btnDelete.Text = "&Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // drawingBindingSource
-            // 
-            this.drawingBindingSource.DataSource = typeof(ValcomData.Drawing);
             // 
             // AddModifyDrawing
             // 
