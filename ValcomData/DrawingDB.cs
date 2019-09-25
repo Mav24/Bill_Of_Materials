@@ -210,54 +210,7 @@ namespace ValcomData
             }
 
         }
-        #region This is the old add drawing method.. New method has check to see if id already exist.. Mark this for delete
-        //public static void AddDrawing(Drawing drawing)
-        //{
-        //    SqlConnection connection = ValcomDB.GetConnection();
-        //    string insertStatement = "INSERT Drawings " +
-        //        "(DrawingID, DateModified, BOMDescription, NSN, AddedBy) " +
-        //        "VALUES (@DrawingID, @DateModified, @BOMDescription, @NSN, @AddedBy)";
-
-        //    SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
-        //    insertCommand.Parameters.AddWithValue("@DrawingID", drawing.DrawingID);
-        //    insertCommand.Parameters.AddWithValue("@DateModified", DateTime.Now);
-        //    insertCommand.Parameters.AddWithValue("@BOMDescription", drawing.BOMDescription);
-        //    if (drawing.NSN == null)
-        //    {
-        //        insertCommand.Parameters.AddWithValue("@NSN", DBNull.Value);
-        //    }
-        //    else
-        //    {
-        //        insertCommand.Parameters.AddWithValue("@NSN", drawing.NSN);
-        //    }
-
-        //    insertCommand.Parameters.AddWithValue("@AddedBy", drawing.AddedBy);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        insertCommand.ExecuteNonQuery();
-        //        string selectStatement =
-        //            "SELECT IDENT_CURRENT('Drawings') FROM Drawings";
-        //SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-        //sqlCommand.ExecuteScalar();
-
-
-        //        //int drawingID = Convert.ToInt32(sqlCommand.ExecuteScalar());
-        //        //return drawingID;
-        //    }
-        //    catch (SqlException ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-
-        //}
-        #endregion
+        
             
             /// <summary>
             /// Update Drawing Method
@@ -316,61 +269,7 @@ namespace ValcomData
                 connection.Close();
             }
         }
-
-        #region This is the olf update drawing method.. Marked for delete New transaction method works well, Keep this method for referance just incase
-        //public static bool UpdateDrawing(Drawing oldDrawing, Drawing newDrawing)
-        //{
-        //    SqlConnection connection = ValcomDB.GetConnection();
-
-        //    string updateStatement =
-        //        "UPDATE Drawings SET " +
-        //          "DrawingID = @NewDrawingID, " +
-        //          "DateModified = @NewDateModified, " +
-        //          "BOMDescription = @NewBOMDescription, " +
-        //          "NSN = @NewNSN, " +
-        //          "AddedBy = @NewAddedBy " +
-        //        "WHERE ID = @OldID " +
-        //          "AND DrawingID = @OldDrawingID " +
-        //          "AND DateModified = @OldDateModified " +
-        //          "AND BOMDescription = @OldBOMDescription " +
-        //          "AND NSN = @OldNSN " +
-        //          "AND AddedBy = @OldAddedBy";
-
-        //    SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
-        //    updateCommand.Parameters.AddWithValue("@NewDrawingID", newDrawing.DrawingID);
-        //    updateCommand.Parameters.AddWithValue("@NewDateModified", DateTime.Now);
-        //    updateCommand.Parameters.AddWithValue("@NewBOMDescription", newDrawing.BOMDescription);
-        //    updateCommand.Parameters.AddWithValue("@NewNSN", newDrawing.NSN);
-        //    updateCommand.Parameters.AddWithValue("@NewAddedBy", newDrawing.AddedBy);
-
-        //    updateCommand.Parameters.AddWithValue("@OldID", oldDrawing.ID);
-        //    updateCommand.Parameters.AddWithValue("@OldDrawingID", oldDrawing.DrawingID);
-        //    updateCommand.Parameters.AddWithValue("@OldDateModified", oldDrawing.DateModified);
-        //    updateCommand.Parameters.AddWithValue("@OldBOMDescription", oldDrawing.BOMDescription);
-        //    updateCommand.Parameters.AddWithValue("@OldNSN", oldDrawing.NSN);
-        //    updateCommand.Parameters.AddWithValue("@OldAddedBy", oldDrawing.AddedBy);
-
-        //    try
-        //    {
-        //        connection.Open();
-        //        int count = updateCommand.ExecuteNonQuery();
-        //        if (count > 0)
-        //            return true;
-        //        else
-        //            return false;
-        //    }
-        //    catch (SqlException ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //}
-        #endregion
-
+        
             /// <summary>
             /// Delete Drawing Method
             /// </summary>
