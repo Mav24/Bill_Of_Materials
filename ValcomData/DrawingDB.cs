@@ -190,12 +190,6 @@ namespace ValcomData
                 {
                     insertCommand.ExecuteNonQuery();
                     return true;
-                    // Marked for delete, save just incase... July 16th 2019
-                    //string selectStatement =
-                    //    "SELECT IDENT_CURRENT('Drawings') FROM Drawings";
-                    //SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-                    //sqlCommand.ExecuteScalar();
-
                 }
                 
             }

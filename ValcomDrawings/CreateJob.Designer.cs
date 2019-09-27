@@ -54,7 +54,10 @@
             this.toolMenuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mPrintToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripPrintPurchasing = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripManufacturing = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -224,8 +227,11 @@
             this.toolStripSeparator,
             this.toolMenuPrint,
             this.toolStripSeparator2,
-            this.toolMenuExit,
-            this.mPrintToolStripMenuItem});
+            this.toolStripPrintPurchasing,
+            this.toolStripSeparator1,
+            this.toolStripManufacturing,
+            this.toolStripSeparator3,
+            this.toolMenuExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
@@ -233,26 +239,26 @@
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(206, 6);
             // 
             // toolMenuPrint
             // 
             this.toolMenuPrint.Image = ((System.Drawing.Image)(resources.GetObject("toolMenuPrint.Image")));
             this.toolMenuPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolMenuPrint.Name = "toolMenuPrint";
-            this.toolMenuPrint.Size = new System.Drawing.Size(180, 22);
-            this.toolMenuPrint.Text = "&Print";
+            this.toolMenuPrint.Size = new System.Drawing.Size(209, 22);
+            this.toolMenuPrint.Text = "&Print All";
             this.toolMenuPrint.Click += new System.EventHandler(this.toolMenuPrint_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(206, 6);
             // 
             // toolMenuExit
             // 
             this.toolMenuExit.Name = "toolMenuExit";
-            this.toolMenuExit.Size = new System.Drawing.Size(180, 22);
+            this.toolMenuExit.Size = new System.Drawing.Size(209, 22);
             this.toolMenuExit.Text = "E&xit";
             this.toolMenuExit.Click += new System.EventHandler(this.toolMenuExit_Click);
             // 
@@ -271,12 +277,33 @@
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // mPrintToolStripMenuItem
+            // toolStripPrintPurchasing
             // 
-            this.mPrintToolStripMenuItem.Name = "mPrintToolStripMenuItem";
-            this.mPrintToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mPrintToolStripMenuItem.Text = "M Print";
-            this.mPrintToolStripMenuItem.Click += new System.EventHandler(this.mPrintToolStripMenuItem_Click);
+            this.toolStripPrintPurchasing.Image = ((System.Drawing.Image)(resources.GetObject("toolStripPrintPurchasing.Image")));
+            this.toolStripPrintPurchasing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripPrintPurchasing.Name = "toolStripPrintPurchasing";
+            this.toolStripPrintPurchasing.Size = new System.Drawing.Size(209, 22);
+            this.toolStripPrintPurchasing.Text = "Print &Purchasing Only";
+            this.toolStripPrintPurchasing.Click += new System.EventHandler(this.PrintPurchasingOnly_Click);
+            // 
+            // toolStripManufacturing
+            // 
+            this.toolStripManufacturing.Image = ((System.Drawing.Image)(resources.GetObject("toolStripManufacturing.Image")));
+            this.toolStripManufacturing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripManufacturing.Name = "toolStripManufacturing";
+            this.toolStripManufacturing.Size = new System.Drawing.Size(209, 22);
+            this.toolStripManufacturing.Text = "Print &Manufacturing Only";
+            this.toolStripManufacturing.Click += new System.EventHandler(this.PrintManufacturingOnly_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(206, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(206, 6);
             // 
             // CreateJob
             // 
@@ -328,6 +355,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountNeed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.ToolStripMenuItem mPrintToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripPrintPurchasing;
+        private System.Windows.Forms.ToolStripMenuItem toolStripManufacturing;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

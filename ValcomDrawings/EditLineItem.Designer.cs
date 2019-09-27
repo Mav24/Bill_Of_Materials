@@ -185,7 +185,6 @@
             // 
             // txtComment
             // 
-            this.txtComment.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "Comment", true));
             this.txtComment.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtComment.Location = new System.Drawing.Point(109, 167);
             this.txtComment.Name = "txtComment";
@@ -194,7 +193,6 @@
             // 
             // txtDLDrawingID
             // 
-            this.txtDLDrawingID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "DLDrawingID", true));
             this.txtDLDrawingID.Enabled = false;
             this.txtDLDrawingID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDLDrawingID.Location = new System.Drawing.Point(109, 34);
@@ -205,7 +203,6 @@
             // txtDWGNO
             // 
             this.txtDWGNO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDWGNO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "DWGNO", true));
             this.txtDWGNO.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDWGNO.Location = new System.Drawing.Point(109, 68);
             this.txtDWGNO.Name = "txtDWGNO";
@@ -214,7 +211,6 @@
             // 
             // txtIndentFactor
             // 
-            this.txtIndentFactor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "IndentFactor", true));
             this.txtIndentFactor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIndentFactor.Location = new System.Drawing.Point(472, 69);
             this.txtIndentFactor.Name = "txtIndentFactor";
@@ -223,7 +219,6 @@
             // 
             // txtLineNumber
             // 
-            this.txtLineNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "LineNumber", true));
             this.txtLineNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtLineNumber.Location = new System.Drawing.Point(472, 34);
             this.txtLineNumber.Name = "txtLineNumber";
@@ -232,7 +227,6 @@
             // 
             // txtQANote
             // 
-            this.txtQANote.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "QANote", true));
             this.txtQANote.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQANote.Location = new System.Drawing.Point(109, 201);
             this.txtQANote.Name = "txtQANote";
@@ -241,7 +235,6 @@
             // 
             // txtQTYU
             // 
-            this.txtQTYU.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "QTYU", true));
             this.txtQTYU.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQTYU.Location = new System.Drawing.Point(559, 34);
             this.txtQTYU.Name = "txtQTYU";
@@ -251,7 +244,6 @@
             // txtUnits
             // 
             this.txtUnits.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUnits.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "Units", true));
             this.txtUnits.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUnits.Location = new System.Drawing.Point(557, 68);
             this.txtUnits.Name = "txtUnits";
@@ -286,7 +278,6 @@
             // 
             // cboProductionCode
             // 
-            this.cboProductionCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "ProductionCode", true));
             this.cboProductionCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductionCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboProductionCode.FormattingEnabled = true;
@@ -300,7 +291,8 @@
             // 
             // cboPartDescription
             // 
-            this.cboPartDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "PartDescription", true));
+            this.cboPartDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboPartDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboPartDescription.DataSource = this.partsBindingSource;
             this.cboPartDescription.DisplayMember = "PartDescription";
             this.cboPartDescription.FormattingEnabled = true;
@@ -311,7 +303,8 @@
             // 
             // cboBoxParts
             // 
-            this.cboBoxParts.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "PartID", true));
+            this.cboBoxParts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboBoxParts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboBoxParts.DataSource = this.partsBindingSource;
             this.cboBoxParts.DisplayMember = "PartID";
             this.cboBoxParts.FormattingEnabled = true;

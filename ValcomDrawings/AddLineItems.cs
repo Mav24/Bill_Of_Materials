@@ -56,6 +56,16 @@ namespace ValcomDrawings
             {
                 int rowIndex = drawingLineDataGridView.Rows.Count - 1;
                 int value = (int)drawingLineDataGridView.Rows[rowIndex].Cells[2].Value + 1;
+                // Seclects last row in datagridview
+                drawingLineDataGridView.Rows[rowIndex].Selected = true;
+
+                #region Scrolls to the selected row Marked for delete Sept 27 2019
+                // Scrolls to the last row
+                //drawingLineDataGridView.FirstDisplayedScrollingRowIndex = rowIndex;
+                #endregion
+
+                // Set focus on row and auto scrolls
+                drawingLineDataGridView.Rows[rowIndex].Cells[2].Selected = true;
                 txtLineNumber.Text = value.ToString();
             }
             else
@@ -81,17 +91,8 @@ namespace ValcomDrawings
         {
             if (IsValidate())
             {
-                newDrawingLine = new DrawingLine();
-                newDrawingLine.LineNumber = int.Parse(txtLineNumber.Text);
-                newDrawingLine.ProductionCode = cboProductionCode.Text;
-                newDrawingLine.IndentFactor = int.Parse(txtIndentFactor.Text);
-                newDrawingLine.Units = txtUnits.Text;
-                newDrawingLine.QTYU = double.Parse(txtQTYU.Text);
-                newDrawingLine.DWGNO = txtDWGNO.Text;
-                newDrawingLine.PartID = cboBoxParts.Text.ToUpper();
-                newDrawingLine.PartDescription = cboPartsDescription.Text.ToUpper();
-                newDrawingLine.QANote = txtQANotes.Text;
-                newDrawingLine.Comment = txtComments.Text;
+                GetLineItem();
+
                 Parts newParts = new Parts()
                 {
                     PartID = cboBoxParts.Text.ToUpper(),
@@ -106,10 +107,25 @@ namespace ValcomDrawings
                 UpdateDataSources();
                 // find last line item number
                 FindLastLineItemNumber();
-                           
-                
+
+
             }
 
+        }
+
+        private void GetLineItem()
+        {
+            newDrawingLine = new DrawingLine();
+            newDrawingLine.LineNumber = int.Parse(txtLineNumber.Text);
+            newDrawingLine.ProductionCode = cboProductionCode.Text;
+            newDrawingLine.IndentFactor = int.Parse(txtIndentFactor.Text);
+            newDrawingLine.Units = txtUnits.Text;
+            newDrawingLine.QTYU = double.Parse(txtQTYU.Text);
+            newDrawingLine.DWGNO = txtDWGNO.Text;
+            newDrawingLine.PartID = cboBoxParts.Text.ToUpper();
+            newDrawingLine.PartDescription = cboPartsDescription.Text.ToUpper();
+            newDrawingLine.QANote = txtQANotes.Text;
+            newDrawingLine.Comment = txtComments.Text;
         }
 
         #region Marked for delete. I add this sort option in to return the list sorted by line number right in the call to the database
@@ -177,7 +193,8 @@ namespace ValcomDrawings
             
             if (drawingLineDataGridView.SelectedRows.Count > 0)
             {
-                if (MessageBox.Show("Are you sure you want to delete this line item from the list of line items?", 
+                var lineItemNumber = drawingLineDataGridView.CurrentRow.Cells[2].Value;
+                if (MessageBox.Show($"Are you sure you want to delete line item {lineItemNumber}? from the list of line items?", 
                     "Confirm delete!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     int rowId = (int)drawingLineDataGridView.CurrentRow.Cells[0].Value;
@@ -209,6 +226,7 @@ namespace ValcomDrawings
         {
             if (e.ColumnIndex == 12)
             {
+                var selectedRow = drawingLineDataGridView.CurrentCell.RowIndex;
                 drawingLine = new DrawingLine();
                 drawingLine.ID = (int)drawingLineDataGridView.SelectedCells[0].Value;
                 drawingLine.DLDrawingID = drawingLineDataGridView.SelectedCells[1].Value.ToString();
@@ -228,6 +246,11 @@ namespace ValcomDrawings
                 if (result == DialogResult.OK)
                 {
                     UpdateDataSources();
+                    // Seclects last row in datagridview
+                    drawingLineDataGridView.Rows[selectedRow].Selected = true;
+                    // Scrolls to the row after edit
+                    drawingLineDataGridView.FirstDisplayedScrollingRowIndex = selectedRow;
+
                 }
             }
         }

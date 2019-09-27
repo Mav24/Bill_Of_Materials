@@ -42,5 +42,19 @@ Sept 20th 2019
 
 Sept 25 2019
 - Made changes to the DLDrawingID it now is shown as BOM:
+- Added in different options for printing. 
+
+Sept 26 2019
+- When adding line items the datagridview will now auto scroll to the last entry you entered
+- When editing a line the program will now keep that line selected after editing
+- Auto suggest when editing line Item for parts ID and parts description (done)
+**Sent out update*** to users
+
+Sept 27 2019
+- Updated Edit line items page.. removed datasource fill option as i wasn't able to use it with the parts combo boxes 
+(Issue was with updating the partID and description. For some reason the object wouldn't update and old value was sent to the database.)
+- Updated Add new line items page to set focus to the last line added.
+
+
 
 
