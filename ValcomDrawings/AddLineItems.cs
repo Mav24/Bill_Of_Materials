@@ -56,10 +56,11 @@ namespace ValcomDrawings
             {
                 int rowIndex = drawingLineDataGridView.Rows.Count - 1;
                 int value = (int)drawingLineDataGridView.Rows[rowIndex].Cells[2].Value + 1;
-                // Seclects last row in datagridview
-                drawingLineDataGridView.Rows[rowIndex].Selected = true;
-
                 #region Scrolls to the selected row Marked for delete Sept 27 2019
+                // Seclects last row in datagridview
+                //drawingLineDataGridView.Rows[rowIndex].Selected = true;
+
+
                 // Scrolls to the last row
                 //drawingLineDataGridView.FirstDisplayedScrollingRowIndex = rowIndex;
                 #endregion
@@ -226,7 +227,7 @@ namespace ValcomDrawings
         {
             if (e.ColumnIndex == 12)
             {
-                var selectedRow = drawingLineDataGridView.CurrentCell.RowIndex;
+                //var selectedRow = drawingLineDataGridView.CurrentCell.RowIndex;
                 drawingLine = new DrawingLine();
                 drawingLine.ID = (int)drawingLineDataGridView.SelectedCells[0].Value;
                 drawingLine.DLDrawingID = drawingLineDataGridView.SelectedCells[1].Value.ToString();
@@ -246,10 +247,14 @@ namespace ValcomDrawings
                 if (result == DialogResult.OK)
                 {
                     UpdateDataSources();
-                    // Seclects last row in datagridview
-                    drawingLineDataGridView.Rows[selectedRow].Selected = true;
-                    // Scrolls to the row after edit
-                    drawingLineDataGridView.FirstDisplayedScrollingRowIndex = selectedRow;
+                    //Keeps selected row after edit, needs loop so it can select the line by the id of the line
+                    foreach (DataGridViewRow row in drawingLineDataGridView.Rows)
+                    {
+                        if (row.Cells[0].Value.Equals(editLineItem.newDrawingLine.ID))
+                        {
+                            row.Cells[2].Selected = true;
+                        }
+                    }
 
                 }
             }
