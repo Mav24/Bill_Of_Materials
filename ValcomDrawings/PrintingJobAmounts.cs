@@ -28,11 +28,11 @@ namespace ValcomDrawings
             try
             {
                 ReportParameter[] rParams = new ReportParameter[]
-            {
+                {
                 new ReportParameter("Description", drawing.BOMDescription),
                 new ReportParameter("DateCreated", DateTime.Now.ToLongDateString()),
                 new ReportParameter("Quanitity", quantity.ToString())
-            };
+                };
                 reportViewer1.LocalReport.SetParameters(rParams);
                 DataTable2BindingSource.DataSource = tempDrawingLines;
                 this.reportViewer1.RefreshReport();

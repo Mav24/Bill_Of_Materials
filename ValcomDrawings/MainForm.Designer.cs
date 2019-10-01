@@ -105,9 +105,9 @@
             bOMDescriptionLabel.AutoSize = true;
             bOMDescriptionLabel.Location = new System.Drawing.Point(625, 41);
             bOMDescriptionLabel.Name = "bOMDescriptionLabel";
-            bOMDescriptionLabel.Size = new System.Drawing.Size(106, 17);
+            bOMDescriptionLabel.Size = new System.Drawing.Size(110, 17);
             bOMDescriptionLabel.TabIndex = 3;
-            bOMDescriptionLabel.Text = "BOMDescription:";
+            bOMDescriptionLabel.Text = "BOM Description:";
             // 
             // dateModifiedLabel
             // 
@@ -132,9 +132,9 @@
             drawingIDLabel1.AutoSize = true;
             drawingIDLabel1.Location = new System.Drawing.Point(216, 41);
             drawingIDLabel1.Name = "drawingIDLabel1";
-            drawingIDLabel1.Size = new System.Drawing.Size(40, 17);
+            drawingIDLabel1.Size = new System.Drawing.Size(56, 17);
             drawingIDLabel1.TabIndex = 0;
-            drawingIDLabel1.Text = "&BOM:";
+            drawingIDLabel1.Text = "&BOM ID:";
             // 
             // label1
             // 
@@ -559,7 +559,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Valcom Drawings";
+            this.Text = "Valcom Bill Of Materials";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.drawingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drawingLineDataGridView)).EndInit();
