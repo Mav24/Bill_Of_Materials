@@ -92,7 +92,7 @@
             this.drawingLineDataGridView.Location = new System.Drawing.Point(0, 0);
             this.drawingLineDataGridView.Name = "drawingLineDataGridView";
             this.drawingLineDataGridView.Size = new System.Drawing.Size(1018, 392);
-            this.drawingLineDataGridView.TabIndex = 1;
+            this.drawingLineDataGridView.TabIndex = 0;
             this.drawingLineDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.drawingLineDataGridView_CellValidating);
             // 
             // dataGridViewTextBoxColumn1

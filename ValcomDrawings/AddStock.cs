@@ -41,12 +41,11 @@ namespace ValcomDrawings
         private void drawingLineDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "";
-            double newDouble;
 
             if (drawingLineDataGridView.Rows[e.RowIndex].IsNewRow) { return; }
 
-            // Might need to set an or so it checks for negitive value.. 
-            if (!double.TryParse(e.FormattedValue.ToString(), out newDouble))
+            // Might need to set so it checks for negitive value.. 
+            if (!double.TryParse(e.FormattedValue.ToString(), out double newDouble))
             {
                 e.Cancel = true;
                 // Use this if you want to place the error right in the datagridview
