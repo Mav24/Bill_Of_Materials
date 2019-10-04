@@ -255,6 +255,9 @@ namespace ValcomDrawings
                             row.Cells[2].Selected = true;
                         }
                     }
+                    int rowIndex = drawingLineDataGridView.Rows.Count - 1;
+                    int value = (int)drawingLineDataGridView.Rows[rowIndex].Cells[2].Value + 1;
+                    txtLineNumber.Text = value.ToString();
 
                 }
             }

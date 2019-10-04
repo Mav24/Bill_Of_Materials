@@ -53,11 +53,18 @@ Sept 27 2019
 - Updated Edit line items page.. removed datasource fill option as i wasn't able to use it with the parts combo boxes 
 (Issue was with updating the partID and description. For some reason the object wouldn't update and old value was sent to the database.)
 - Updated Add new line items page to set focus to the last line added.
-- Added in feature that if you change the line item number the program will follow where you put that line
+- Added in feature that if you change the line item number the program will follow where you put that line (DONE)
 
 Oct 1 2019
-- Change the name of the main form to Valcom Bill Of Materials
-- Add Comments to printout. (Get rid of QANotes on database and all pages!)
+- Change the name of the main form to Valcom Bill Of Materials (DONE)
+- Add Comments to printout. (Done)
+
+Oct 2 2019
+- Get rid of QANotes on database and all pages!
+
+Oct 4 2019
+- Fixed some validation on the edit line page. (Done)
+- Fixed issue if you were to change the last entered line number it would update to the next line number. (Done)
 
 
 

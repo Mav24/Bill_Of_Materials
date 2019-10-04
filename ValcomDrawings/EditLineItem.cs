@@ -121,7 +121,8 @@ namespace ValcomDrawings
                 Validator.IsPresent(txtQTYU) &&
                 Validator.IsPresent(txtUnits) &&
                 Validator.IsPresentCombo(cboProductionCode) &&
-                Validator.IsPresentCombo(cboBoxParts);
+                Validator.IsPresentCombo(cboBoxParts) &&
+                Validator.IsPresentCombo(cboPartDescription);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

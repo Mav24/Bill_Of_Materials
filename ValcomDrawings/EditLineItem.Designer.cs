@@ -138,7 +138,7 @@
             qANoteLabel.Name = "qANoteLabel";
             qANoteLabel.Size = new System.Drawing.Size(53, 15);
             qANoteLabel.TabIndex = 18;
-            qANoteLabel.Text = "&QANote:";
+            qANoteLabel.Text = "QANote:";
             // 
             // qTYULabel
             // 
@@ -148,7 +148,7 @@
             qTYULabel.Name = "qTYULabel";
             qTYULabel.Size = new System.Drawing.Size(41, 15);
             qTYULabel.TabIndex = 8;
-            qTYULabel.Text = "QTYU:";
+            qTYULabel.Text = "&QTYU:";
             // 
             // unitsLabel
             // 
@@ -158,7 +158,7 @@
             unitsLabel.Name = "unitsLabel";
             unitsLabel.Size = new System.Drawing.Size(37, 15);
             unitsLabel.TabIndex = 12;
-            unitsLabel.Text = "Units:";
+            unitsLabel.Text = "&Units:";
             // 
             // label1
             // 
@@ -177,7 +177,7 @@
             partIDLabel.Name = "partIDLabel";
             partIDLabel.Size = new System.Drawing.Size(43, 13);
             partIDLabel.TabIndex = 2;
-            partIDLabel.Text = "Part ID:";
+            partIDLabel.Text = "&Part ID:";
             // 
             // drawingLineBindingSource
             // 
@@ -208,6 +208,7 @@
             this.txtDWGNO.Name = "txtDWGNO";
             this.txtDWGNO.Size = new System.Drawing.Size(247, 23);
             this.txtDWGNO.TabIndex = 1;
+            this.txtDWGNO.Tag = "DWGNO";
             // 
             // txtIndentFactor
             // 
@@ -216,6 +217,7 @@
             this.txtIndentFactor.Name = "txtIndentFactor";
             this.txtIndentFactor.Size = new System.Drawing.Size(35, 23);
             this.txtIndentFactor.TabIndex = 11;
+            this.txtIndentFactor.Tag = "Indent Factor";
             // 
             // txtLineNumber
             // 
@@ -224,6 +226,7 @@
             this.txtLineNumber.Name = "txtLineNumber";
             this.txtLineNumber.Size = new System.Drawing.Size(35, 23);
             this.txtLineNumber.TabIndex = 7;
+            this.txtLineNumber.Tag = "Line Number";
             // 
             // txtQANote
             // 
@@ -240,6 +243,7 @@
             this.txtQTYU.Name = "txtQTYU";
             this.txtQTYU.Size = new System.Drawing.Size(35, 23);
             this.txtQTYU.TabIndex = 9;
+            this.txtQTYU.Tag = "QTY/U";
             // 
             // txtUnits
             // 
@@ -249,6 +253,7 @@
             this.txtUnits.Name = "txtUnits";
             this.txtUnits.Size = new System.Drawing.Size(35, 23);
             this.txtUnits.TabIndex = 13;
+            this.txtUnits.Tag = "Units";
             // 
             // btnCancel
             // 
@@ -288,6 +293,7 @@
             this.cboProductionCode.Name = "cboProductionCode";
             this.cboProductionCode.Size = new System.Drawing.Size(35, 23);
             this.cboProductionCode.TabIndex = 15;
+            this.cboProductionCode.Tag = "Production Code";
             // 
             // cboPartDescription
             // 
@@ -300,6 +306,7 @@
             this.cboPartDescription.Name = "cboPartDescription";
             this.cboPartDescription.Size = new System.Drawing.Size(247, 21);
             this.cboPartDescription.TabIndex = 5;
+            this.cboPartDescription.Tag = "Part Description";
             // 
             // cboBoxParts
             // 
@@ -312,9 +319,11 @@
             this.cboBoxParts.Name = "cboBoxParts";
             this.cboBoxParts.Size = new System.Drawing.Size(247, 21);
             this.cboBoxParts.TabIndex = 3;
+            this.cboBoxParts.Tag = "Part ID";
             // 
             // EditLineItem
             // 
+            this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 287);
