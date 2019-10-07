@@ -182,6 +182,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddModifyDrawing";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add/Modify Drawing";
             this.Load += new System.EventHandler(this.AddModifyDrawing_Load);

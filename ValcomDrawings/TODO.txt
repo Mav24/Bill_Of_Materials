@@ -64,7 +64,8 @@ Oct 2 2019
 
 Oct 4 2019
 - Fixed some validation on the edit line page. (Done)
-- Fixed issue if you were to change the last entered line number it would update to the next line number. (Done)
+- Fixed issue if you were to change the last entered line number, it would update to the next line number. (Done)
 
-
+Oct 7 2019
+- Updated UI with new icons
 

@@ -40,6 +40,7 @@
             System.Windows.Forms.Label unitsLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label partIDLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditLineItem));
             this.drawingLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtComment = new System.Windows.Forms.TextBox();
             this.txtDLDrawingID = new System.Windows.Forms.TextBox();
@@ -327,7 +328,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 287);
-            this.ControlBox = false;
             this.Controls.Add(this.cboBoxParts);
             this.Controls.Add(this.cboPartDescription);
             this.Controls.Add(partIDLabel);
@@ -353,6 +353,9 @@
             this.Controls.Add(unitsLabel);
             this.Controls.Add(this.txtUnits);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditLineItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Line Item";
