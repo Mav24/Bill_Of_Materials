@@ -22,10 +22,11 @@ namespace ValcomDrawings
 
         private void AddStock_Load(object sender, EventArgs e)
         {
+            // Sets Form Title
             this.Text = $"Add Stock for {drawing.BOMDescription}";
+
+            // Fresh call to the database to get updated line Items.
             drawingLineBindingSource.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
-            // The Above code makes a freash call to the database
-            //drawingLineBindingSource.DataSource = drawingLineItems;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -40,23 +41,30 @@ namespace ValcomDrawings
 
         private void drawingLineDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
+            // Sets Error to empty.
             drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "";
 
-            if (drawingLineDataGridView.Rows[e.RowIndex].IsNewRow) { return; }
+            // Gets Name of Header for validation.
+            string headerText = drawingLineDataGridView.Columns[e.ColumnIndex].HeaderText;
+            
+            // Abort valication if cell is not in the Stock column.
+            if (!headerText.Equals("Stock")) return;
 
             // Might need to set so it checks for negitive value.. 
             if (!double.TryParse(e.FormattedValue.ToString(), out double newDouble))
             {
-                e.Cancel = true;
-                // Use this if you want to place the error right in the datagridview
+                // Place the error right in the datagridview.
                 drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "The value must be a numeric in stock column!";
+                e.Cancel = true;
             }
         }
 
         private void btnCalculateBOMs_Click(object sender, EventArgs e)
         {
+            // Creates a new List with the stock added to the list.
             List<LineItemStock> lineItemsWithStock = new List<LineItemStock>();
 
+            // Loop through rows to create new line items with stock added.
             foreach (DataGridViewRow row in drawingLineDataGridView.Rows)
             {
                 LineItemStock item = new LineItemStock();
@@ -77,11 +85,13 @@ namespace ValcomDrawings
                 lineItemsWithStock.Add(item);
             }
 
+            // Get Quantity of job from user.
             QuantityOfJob quantityOfJob = new QuantityOfJob();
 
             DialogResult result = quantityOfJob.ShowDialog();
             if (result == DialogResult.OK)
             {
+                // Opens newly create job with quantity and stock items and does the math (ready for print)
                 CreateJob createJob = new CreateJob();
                 createJob.quantity = quantityOfJob.amount;
                 createJob.lineItemStock = lineItemsWithStock;

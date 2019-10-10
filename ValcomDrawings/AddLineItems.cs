@@ -22,16 +22,16 @@ namespace ValcomDrawings
         public Drawing drawing;
         public DrawingLine drawingLine; 
         private DrawingLine newDrawingLine;
-        //public List<DrawingLine> drawingLineItemsList; // Not sure I need this
         private List<Parts> parts;
-
-
 
         private void AddLineItems_Load(object sender, EventArgs e)
         {
+            // Sets form title.
             this.Text = $"Add Line Items To: {drawing.BOMDescription} ";
+            
             // Puts DrawingID in to text box
             txtDrawingID.Text = drawing.DrawingID;
+            
             // Loads the Part list and binds it to the parts combobox
             parts = PartsDB.GetPartsList();
             cboBoxParts.DataSource = parts;
@@ -39,12 +39,11 @@ namespace ValcomDrawings
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
 
-            // Fills datagrid with current line Items for current drawing
+            // Fills datagrid with current line Items for current drawing ID.
             //drawingLineDataGridView.DataSource = drawingLineItemsList;
             drawingLineDataGridView.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
             
-            // Get Next Line Item number
-            
+            // Calculates the next line Item number.            
             FindLastLineItemNumber();
 
         }
@@ -65,7 +64,7 @@ namespace ValcomDrawings
                 //drawingLineDataGridView.FirstDisplayedScrollingRowIndex = rowIndex;
                 #endregion
 
-                // Set focus on row and auto scrolls
+                // Set focus on last row in datagridview.
                 drawingLineDataGridView.Rows[rowIndex].Cells[2].Selected = true;
                 txtLineNumber.Text = value.ToString();
             }
@@ -74,26 +73,15 @@ namespace ValcomDrawings
                 txtLineNumber.Text = "1";
             }
         }
-        #region Might need this if i move towards making this for allow edits
-        //private void EnableControls(bool value)
-        //{
-        //    txtLineNumber.Enabled = value;
-        //    txtQANotes.Enabled = value;
-        //    txtDWGNO.Enabled = value;
-        //    cboBoxParts.Enabled = value;
-        //    txtIndentFactor.Enabled = value;
-        //    txtUnits.Enabled = value;
-        //    txtQTYU.Enabled = value;
-        //    txtComments.Enabled = value;
-        //}
-        #endregion
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (IsValidate())
             {
+                // Gets info of newly entered line item.
                 GetLineItem();
 
+                // Creates new Part item
                 Parts newParts = new Parts()
                 {
                     PartID = cboBoxParts.Text.ToUpper(),
@@ -102,11 +90,17 @@ namespace ValcomDrawings
                     Stock = "0",
                     QANote = ""
                 };
+
+                // Adds new part to parts database. If it exist then it will not add.
                 PartsDB.AddPart(newParts);
+                // Adds new line item to the drawing line items database
                 DrawingLineDB.AddLineItem(drawing, newDrawingLine);
+
                 ClearTextBoxes();
+
+                // Updates all data sources
                 UpdateDataSources();
-                // find last line item number
+                // Finds and set new line item.
                 FindLastLineItemNumber();
 
 
@@ -128,13 +122,6 @@ namespace ValcomDrawings
             newDrawingLine.QANote = txtQANotes.Text;
             newDrawingLine.Comment = txtComments.Text;
         }
-
-        #region Marked for delete. I add this sort option in to return the list sorted by line number right in the call to the database
-        //private void SortDataGrid()
-        //{
-        //    drawingLineDataGridView.DataSource = drawingLineItemsList.OrderBy(x => x.LineNumber).ToList();
-        //}
-        #endregion
 
         // Clears all text boxes after entery.
         private void ClearTextBoxes()
@@ -194,12 +181,18 @@ namespace ValcomDrawings
             
             if (drawingLineDataGridView.SelectedRows.Count > 0)
             {
+                // Gets Line Item number
                 var lineItemNumber = drawingLineDataGridView.CurrentRow.Cells[2].Value;
+
                 if (MessageBox.Show($"Are you sure you want to delete line item {lineItemNumber}? from the list of line items?", 
                     "Confirm delete!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
+                    // Get row id of the line item 
                     int rowId = (int)drawingLineDataGridView.CurrentRow.Cells[0].Value;
+                    
+                    // Sends Id to the delete method.
                     DrawingLineDB.DeleteLineItems(rowId);
+
                     // refresh DataGridView
                     UpdateDataSources();
                     // find last line item number
@@ -210,24 +203,19 @@ namespace ValcomDrawings
 
         private void UpdateDataSources()
         {
-            //string drawingID = txtDrawingID.Text;
             parts = PartsDB.GetPartsList();
             cboBoxParts.DataSource = parts;
             cboPartsDescription.DataSource = parts;
             cboPartsDescription.SelectedIndex = -1;
             cboBoxParts.SelectedIndex = -1;
             drawingLineDataGridView.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
-
-            // The above call gets rid of these two lines of code. Must run through test to make sure everything is good
-            //drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
-            //drawingLineDataGridView.DataSource = drawingLineItemsList;
         }
 
+        // Editing button in the datagridview
         private void drawingLineDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 12)
             {
-                //var selectedRow = drawingLineDataGridView.CurrentCell.RowIndex;
                 drawingLine = new DrawingLine();
                 drawingLine.ID = (int)drawingLineDataGridView.SelectedCells[0].Value;
                 drawingLine.DLDrawingID = drawingLineDataGridView.SelectedCells[1].Value.ToString();

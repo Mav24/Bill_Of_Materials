@@ -24,16 +24,22 @@ namespace ValcomDrawings
 
         private void PrintingJobAmounts_Load(object sender, EventArgs e)
         {
+            // Set form title.
             Text = $"Order Amount Printout for drawing {drawing.BOMDescription}";
             try
             {
+                // Create array for parameters
                 ReportParameter[] rParams = new ReportParameter[]
                 {
                 new ReportParameter("Description", drawing.BOMDescription),
                 new ReportParameter("DateCreated", DateTime.Now.ToLongDateString()),
                 new ReportParameter("Quanitity", quantity.ToString())
                 };
+
+                // Set Parameters
                 reportViewer1.LocalReport.SetParameters(rParams);
+                
+                // Bind List to DataSource.
                 DataTable2BindingSource.DataSource = tempDrawingLines;
                 this.reportViewer1.RefreshReport();
             }

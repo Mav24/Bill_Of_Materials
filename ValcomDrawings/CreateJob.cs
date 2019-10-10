@@ -19,21 +19,24 @@ namespace ValcomDrawings
         }
         public int quantity;
         public Drawing drawing;
-        //public DrawingLine drawingLine;
-        //public List<DrawingLine> drawingLineItemsList;
         public List<LineItemStock> lineItemStock;
         private List<TempJob> tempDrawingLines;
 
 
         private void CreateJob_Load(object sender, EventArgs e)
         {
+            // Sets forms title
             this.Text = $"Created Job for {drawing.BOMDescription}";
+
+            // Call to create Job method to do math for all line items.
             CreateNewJob();
         }
 
         private void CreateNewJob()
         {
             tempDrawingLines = new List<TempJob>();
+
+            // Creates list for checking for duplicates
             List<string> partIdList = new List<string>();
 
 
@@ -44,6 +47,8 @@ namespace ValcomDrawings
                 if (value1 < 0)
                     value1 = 0;
                 var newQTYU = item.QTYU;
+
+                // Checking List if partID already exist. If so adds them together
                 if (partIdList.Contains(item.PartID))
                 {
                     var location = partIdList.IndexOf(item.PartID);
@@ -71,7 +76,11 @@ namespace ValcomDrawings
                     tempDrawingLines.Add(tempJob);
                 }
             }
+
+            // Creates new datasource with updated info amounts need to be ordered.
             drawingLineDataGridView.DataSource = tempDrawingLines;
+
+            // Adds the amounts to the amount cell in the datagrid.
             for (int i = 0; i < tempDrawingLines.Count; i++)
             {
                 drawingLineDataGridView.Rows[i].Cells[12].Value = tempDrawingLines[i].AmountNeed;
@@ -110,7 +119,9 @@ namespace ValcomDrawings
 
         private void Printing(string printCode)
         {
+            // Create list for Manufacturing or Purchasing line Items
             List<TempJob> manufacturingOrPurchasing = new List<TempJob>();
+
             switch (printCode)
             {
                 case "M":

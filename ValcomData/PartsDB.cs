@@ -47,7 +47,8 @@ namespace ValcomData
             {
                 connection.Close();
             }
-            return partsList;
+            // Return list sorted by part id.
+            return partsList.OrderBy(x => x.PartID).ToList();
         }
 
         #region Not sure if i am going to use this method. Keeping for use later on maybe.

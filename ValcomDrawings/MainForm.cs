@@ -19,8 +19,6 @@ namespace ValcomDrawings
         }
 
         private Drawing drawing;
-        //private List<string> drawingsList;
-        //private List<DrawingLine> drawingLineItemsList;
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -39,12 +37,11 @@ namespace ValcomDrawings
                 drawing = DrawingDB.GetDrawingInfo(drawingID);
                 drawingBindingSource.Clear();
                 drawingBindingSource.Add(drawing);
+                
 
                 // Get the list of Drawing Line Items
                 // Bind the data to the gridview
                 drawingLineDataGridView.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
-                //drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
-                //drawingLineDataGridView.DataSource = drawingLineItemsList;
             }
             catch (Exception ex)
             {
@@ -57,10 +54,7 @@ namespace ValcomDrawings
         {
             try
             {
-                #region Marked for delete I found that i could just pass the list right from the class
-                //drawingsList = DrawingDB.GetListofDrawings();
-                //drawingIDComboBox.DataSource = drawingsList;
-                #endregion
+                // Sets list of drawings to combobox datasource.
                 drawingIDComboBox.DataSource = DrawingDB.GetListofDrawings();
             }
             catch (Exception ex)
@@ -86,9 +80,6 @@ namespace ValcomDrawings
                 drawingIDComboBox.SelectedItem = drawing.DrawingID;
                 drawingBindingSource.Clear();
                 drawingBindingSource.Add(drawing);
-                // I beleive I don't need these two lines of code as the selectedItem on the drawingIDComboBox forces a updated drawingLinesList
-                //drawingLineItemsList = new List<DrawingLine>();
-                //drawingLineDataGridView.DataSource = drawingLineItemsList;
                 
             }
             else if (result != DialogResult.Cancel)
@@ -122,7 +113,6 @@ namespace ValcomDrawings
         {
             AddLineItems addLineItems = new AddLineItems();
             addLineItems.drawing = drawing;
-            //addLineItems.drawingLineItemsList = drawingLineItemsList;
             DialogResult result = addLineItems.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -131,10 +121,6 @@ namespace ValcomDrawings
                 drawingIDComboBox.SelectedItem = drawing.DrawingID;
                 drawingBindingSource.Clear();
                 drawingBindingSource.Add(drawing);
-
-                // I believe I don't need this as the drawingIDComboBox.SelectedItem Change event gets update drawingLine list
-                //drawingLineItemsList = addLineItems.drawingLineItemsList;
-                //drawingLineDataGridView.DataSource = drawingLineItemsList;
             }
         }
 
@@ -146,8 +132,8 @@ namespace ValcomDrawings
 
         private void btnCreateJob_Click(object sender, EventArgs e)
         {
+            // Opens page for user to add stock before creating BOM.
             AddStock addStock = new AddStock();
-            //addStock.drawingLineItems = drawingLineItemsList; // Gets freash copy from Database
             addStock.drawing = drawing;
             addStock.ShowDialog();
         }

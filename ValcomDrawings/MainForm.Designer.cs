@@ -49,19 +49,25 @@
             this.txtDrawingChanges = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolMnuNewDrawing = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolMnuModifyDeleteDrawing = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolmnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolMnuOpenParts = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCreateJob = new System.Windows.Forms.Button();
-            this.drawingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAddLineItems = new System.Windows.Forms.Button();
+            this.drawingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,12 +79,6 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drawingLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolMnuNewDrawing = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolMnuModifyDeleteDrawing = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolmnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             txtAddedBy = new System.Windows.Forms.Label();
             bOMDescriptionLabel = new System.Windows.Forms.Label();
             dateModifiedLabel = new System.Windows.Forms.Label();
@@ -291,15 +291,53 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // toolMnuNewDrawing
+            // 
+            this.toolMnuNewDrawing.Image = ((System.Drawing.Image)(resources.GetObject("toolMnuNewDrawing.Image")));
+            this.toolMnuNewDrawing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMnuNewDrawing.Name = "toolMnuNewDrawing";
+            this.toolMnuNewDrawing.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolMnuNewDrawing.Size = new System.Drawing.Size(197, 22);
+            this.toolMnuNewDrawing.Text = "&New Drawing";
+            this.toolMnuNewDrawing.Click += new System.EventHandler(this.btnAddDrawing_Click);
+            // 
+            // toolMnuModifyDeleteDrawing
+            // 
+            this.toolMnuModifyDeleteDrawing.Image = ((System.Drawing.Image)(resources.GetObject("toolMnuModifyDeleteDrawing.Image")));
+            this.toolMnuModifyDeleteDrawing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolMnuModifyDeleteDrawing.Name = "toolMnuModifyDeleteDrawing";
+            this.toolMnuModifyDeleteDrawing.Size = new System.Drawing.Size(197, 22);
+            this.toolMnuModifyDeleteDrawing.Text = "&Modify/Delete Drawing";
+            this.toolMnuModifyDeleteDrawing.Click += new System.EventHandler(this.btnModifyDrawing_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(194, 6);
             // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
+            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.printToolStripMenuItem.Text = "&Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(194, 6);
+            // 
+            // toolmnuExit
+            // 
+            this.toolmnuExit.Image = global::ValcomDrawings.Properties.Resources.door_in;
+            this.toolmnuExit.Name = "toolmnuExit";
+            this.toolmnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.toolmnuExit.Size = new System.Drawing.Size(197, 22);
+            this.toolmnuExit.Text = "E&xit";
+            this.toolmnuExit.Click += new System.EventHandler(this.toolmnuExit_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -314,20 +352,20 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(159, 6);
             // 
             // toolMnuOpenParts
             // 
             this.toolMnuOpenParts.Name = "toolMnuOpenParts";
             this.toolMnuOpenParts.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.toolMnuOpenParts.Size = new System.Drawing.Size(180, 22);
+            this.toolMnuOpenParts.Size = new System.Drawing.Size(162, 22);
             this.toolMnuOpenParts.Text = "Parts List";
             this.toolMnuOpenParts.Click += new System.EventHandler(this.toolMnuOpenParts_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
             // 
             // helpToolStripMenuItem
             // 
@@ -342,7 +380,20 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(113, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Image = global::ValcomDrawings.Properties.Resources.information;
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(113, 6);
             // 
             // pictureBox1
             // 
@@ -380,10 +431,6 @@
             this.btnCreateJob.UseVisualStyleBackColor = true;
             this.btnCreateJob.Click += new System.EventHandler(this.btnCreateJob_Click);
             // 
-            // drawingBindingSource
-            // 
-            this.drawingBindingSource.DataSource = typeof(ValcomData.Drawing);
-            // 
             // btnAddLineItems
             // 
             this.btnAddLineItems.Image = global::ValcomDrawings.Properties.Resources.EditNew;
@@ -396,6 +443,10 @@
             this.btnAddLineItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddLineItems.UseVisualStyleBackColor = true;
             this.btnAddLineItems.Click += new System.EventHandler(this.btnAddLineItems_Click);
+            // 
+            // drawingBindingSource
+            // 
+            this.drawingBindingSource.DataSource = typeof(ValcomData.Drawing);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -484,57 +535,6 @@
             // drawingLineBindingSource
             // 
             this.drawingLineBindingSource.DataSource = typeof(ValcomData.DrawingLine);
-            // 
-            // toolMnuNewDrawing
-            // 
-            this.toolMnuNewDrawing.Image = ((System.Drawing.Image)(resources.GetObject("toolMnuNewDrawing.Image")));
-            this.toolMnuNewDrawing.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMnuNewDrawing.Name = "toolMnuNewDrawing";
-            this.toolMnuNewDrawing.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.toolMnuNewDrawing.Size = new System.Drawing.Size(197, 22);
-            this.toolMnuNewDrawing.Text = "&New Drawing";
-            this.toolMnuNewDrawing.Click += new System.EventHandler(this.btnAddDrawing_Click);
-            // 
-            // toolMnuModifyDeleteDrawing
-            // 
-            this.toolMnuModifyDeleteDrawing.Image = ((System.Drawing.Image)(resources.GetObject("toolMnuModifyDeleteDrawing.Image")));
-            this.toolMnuModifyDeleteDrawing.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMnuModifyDeleteDrawing.Name = "toolMnuModifyDeleteDrawing";
-            this.toolMnuModifyDeleteDrawing.Size = new System.Drawing.Size(197, 22);
-            this.toolMnuModifyDeleteDrawing.Text = "&Modify/Delete Drawing";
-            this.toolMnuModifyDeleteDrawing.Click += new System.EventHandler(this.btnModifyDrawing_Click);
-            // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
-            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
-            this.printToolStripMenuItem.Text = "&Print";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
-            // 
-            // toolmnuExit
-            // 
-            this.toolmnuExit.Image = global::ValcomDrawings.Properties.Resources.door_in;
-            this.toolmnuExit.Name = "toolmnuExit";
-            this.toolmnuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.toolmnuExit.Size = new System.Drawing.Size(197, 22);
-            this.toolmnuExit.Text = "E&xit";
-            this.toolmnuExit.Click += new System.EventHandler(this.toolmnuExit_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Image = global::ValcomDrawings.Properties.Resources.information;
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // MainForm
             // 
