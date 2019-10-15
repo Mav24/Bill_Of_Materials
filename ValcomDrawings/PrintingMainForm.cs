@@ -14,26 +14,38 @@ namespace ValcomDrawings
 {
     public partial class PrintingMainForm : Form
     {
+        public Drawing drawing;
+
         public PrintingMainForm()
         {
             InitializeComponent();
         }
-        public List<DrawingLine> drawingLineItems;
-        public Drawing drawing;
+              
 
         private void PrintingMainForm_Load(object sender, EventArgs e)
         {
-            this.Text = $"Drawing Printout for {drawing.BOMDescription}";
+            LoadInfo();   
+        }
+
+        private void LoadInfo()
+        {
             try
             {
+                // Sets form title.
+                this.Text = $"Drawing Printout for {drawing.BOMDescription}";
                 
+                // Create array for parameters
                 ReportParameter[] rParams = new ReportParameter[]
                 {
                 new ReportParameter("Description", drawing.BOMDescription),
                 new ReportParameter("PrintDate", DateTime.Now.ToLongDateString())
                 };
+
+                // Set Parameters
                 reportViewer1.LocalReport.SetParameters(rParams);
-                DataTable1BindingSource.DataSource = drawingLineItems;
+
+                // Call to get updated Line Items
+                DataTable1BindingSource.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
                 this.reportViewer1.RefreshReport();
             }
             catch (Exception)

@@ -19,8 +19,6 @@ namespace ValcomDrawings
         }
 
         private Drawing drawing;
-        //private List<string> drawingsList;
-        private List<DrawingLine> drawingLineItemsList;
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -39,11 +37,11 @@ namespace ValcomDrawings
                 drawing = DrawingDB.GetDrawingInfo(drawingID);
                 drawingBindingSource.Clear();
                 drawingBindingSource.Add(drawing);
+                
 
                 // Get the list of Drawing Line Items
                 // Bind the data to the gridview
-                drawingLineItemsList = DrawingLineDB.GetDrawingLines(drawingID);
-                drawingLineDataGridView.DataSource = drawingLineItemsList;
+                drawingLineDataGridView.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
             }
             catch (Exception ex)
             {
@@ -56,10 +54,7 @@ namespace ValcomDrawings
         {
             try
             {
-                #region Marked for delete I found that i could just pass the list right from the class
-                //drawingsList = DrawingDB.GetListofDrawings();
-                //drawingIDComboBox.DataSource = drawingsList;
-                #endregion
+                // Sets list of drawings to combobox datasource.
                 drawingIDComboBox.DataSource = DrawingDB.GetListofDrawings();
             }
             catch (Exception ex)
@@ -85,14 +80,9 @@ namespace ValcomDrawings
                 drawingIDComboBox.SelectedItem = drawing.DrawingID;
                 drawingBindingSource.Clear();
                 drawingBindingSource.Add(drawing);
-                drawingLineItemsList = new List<DrawingLine>();
-                drawingLineDataGridView.DataSource = drawingLineItemsList;
                 
             }
-            else if (result == DialogResult.Cancel)
-            {
-            }
-            else
+            else if (result != DialogResult.Cancel)
             {
                 GetDrawings();
             }
@@ -123,7 +113,6 @@ namespace ValcomDrawings
         {
             AddLineItems addLineItems = new AddLineItems();
             addLineItems.drawing = drawing;
-            addLineItems.drawingLineItemsList = drawingLineItemsList;
             DialogResult result = addLineItems.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -132,8 +121,6 @@ namespace ValcomDrawings
                 drawingIDComboBox.SelectedItem = drawing.DrawingID;
                 drawingBindingSource.Clear();
                 drawingBindingSource.Add(drawing);
-                drawingLineItemsList = addLineItems.drawingLineItemsList;
-                drawingLineDataGridView.DataSource = drawingLineItemsList;
             }
         }
 
@@ -145,8 +132,8 @@ namespace ValcomDrawings
 
         private void btnCreateJob_Click(object sender, EventArgs e)
         {
+            // Opens page for user to add stock before creating BOM.
             AddStock addStock = new AddStock();
-            addStock.drawingLineItems = drawingLineItemsList;
             addStock.drawing = drawing;
             addStock.ShowDialog();
         }
@@ -165,8 +152,8 @@ namespace ValcomDrawings
         {
             PrintingMainForm printing = new PrintingMainForm();
             printing.drawing = drawing;
-            printing.drawingLineItems = drawingLineItemsList;
             printing.ShowDialog();
+            
         }
 
         // Sets Combobox to upper case when typing

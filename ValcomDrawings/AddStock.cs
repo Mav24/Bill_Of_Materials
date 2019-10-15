@@ -17,19 +17,54 @@ namespace ValcomDrawings
         {
             InitializeComponent();
         }
-        public List<DrawingLine> drawingLineItems;
+        //public List<DrawingLine> drawingLineItems;
         public Drawing drawing;
 
         private void AddStock_Load(object sender, EventArgs e)
         {
+            // Sets Form Title
             this.Text = $"Add Stock for {drawing.BOMDescription}";
-            drawingLineBindingSource.DataSource = drawingLineItems;
+
+            // Fresh call to the database to get updated line Items.
+            drawingLineBindingSource.DataSource = DrawingLineDB.GetDrawingLines(drawing.DrawingID);
         }
 
-        private void btnCreateJob_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            List<LineItemStock> stock = new List<LineItemStock>();
+            Close();
+        }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{AboutandHelp.About()}", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void drawingLineDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            // Sets Error to empty.
+            drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "";
+
+            // Gets Name of Header for validation.
+            string headerText = drawingLineDataGridView.Columns[e.ColumnIndex].HeaderText;
+            
+            // Abort valication if cell is not in the Stock column.
+            if (!headerText.Equals("Stock")) return;
+
+            // Might need to set so it checks for negitive value.. 
+            if (!double.TryParse(e.FormattedValue.ToString(), out double newDouble))
+            {
+                // Place the error right in the datagridview.
+                drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "The value must be a numeric in stock column!";
+                e.Cancel = true;
+            }
+        }
+
+        private void btnCalculateBOMs_Click(object sender, EventArgs e)
+        {
+            // Creates a new List with the stock added to the list.
+            List<LineItemStock> lineItemsWithStock = new List<LineItemStock>();
+
+            // Loop through rows to create new line items with stock added.
             foreach (DataGridViewRow row in drawingLineDataGridView.Rows)
             {
                 LineItemStock item = new LineItemStock();
@@ -46,66 +81,22 @@ namespace ValcomDrawings
                 item.QANote = row.Cells[10].Value.ToString();
                 item.Comment = row.Cells[11].Value.ToString();
                 item.Stock = Convert.ToDouble(row.Cells[12].Value);
-                
-                stock.Add(item);
 
-                #region Might need this later. Mark for delete Sept. 6th 2019
-                //foreach (DataGridViewCell dc in row.Cells)
-                //{
-                //    item.ID = Convert.ToInt32(dc.Value);
-                //    item.DLDrawingID = 
-                //    //item.LineNumber = Convert.ToInt32(dc.Cells[2]);
-                //    //item.ProductionCode = dc.Cells[3].ToString();
-                //    //item.PartID = dc.Cells[4].ToString();
-                //    //item.DWGNO = dc.Cells[5].ToString();
-                //    //item.PartDescription = dc.Cells[6].ToString();
-                //    //item.QTYU = Convert.ToDouble(dc.Cells[7]);
-                //    //item.Units = dc.Cells[8].ToString();
-                //    //item.IndentFactor = Convert.ToInt32(dc.Cells[9]);
-                //    //item.QANote = dc.Cells[10].ToString();
-                //    //item.Comment = dc.Cells[11].ToString();
-                //    //item.Stock = Convert.ToInt32(dc.Cells[12]);
-                //    stock.Add(item);
-                //}
-                #endregion
+                lineItemsWithStock.Add(item);
             }
 
+            // Get Quantity of job from user.
             QuantityOfJob quantityOfJob = new QuantityOfJob();
 
             DialogResult result = quantityOfJob.ShowDialog();
             if (result == DialogResult.OK)
             {
+                // Opens newly create job with quantity and stock items and does the math (ready for print)
                 CreateJob createJob = new CreateJob();
                 createJob.quantity = quantityOfJob.amount;
-                createJob.lineItemStock = stock;
+                createJob.lineItemStock = lineItemsWithStock;
                 createJob.drawing = drawing;
                 createJob.ShowDialog();
-            }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show($"{AboutandHelp.About()}", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void drawingLineDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-        {
-            drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "";
-            double newDouble;
-
-            if (drawingLineDataGridView.Rows[e.RowIndex].IsNewRow) { return; }
-
-            // Might need to set an or so it checks for negitive value.. 
-            if (!double.TryParse(e.FormattedValue.ToString(), out newDouble))
-            {
-                e.Cancel = true;
-                // Use this if you want to place the error right in the datagridview
-                drawingLineDataGridView.Rows[e.RowIndex].ErrorText = "The value must be a numeric in stock column!";
             }
         }
     }

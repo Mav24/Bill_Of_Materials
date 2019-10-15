@@ -40,6 +40,7 @@
             System.Windows.Forms.Label unitsLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label partIDLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditLineItem));
             this.drawingLineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtComment = new System.Windows.Forms.TextBox();
             this.txtDLDrawingID = new System.Windows.Forms.TextBox();
@@ -86,9 +87,9 @@
             dLDrawingIDLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dLDrawingIDLabel.Location = new System.Drawing.Point(12, 37);
             dLDrawingIDLabel.Name = "dLDrawingIDLabel";
-            dLDrawingIDLabel.Size = new System.Drawing.Size(82, 15);
+            dLDrawingIDLabel.Size = new System.Drawing.Size(37, 15);
             dLDrawingIDLabel.TabIndex = 3;
-            dLDrawingIDLabel.Text = "DLDrawing ID:";
+            dLDrawingIDLabel.Text = "BOM:";
             // 
             // dWGNOLabel
             // 
@@ -138,7 +139,7 @@
             qANoteLabel.Name = "qANoteLabel";
             qANoteLabel.Size = new System.Drawing.Size(53, 15);
             qANoteLabel.TabIndex = 18;
-            qANoteLabel.Text = "&QANote:";
+            qANoteLabel.Text = "QANote:";
             // 
             // qTYULabel
             // 
@@ -148,7 +149,7 @@
             qTYULabel.Name = "qTYULabel";
             qTYULabel.Size = new System.Drawing.Size(41, 15);
             qTYULabel.TabIndex = 8;
-            qTYULabel.Text = "QTYU:";
+            qTYULabel.Text = "&QTYU:";
             // 
             // unitsLabel
             // 
@@ -158,7 +159,7 @@
             unitsLabel.Name = "unitsLabel";
             unitsLabel.Size = new System.Drawing.Size(37, 15);
             unitsLabel.TabIndex = 12;
-            unitsLabel.Text = "Units:";
+            unitsLabel.Text = "&Units:";
             // 
             // label1
             // 
@@ -177,7 +178,7 @@
             partIDLabel.Name = "partIDLabel";
             partIDLabel.Size = new System.Drawing.Size(43, 13);
             partIDLabel.TabIndex = 2;
-            partIDLabel.Text = "Part ID:";
+            partIDLabel.Text = "&Part ID:";
             // 
             // drawingLineBindingSource
             // 
@@ -185,7 +186,6 @@
             // 
             // txtComment
             // 
-            this.txtComment.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "Comment", true));
             this.txtComment.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtComment.Location = new System.Drawing.Point(109, 167);
             this.txtComment.Name = "txtComment";
@@ -194,7 +194,6 @@
             // 
             // txtDLDrawingID
             // 
-            this.txtDLDrawingID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "DLDrawingID", true));
             this.txtDLDrawingID.Enabled = false;
             this.txtDLDrawingID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDLDrawingID.Location = new System.Drawing.Point(109, 34);
@@ -205,34 +204,33 @@
             // txtDWGNO
             // 
             this.txtDWGNO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtDWGNO.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "DWGNO", true));
             this.txtDWGNO.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDWGNO.Location = new System.Drawing.Point(109, 68);
             this.txtDWGNO.Name = "txtDWGNO";
             this.txtDWGNO.Size = new System.Drawing.Size(247, 23);
             this.txtDWGNO.TabIndex = 1;
+            this.txtDWGNO.Tag = "DWGNO";
             // 
             // txtIndentFactor
             // 
-            this.txtIndentFactor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "IndentFactor", true));
             this.txtIndentFactor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIndentFactor.Location = new System.Drawing.Point(472, 69);
             this.txtIndentFactor.Name = "txtIndentFactor";
             this.txtIndentFactor.Size = new System.Drawing.Size(35, 23);
             this.txtIndentFactor.TabIndex = 11;
+            this.txtIndentFactor.Tag = "Indent Factor";
             // 
             // txtLineNumber
             // 
-            this.txtLineNumber.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "LineNumber", true));
             this.txtLineNumber.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtLineNumber.Location = new System.Drawing.Point(472, 34);
             this.txtLineNumber.Name = "txtLineNumber";
             this.txtLineNumber.Size = new System.Drawing.Size(35, 23);
             this.txtLineNumber.TabIndex = 7;
+            this.txtLineNumber.Tag = "Line Number";
             // 
             // txtQANote
             // 
-            this.txtQANote.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "QANote", true));
             this.txtQANote.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQANote.Location = new System.Drawing.Point(109, 201);
             this.txtQANote.Name = "txtQANote";
@@ -241,22 +239,22 @@
             // 
             // txtQTYU
             // 
-            this.txtQTYU.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "QTYU", true));
             this.txtQTYU.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQTYU.Location = new System.Drawing.Point(559, 34);
             this.txtQTYU.Name = "txtQTYU";
             this.txtQTYU.Size = new System.Drawing.Size(35, 23);
             this.txtQTYU.TabIndex = 9;
+            this.txtQTYU.Tag = "QTY/U";
             // 
             // txtUnits
             // 
             this.txtUnits.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUnits.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "Units", true));
             this.txtUnits.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtUnits.Location = new System.Drawing.Point(557, 68);
             this.txtUnits.Name = "txtUnits";
             this.txtUnits.Size = new System.Drawing.Size(35, 23);
             this.txtUnits.TabIndex = 13;
+            this.txtUnits.Tag = "Units";
             // 
             // btnCancel
             // 
@@ -286,7 +284,6 @@
             // 
             // cboProductionCode
             // 
-            this.cboProductionCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingLineBindingSource, "ProductionCode", true));
             this.cboProductionCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductionCode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboProductionCode.FormattingEnabled = true;
@@ -297,10 +294,12 @@
             this.cboProductionCode.Name = "cboProductionCode";
             this.cboProductionCode.Size = new System.Drawing.Size(35, 23);
             this.cboProductionCode.TabIndex = 15;
+            this.cboProductionCode.Tag = "Production Code";
             // 
             // cboPartDescription
             // 
-            this.cboPartDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "PartDescription", true));
+            this.cboPartDescription.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboPartDescription.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboPartDescription.DataSource = this.partsBindingSource;
             this.cboPartDescription.DisplayMember = "PartDescription";
             this.cboPartDescription.FormattingEnabled = true;
@@ -308,10 +307,12 @@
             this.cboPartDescription.Name = "cboPartDescription";
             this.cboPartDescription.Size = new System.Drawing.Size(247, 21);
             this.cboPartDescription.TabIndex = 5;
+            this.cboPartDescription.Tag = "Part Description";
             // 
             // cboBoxParts
             // 
-            this.cboBoxParts.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.partsBindingSource, "PartID", true));
+            this.cboBoxParts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboBoxParts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cboBoxParts.DataSource = this.partsBindingSource;
             this.cboBoxParts.DisplayMember = "PartID";
             this.cboBoxParts.FormattingEnabled = true;
@@ -319,13 +320,14 @@
             this.cboBoxParts.Name = "cboBoxParts";
             this.cboBoxParts.Size = new System.Drawing.Size(247, 21);
             this.cboBoxParts.TabIndex = 3;
+            this.cboBoxParts.Tag = "Part ID";
             // 
             // EditLineItem
             // 
+            this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(621, 287);
-            this.ControlBox = false;
             this.Controls.Add(this.cboBoxParts);
             this.Controls.Add(this.cboPartDescription);
             this.Controls.Add(partIDLabel);
@@ -351,6 +353,9 @@
             this.Controls.Add(unitsLabel);
             this.Controls.Add(this.txtUnits);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditLineItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Line Item";

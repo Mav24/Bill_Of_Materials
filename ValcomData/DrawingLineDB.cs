@@ -103,10 +103,6 @@ namespace ValcomData
             {
                 connection.Open();
                 insertCommand.ExecuteNonQuery();
-                // Marked for delete Don't think i need this as i don't need to return anything
-                //string selectStatement = "SELECT IDENT_CURRENT('DrawingLines') FROM DrawingLines";
-                //SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-                //sqlCommand.ExecuteScalar();
                 
             }
             catch (SqlException ex)

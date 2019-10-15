@@ -31,6 +31,7 @@ namespace ValcomDrawings
                 btnDelete.Visible = false;
                 this.Text = "Add Drawing";
                 txtDrawingID.Enabled = true;
+                txtAddedBy.Enabled = true;
                 newDrawing = new Drawing();
             }
             else
