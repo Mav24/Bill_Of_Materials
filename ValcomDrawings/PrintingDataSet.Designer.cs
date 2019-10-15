@@ -330,6 +330,8 @@ namespace ValcomDrawings {
             
             private global::System.Data.DataColumn columnIndentFactor;
             
+            private global::System.Data.DataColumn columnComment;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DataTable1DataTable() {
@@ -429,6 +431,14 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CommentColumn {
+                get {
+                    return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -464,7 +474,7 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string LineNumber, string ProductionCode, string PartID, string DWGNO, string PartDescription, string QTYU, string Units, string IndentFactor) {
+            public DataTable1Row AddDataTable1Row(string LineNumber, string ProductionCode, string PartID, string DWGNO, string PartDescription, string QTYU, string Units, string IndentFactor, string Comment) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         LineNumber,
@@ -474,7 +484,8 @@ namespace ValcomDrawings {
                         PartDescription,
                         QTYU,
                         Units,
-                        IndentFactor};
+                        IndentFactor,
+                        Comment};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -505,6 +516,7 @@ namespace ValcomDrawings {
                 this.columnQTYU = base.Columns["QTYU"];
                 this.columnUnits = base.Columns["Units"];
                 this.columnIndentFactor = base.Columns["IndentFactor"];
+                this.columnComment = base.Columns["Comment"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -526,6 +538,8 @@ namespace ValcomDrawings {
                 base.Columns.Add(this.columnUnits);
                 this.columnIndentFactor = new global::System.Data.DataColumn("IndentFactor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIndentFactor);
+                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComment);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1155,6 +1169,22 @@ namespace ValcomDrawings {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Comment {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.CommentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Comment\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLineNumberNull() {
                 return this.IsNull(this.tableDataTable1.LineNumberColumn);
             }
@@ -1247,6 +1277,18 @@ namespace ValcomDrawings {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetIndentFactorNull() {
                 this[this.tableDataTable1.IndentFactorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCommentNull() {
+                return this.IsNull(this.tableDataTable1.CommentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCommentNull() {
+                this[this.tableDataTable1.CommentColumn] = global::System.Convert.DBNull;
             }
         }
         

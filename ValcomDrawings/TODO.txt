@@ -12,9 +12,9 @@ This application is on my git hub as Drawings.
 Sept 6th 2019
 - Need to add more style to the pages. was thinking of adding the valcom logo. But waiting until i get most of the coding done (Done)
 
-- Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box.
+- Issue that needs to be looked at where you are in the add line item page and when click out of the part description it auto puts a part Id in the box. **DONE**
 
-- Look in to issue where you can't close the create job page, because its checking for stock items *This has be resolved check note on page*
+- Look in to issue where you can't close the create job page, because its checking for stock items ***This has be resolved check note on page***
 
 Sept 11 2019
 - Look in to more icons for all forms
@@ -22,13 +22,12 @@ Sept 11 2019
 
 Sept 17th 2019
 - Merged Testers with Master and developers branches on git hub.
-- Need to add comments to Create job page. (Did this Sept 17th 2019 @ 4:15pm)
+- Need to add comments to Create job page. **DONE**
 
 
 Sept 18 2019
-- Added option in to auto add part to parts list if typed in and doesn't exist in parts database (Done)
-- Add in print option to have two print outs, one for purchase order and one for manufacturing.
-- Add Comments to printout. (Get rid of QANotes on database and all pages!)
+- Added option in to auto add part to parts list if typed in and doesn't exist in parts database **DONE**
+- Add in print option to have two print outs, one for purchase order and one for manufacturing. **DONE** 
 
 Sept 19th 2019
 - Fixed issue where you would search part by description and it wouldn't auto fill the partID box. Seems to be working. See note on AddLineItem Page
@@ -37,10 +36,41 @@ Sept 19th 2019
 Sept 20th 2019
 - Removed code from all pages, see notes on each form page
 
-- TODO - Started work on the printout options to have two printouts of P only and M only on different pages
-( Look in to setting it up to run in the back ground )
+- Started work on the printout options to have two printouts of P only and M only on different pages
+( Look in to setting it up to run in the back ground ) **DONE**
 
 Sept 25 2019
-- Made changes to the DLDrawingID it now is shown as BOM:
+- Made changes to the DLDrawingID it now is shown as BOM ID:
+- Added in different options for printing. 
 
+Sept 26 2019
+- When adding line items the datagridview will now auto scroll to the last entry you entered
+- When editing a line the program will now keep that line selected after editing
+- Auto suggest when editing line Item for parts ID and parts description (done)
+**Sent out update*** to users
+
+Sept 27 2019
+- Updated Edit line items page.. removed datasource fill option as i wasn't able to use it with the parts combo boxes 
+(Issue was with updating the partID and description. For some reason the object wouldn't update and old value was sent to the database.)
+- Updated Add new line items page to set focus to the last line added.
+- Added in feature that if you change the line item number the program will follow where you put that line (DONE)
+
+Oct 1 2019
+- Change the name of the main form to Valcom Bill Of Materials (DONE)
+- Add Comments to printout. (Done)
+
+Oct 2 2019
+- Get rid of QANotes on database and all pages!
+
+Oct 4 2019
+- Fixed some validation on the edit line page. (Done)
+- Fixed issue if you were to change the last entered line number, it would update to the next line number. (Done)
+
+Oct 7 2019
+- Updated UI with new icons (Done)
+
+Oct 10 2019
+- Fixed adding stock form. now when you tab it will only check value in stock column.
+- Code clean up and added in more comments (where need)
+- TODO Need to keep line selected in parts list after update*******
 

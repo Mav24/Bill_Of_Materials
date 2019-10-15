@@ -34,6 +34,7 @@ namespace ValcomDrawings
 
         private void partsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var test = e.RowIndex;
             if (e.ColumnIndex == 6)
             {
                 part = new Parts();
@@ -50,6 +51,7 @@ namespace ValcomDrawings
                 if (result == DialogResult.OK)
                 {
                     GetAllParts();
+                    
                 }
 
             }
@@ -68,15 +70,13 @@ namespace ValcomDrawings
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
-        {
-            string searchValue = txtSearch.Text.ToUpper();
-            
+        {            
             List<Parts> searchedParts = new List<Parts>();
             if (IsValidate())
             {
                 if (rdoPartId.Checked)
                 {
-                    searchedParts = allparts.Where(x => x.PartID.Contains(searchValue)).ToList();
+                    searchedParts = allparts.Where(x => x.PartID.Contains(txtSearch.Text.ToUpper())).ToList();
                     var count = searchedParts.Count;
                     if (count > 0)
                     {
@@ -84,13 +84,13 @@ namespace ValcomDrawings
                     }
                     else
                     {
-                        MessageBox.Show($"Sorry {searchValue} was not found in the list of parts!", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Sorry {txtSearch.Text.ToUpper()} was not found in the list of parts!", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtSearch.Focus();
                     }
                 }
                 else
                 {
-                    searchedParts = allparts.Where(x => x.PartDescription.Contains(searchValue)).ToList();
+                    searchedParts = allparts.Where(x => x.PartDescription.Contains(txtSearch.Text.ToUpper())).ToList();
                     var count = searchedParts.Count;
                     if (count > 0)
                     {
@@ -98,7 +98,7 @@ namespace ValcomDrawings
                     }
                     else
                     {
-                        MessageBox.Show($"Sorry {searchValue} was not found in the list of parts!", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Sorry {txtSearch.Text.ToUpper()} was not found in the list of parts!", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtSearch.Focus();
                     }
                 }
@@ -131,6 +131,7 @@ namespace ValcomDrawings
                             MessageBox.Show("Sorry that part has already been deleted by another user!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+
                     GetAllParts();
 
                 }

@@ -10,7 +10,6 @@ namespace ValcomData
 {
     public static class DrawingDB
     {
-        #region This way works... with list of strings
         public static List<string> GetListofDrawings()
         {
             List<string> listofDrawings = new List<string>();
@@ -40,9 +39,9 @@ namespace ValcomData
             }
             return listofDrawings;
         }
-        #endregion
 
-        #region this is the way of getting List of Drawings
+
+        #region this is the way of getting List of Drawings Not used****
         //public static List<Drawing> GetListofDrawings()
         //{
         //    List<Drawing> drawingList = new List<Drawing>();
@@ -190,12 +189,6 @@ namespace ValcomData
                 {
                     insertCommand.ExecuteNonQuery();
                     return true;
-                    // Marked for delete, save just incase... July 16th 2019
-                    //string selectStatement =
-                    //    "SELECT IDENT_CURRENT('Drawings') FROM Drawings";
-                    //SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-                    //sqlCommand.ExecuteScalar();
-
                 }
                 
             }

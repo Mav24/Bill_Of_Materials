@@ -30,12 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.PrintingDataSet = new ValcomDrawings.PrintingDataSet();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintingJobAmounts));
             this.DataTable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.PrintingDataSet)).BeginInit();
+            this.PrintingDataSet = new ValcomDrawings.PrintingDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrintingDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataTable2BindingSource
+            // 
+            this.DataTable2BindingSource.DataMember = "DataTable2";
+            this.DataTable2BindingSource.DataSource = this.PrintingDataSet;
+            // 
+            // PrintingDataSet
+            // 
+            this.PrintingDataSet.DataSetName = "PrintingDataSet";
+            this.PrintingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,16 +61,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(933, 519);
             this.reportViewer1.TabIndex = 0;
             // 
-            // PrintingDataSet
-            // 
-            this.PrintingDataSet.DataSetName = "PrintingDataSet";
-            this.PrintingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable2BindingSource
-            // 
-            this.DataTable2BindingSource.DataMember = "DataTable2";
-            this.DataTable2BindingSource.DataSource = this.PrintingDataSet;
-            // 
             // PrintingJobAmounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -67,12 +68,13 @@
             this.ClientSize = new System.Drawing.Size(933, 519);
             this.Controls.Add(this.reportViewer1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrintingJobAmounts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrintingJobAmounts";
             this.Load += new System.EventHandler(this.PrintingJobAmounts_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PrintingDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrintingDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -88,6 +88,7 @@
             // 
             this.txtAddedBy.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtAddedBy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.drawingBindingSource, "AddedBy", true));
+            this.txtAddedBy.Enabled = false;
             this.txtAddedBy.Location = new System.Drawing.Point(471, 26);
             this.txtAddedBy.Name = "txtAddedBy";
             this.txtAddedBy.Size = new System.Drawing.Size(200, 23);
@@ -181,6 +182,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddModifyDrawing";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add/Modify Drawing";
             this.Load += new System.EventHandler(this.AddModifyDrawing_Load);

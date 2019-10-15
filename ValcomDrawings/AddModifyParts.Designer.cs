@@ -204,6 +204,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddModifyParts";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add/Modifiy Part";
             this.Load += new System.EventHandler(this.AddModifyParts_Load);

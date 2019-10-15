@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ValcomDrawings")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Valcom Bill Of Materials")]
+[assembly: AssemblyDescription("This Application List bill of materials")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hewlett-Packard Company")]
-[assembly: AssemblyProduct("ValcomDrawings")]
-[assembly: AssemblyCopyright("Copyright © Hewlett-Packard Company 2019")]
+[assembly: AssemblyCompany("StrikeForce Ops")]
+[assembly: AssemblyProduct("Valcom Bill Of Materials")]
+[assembly: AssemblyCopyright("Copyright © Murray Duke 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -114,7 +114,7 @@
             dLDrawingIDLabel.Name = "dLDrawingIDLabel";
             dLDrawingIDLabel.Size = new System.Drawing.Size(37, 15);
             dLDrawingIDLabel.TabIndex = 0;
-            dLDrawingIDLabel.Text = "&BOM:";
+            dLDrawingIDLabel.Text = "BOM:";
             // 
             // dWGNOLabel
             // 
@@ -168,7 +168,7 @@
             qANoteLabel.Name = "qANoteLabel";
             qANoteLabel.Size = new System.Drawing.Size(53, 15);
             qANoteLabel.TabIndex = 13;
-            qANoteLabel.Text = "&QANote:";
+            qANoteLabel.Text = "QANote:";
             // 
             // qTYULabel
             // 
@@ -177,7 +177,7 @@
             qTYULabel.Name = "qTYULabel";
             qTYULabel.Size = new System.Drawing.Size(46, 15);
             qTYULabel.TabIndex = 19;
-            qTYULabel.Text = "Q&TY/U:";
+            qTYULabel.Text = "&QTY/U:";
             // 
             // unitsLabel
             // 
@@ -421,7 +421,7 @@
             this.cboBoxParts.Name = "cboBoxParts";
             this.cboBoxParts.Size = new System.Drawing.Size(407, 23);
             this.cboBoxParts.TabIndex = 4;
-            this.cboBoxParts.Tag = "Part";
+            this.cboBoxParts.Tag = "Part ID";
             this.cboBoxParts.ValueMember = "ID";
             this.cboBoxParts.SelectedIndexChanged += new System.EventHandler(this.cboBoxParts_SelectedIndexChanged);
             this.cboBoxParts.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cboboxesToUpper_KeyPress);
@@ -577,6 +577,7 @@
             // 
             // AddLineItems
             // 
+            this.AcceptButton = this.btnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1269, 623);
