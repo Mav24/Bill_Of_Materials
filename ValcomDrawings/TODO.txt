@@ -74,3 +74,7 @@ Oct 10 2019
 - Code clean up and added in more comments (where need)
 - TODO Need to keep line selected in parts list after update*******
 
+Oct 15 2019
+- Updated all branches on github. Master and developers are now in the same branch
+- ***TODO*** Convert all database classes to use the using statements and get rid of all try catch statements.
+
