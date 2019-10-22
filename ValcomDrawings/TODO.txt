@@ -78,3 +78,6 @@ Oct 15 2019
 - Updated all branches on github. Master and developers are now in the same branch
 - ***TODO*** Convert all database classes to use the using statements and get rid of all try catch statements.
 
+Oct 16 2019
+- Work done in the DrawingDB class to convert methods in to the using statements.
+

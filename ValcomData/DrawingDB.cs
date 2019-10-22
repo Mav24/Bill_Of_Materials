@@ -12,77 +12,53 @@ namespace ValcomData
     {
         public static List<string> GetListofDrawings()
         {
-            List<string> listofDrawings = new List<string>();
-            SqlConnection connection = ValcomDB.GetConnection();
-
-            string selectStatement = "Select DrawingID FROM Drawings ";
-            SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-
-            try
+            using (SqlConnection connection = ValcomDB.GetConnection())
+            using (SqlCommand sqlCommand = connection.CreateCommand())
             {
+                sqlCommand.CommandText = "Select DrawingID FROM Drawings ";
+
                 connection.Open();
-                SqlDataReader reader = sqlCommand.ExecuteReader();
-                while (reader.Read())
+                List<string> listofDrawings = new List<string>();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader())
                 {
-                    listofDrawings.Add(reader[0].ToString());
+                    while (reader.Read())
+                    {
+                        listofDrawings.Add(reader[0].ToString());
 
+                    }
+                    reader.Close();
                 }
-                reader.Close();
+                return listofDrawings;
             }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return listofDrawings;
+            #region Old Method using try catch and finally
+            //SqlConnection connection = ValcomDB.GetConnection();
+
+            //string selectStatement = "Select DrawingID FROM Drawings ";
+            //SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
+
+            //try
+            //{
+            //    connection.Open();
+            //    SqlDataReader reader = sqlCommand.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        listofDrawings.Add(reader[0].ToString());
+
+            //    }
+            //    reader.Close();
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
+            //finally
+            //{
+            //    connection.Close();
+            //}
+            //return listofDrawings;
+            #endregion
+
         }
-
-
-        #region this is the way of getting List of Drawings Not used****
-        //public static List<Drawing> GetListofDrawings()
-        //{
-        //    List<Drawing> drawingList = new List<Drawing>();
-        //    SqlConnection connection = ValcomDB.GetConnection();
-        //    string selectStatement = "SELECT * FROM Drawings ";
-        //    SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-        //    try
-        //    {
-        //        connection.Open();
-        //        SqlDataReader reader = sqlCommand.ExecuteReader();
-        //        while (reader.Read())
-        //        {
-        //            Drawing drawing = new Drawing();
-        //            drawing.ID = (int)reader["ID"];
-        //            drawing.DrawingID = reader["DrawingID"].ToString();
-
-        //            #region Not sure if I need this stuff keeping to make sure
-        //            //drawing.DateModified = (DateTime)reader["DateModified"];
-        //            //drawing.BOMDescription = reader["BOMDescription"].ToString();
-        //            //drawing.NSN = reader["NSN"].ToString();
-        //            //drawing.AddedBy = reader["AddedBy"].ToString();
-        //            #endregion
-
-        //            drawingList.Add(drawing);
-        //        }
-        //        reader.Close();
-        //    }
-        //    catch (SqlException ex)
-        //    {
-
-        //        throw ex;
-        //    }
-        //    finally
-        //    {
-        //        connection.Close();
-        //    }
-        //    return drawingList;
-        //}
-        #endregion
-
-              
 
         /// <summary>
         /// Get Drawing INFO
@@ -91,58 +67,98 @@ namespace ValcomData
         /// <returns></returns>
         public static Drawing GetDrawingInfo(string drawingID)
         {
-            Drawing drawing = new Drawing();
-            SqlConnection connection = ValcomDB.GetConnection();
-            string selectStatement = "SELECT * FROM Drawings WHERE DrawingID = @DrawingID ";
-
-            SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
-            sqlCommand.Parameters.AddWithValue("@DrawingID", drawingID);
-            try
+            using (SqlConnection connection = ValcomDB.GetConnection())
+            using (SqlCommand sqlCommand = connection.CreateCommand())
             {
+                sqlCommand.CommandText = "SELECT * FROM Drawings WHERE DrawingID = @DrawingID ";
+                sqlCommand.Parameters.Add("@DrawingID", SqlDbType.NVarChar).Value = drawingID;
                 connection.Open();
-                SqlDataReader reader = sqlCommand.ExecuteReader(CommandBehavior.SingleRow);
-                if (reader.Read())
+                Drawing drawing = new Drawing();
+                using (SqlDataReader reader = sqlCommand.ExecuteReader(CommandBehavior.SingleRow))
                 {
-                    drawing.ID = (int)reader["ID"];
-                    drawing.DrawingID = reader["DrawingID"].ToString();
-                    //string date = reader["DateCreated"].ToString();
-                    //drawing.DateCreated = (DateTime)reader["DateCreated"];
-                    if (reader["DateCreated"] == DBNull.Value)
-                        drawing.DateCreated = DateTime.Now;
-                    else
-                        drawing.DateCreated = (DateTime)reader["DateCreated"];
-                    drawing.BOMDescription = reader["BOMDescription"].ToString();
-                    drawing.NSN = reader["NSN"].ToString();
-                    drawing.AddedBy = reader["AddedBy"].ToString();
-                    drawing.DateModified = reader["DateModified"].ToString();
-                    if (reader["DateModified"] == DBNull.Value)
+                    if (reader.Read())
                     {
-                        drawing.DateModifedNotNull = drawing.DateCreated;
+                        drawing.ID = (int)reader["ID"];
+                        drawing.DrawingID = reader["DrawingID"].ToString();
+                        if (reader["DateCreated"] == DBNull.Value)
+                            drawing.DateCreated = DateTime.Now;
+                        else
+                            drawing.DateCreated = (DateTime)reader["DateCreated"];
+                        drawing.BOMDescription = reader["BOMDescription"].ToString();
+                        drawing.NSN = reader["NSN"].ToString();
+                        drawing.AddedBy = reader["AddedBy"].ToString();
+                        drawing.DateModified = reader["DateModified"].ToString();
+                        if (reader["DateModified"] == DBNull.Value)
+                        {
+                            drawing.DateModifedNotNull = drawing.DateCreated;
+                        }
+                        else
+                        {
+                            drawing.DateModifedNotNull = (DateTime)reader["DateModified"];
+                        }
+                        drawing.Changes = reader["Changes"].ToString();
                     }
                     else
                     {
-                        drawing.DateModifedNotNull = (DateTime)reader["DateModified"];
+                        return null;
                     }
-                    drawing.Changes = reader["Changes"].ToString();
-                    
-                    
                 }
-                else
-                {
-                    return null;
-                }
-                reader.Close();
+                return drawing;
             }
-            catch (SqlException ex)
-            {
+            #region Old Method with try catch finally
+            //Drawing drawing = new Drawing();
+            //SqlConnection connection = ValcomDB.GetConnection();
+            //string selectStatement = "SELECT * FROM Drawings WHERE DrawingID = @DrawingID ";
 
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return drawing;
+            //SqlCommand sqlCommand = new SqlCommand(selectStatement, connection);
+            //sqlCommand.Parameters.AddWithValue("@DrawingID", drawingID);
+            //try
+            //{
+            //    connection.Open();
+            //    SqlDataReader reader = sqlCommand.ExecuteReader(CommandBehavior.SingleRow);
+            //    if (reader.Read())
+            //    {
+            //        drawing.ID = (int)reader["ID"];
+            //        drawing.DrawingID = reader["DrawingID"].ToString();
+            //        //string date = reader["DateCreated"].ToString();
+            //        //drawing.DateCreated = (DateTime)reader["DateCreated"];
+            //        if (reader["DateCreated"] == DBNull.Value)
+            //            drawing.DateCreated = DateTime.Now;
+            //        else
+            //            drawing.DateCreated = (DateTime)reader["DateCreated"];
+            //        drawing.BOMDescription = reader["BOMDescription"].ToString();
+            //        drawing.NSN = reader["NSN"].ToString();
+            //        drawing.AddedBy = reader["AddedBy"].ToString();
+            //        drawing.DateModified = reader["DateModified"].ToString();
+            //        if (reader["DateModified"] == DBNull.Value)
+            //        {
+            //            drawing.DateModifedNotNull = drawing.DateCreated;
+            //        }
+            //        else
+            //        {
+            //            drawing.DateModifedNotNull = (DateTime)reader["DateModified"];
+            //        }
+            //        drawing.Changes = reader["Changes"].ToString();
+
+
+            //    }
+            //    else
+            //    {
+            //        return null;
+            //    }
+            //    reader.Close();
+            //}
+            //catch (SqlException ex)
+            //{
+
+            //    throw ex;
+            //}
+            //finally
+            //{
+            //    connection.Close();
+            //}
+            //return drawing;
+            #endregion
         }
 
         /// <summary>
@@ -152,37 +168,35 @@ namespace ValcomData
         /// <returns></returns>
         public static bool AddDrawing(Drawing drawing)
         {
-            SqlConnection connection = ValcomDB.GetConnection();
-            string insertStatement = "INSERT Drawings " +
+            using (SqlConnection connection = ValcomDB.GetConnection())
+            using (SqlCommand check_if_drawing_Exist = connection.CreateCommand())
+            using (SqlCommand insertCommand = connection.CreateCommand())
+            {
+                insertCommand.CommandText = "INSERT Drawings " +
                 "(DrawingID, DateCreated, BOMDescription, NSN, AddedBy, DateModified) " +
                 "VALUES (@DrawingID, @DateCreated, @BOMDescription, @NSN, @AddedBy, @DateModified)";
+                check_if_drawing_Exist.CommandText = "SELECT COUNT(*) FROM Drawings WHERE DrawingID = @DrawingID ";
+                check_if_drawing_Exist.Parameters.Add("@drawingID", SqlDbType.NVarChar).Value = drawing.DrawingID;
 
-            // Check if the DrawingID already exist in the database before entry
-            SqlCommand check_if_drawing_Exist = new SqlCommand("SELECT COUNT(*) FROM Drawings WHERE DrawingID = @DrawingID ", connection);
-            check_if_drawing_Exist.Parameters.AddWithValue("@drawingID", drawing.DrawingID);
+                insertCommand.Parameters.Add("@DrawingID", SqlDbType.NVarChar).Value = drawing.DrawingID;
+                insertCommand.Parameters.Add("@DateCreated", SqlDbType.DateTime).Value = DateTime.Now;
+                insertCommand.Parameters.Add("@BOMDescription", SqlDbType.NVarChar).Value = drawing.BOMDescription;
+                if (drawing.NSN == null)
+                {
+                    insertCommand.Parameters.Add("@NSN", SqlDbType.NVarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    insertCommand.Parameters.Add("@NSN", SqlDbType.NVarChar).Value = drawing.NSN;
+                }
 
-            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
-            insertCommand.Parameters.AddWithValue("@DrawingID", drawing.DrawingID);
-            insertCommand.Parameters.AddWithValue("@DateCreated", DateTime.Now);
-            insertCommand.Parameters.AddWithValue("@BOMDescription", drawing.BOMDescription);;
-            if (drawing.NSN == null)
-            {
-                insertCommand.Parameters.AddWithValue("@NSN", DBNull.Value);
-            }
-            else
-            {
-                insertCommand.Parameters.AddWithValue("@NSN", drawing.NSN);
-            }
+                insertCommand.Parameters.Add("@AddedBy", SqlDbType.NVarChar).Value = drawing.AddedBy;
+                insertCommand.Parameters.Add("@DateModified", SqlDbType.DateTime).Value = DateTime.Now;
 
-            insertCommand.Parameters.AddWithValue("@AddedBy", drawing.AddedBy);
-            insertCommand.Parameters.AddWithValue("@DateModified", DateTime.Now);
-
-            try
-            {
                 connection.Open();
                 int count = (int)check_if_drawing_Exist.ExecuteScalar();
                 if (count > 0)
-                {  
+                {
                     return false;
                 }
                 else
@@ -190,40 +204,118 @@ namespace ValcomData
                     insertCommand.ExecuteNonQuery();
                     return true;
                 }
-                
-            }
-            catch (SqlException ex)
-            {
 
-                throw ex;
             }
-            finally
-            {
-                connection.Close();
-            }
+
+            #region Old Try catch finally method
+            //SqlConnection connection = ValcomDB.GetConnection();
+            //string insertStatement = "INSERT Drawings " +
+            //    "(DrawingID, DateCreated, BOMDescription, NSN, AddedBy, DateModified) " +
+            //    "VALUES (@DrawingID, @DateCreated, @BOMDescription, @NSN, @AddedBy, @DateModified)";
+
+            //// Check if the DrawingID already exist in the database before entry
+            //SqlCommand check_if_drawing_Exist = new SqlCommand("SELECT COUNT(*) FROM Drawings WHERE DrawingID = @DrawingID ", connection);
+            //check_if_drawing_Exist.Parameters.AddWithValue("@drawingID", drawing.DrawingID);
+
+            //SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+            //insertCommand.Parameters.AddWithValue("@DrawingID", drawing.DrawingID);
+            //insertCommand.Parameters.AddWithValue("@DateCreated", DateTime.Now);
+            //insertCommand.Parameters.AddWithValue("@BOMDescription", drawing.BOMDescription);;
+            //if (drawing.NSN == null)
+            //{
+            //    insertCommand.Parameters.AddWithValue("@NSN", DBNull.Value);
+            //}
+            //else
+            //{
+            //    insertCommand.Parameters.AddWithValue("@NSN", drawing.NSN);
+            //}
+
+            //insertCommand.Parameters.AddWithValue("@AddedBy", drawing.AddedBy);
+            //insertCommand.Parameters.AddWithValue("@DateModified", DateTime.Now);
+
+            //try
+            //{
+            //    connection.Open();
+            //    int count = (int)check_if_drawing_Exist.ExecuteScalar();
+            //    if (count > 0)
+            //    {  
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        insertCommand.ExecuteNonQuery();
+            //        return true;
+            //    }
+
+            //}
+            //catch (SqlException ex)
+            //{
+
+            //    throw ex;
+            //}
+            //finally
+            //{
+            //    connection.Close();
+            //}
+            #endregion
 
         }
-        
-            
-            /// <summary>
-            /// Update Drawing Method
-            /// </summary>
-            /// <param name="oldDrawing"></param>
-            /// <param name="newDrawing"></param>
-            /// <returns></returns>
+
+
+        /// <summary>
+        /// Update Drawing Method
+        /// </summary>
+        /// <param name="oldDrawing"></param>
+        /// <param name="newDrawing"></param>
+        /// <returns></returns>
         public static bool UpdateDrawing(Drawing oldDrawing, Drawing newDrawing)
         {
+            #region This is the Using statement another way of writing this method
+            //using (var connection = ValcomDB.GetConnection())
+            //using (var updateCommand = connection.CreateCommand())
+            //{
+            //    updateCommand.CommandText = "UPDATE Drawings SET " + 
+            //        "BOMDescription = @NewBOMDescription, " + 
+            //        "AddedBy = @NewAddedBy, " +
+            //        "DateModified = @NewDateModified, " +
+            //        "Changes = @NewChanges " +
+            //        "WHERE ID = @OldID ";
+
+            //    updateCommand.Parameters.Add("@NewBOMDescription", SqlDbType.NVarChar).Value = newDrawing.BOMDescription;
+            //    updateCommand.Parameters.Add("@NewNSN", SqlDbType.NVarChar).Value = newDrawing.NSN;
+            //    updateCommand.Parameters.Add("@NewAddedBy", SqlDbType.NVarChar).Value = newDrawing.AddedBy;
+            //    updateCommand.Parameters.Add("@NewDateModified", SqlDbType.DateTime).Value = DateTime.Now;
+            //    updateCommand.Parameters.Add("@NewChanges", SqlDbType.NVarChar).Value = newDrawing.Changes;
+
+            //    connection.Open();
+            //    SqlTransaction updateDrawingTran = connection.BeginTransaction();
+            //    updateCommand.Transaction = updateDrawingTran;
+            //    int count = updateCommand.ExecuteNonQuery();
+            //    if (count > 0)
+            //    {
+            //        updateDrawingTran.Commit();
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        updateDrawingTran.Rollback();
+            //        return false;
+            //    }
+
+
+            //}
+
+            #endregion
             SqlConnection connection = ValcomDB.GetConnection();
-            SqlTransaction updateDrawingTran = null;
 
             string updateStatement =
-                "UPDATE Drawings SET " +
-                  "BOMDescription = @NewBOMDescription, " +
-                  "NSN = @NewNSN, " +
-                  "AddedBy = @NewAddedBy, " +
-                  "DateModified = @NewDateModified, " +
-                  "Changes = @NewChanges " +
-                "WHERE ID = @OldID ";
+            "UPDATE Drawings SET " +
+              "BOMDescription = @NewBOMDescription, " +
+              "NSN = @NewNSN, " +
+              "AddedBy = @NewAddedBy, " +
+              "DateModified = @NewDateModified, " +
+              "Changes = @NewChanges " +
+            "WHERE ID = @OldID ";
 
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
             updateCommand.Parameters.AddWithValue("@NewBOMDescription", newDrawing.BOMDescription);
@@ -237,7 +329,7 @@ namespace ValcomData
             try
             {
                 connection.Open();
-                updateDrawingTran = connection.BeginTransaction();
+                SqlTransaction updateDrawingTran = connection.BeginTransaction();
                 updateCommand.Transaction = updateDrawingTran;
                 int count = updateCommand.ExecuteNonQuery();
                 if (count > 0)
@@ -250,7 +342,7 @@ namespace ValcomData
                     updateDrawingTran.Rollback();
                     return false;
                 }
-                    
+
             }
             catch (SqlException ex)
             {
@@ -262,32 +354,44 @@ namespace ValcomData
                 connection.Close();
             }
         }
-        
-            /// <summary>
-            /// Delete Drawing Method
-            /// </summary>
-            /// <param name="Id"></param>
+
+        /// <summary>
+        /// Delete Drawing Method
+        /// </summary>
+        /// <param name="Id"></param>
         public static void DeleteDrawing(int Id)
         {
-            SqlConnection connection = ValcomDB.GetConnection();
-            string deleteStatement = "DELETE FROM Drawings WHERE ID = @ID";
-            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
-            deleteCommand.Parameters.AddWithValue("@ID", Id);
-
-            try
+            using (var connection = ValcomDB.GetConnection())
+            using(var deleteCommand = connection.CreateCommand())
             {
+                deleteCommand.CommandText = "DELETE FROM Drawings WHERE ID = @ID";
+                deleteCommand.Parameters.Add("@ID", SqlDbType.Int).Value = Id;
+
                 connection.Open();
                 deleteCommand.ExecuteNonQuery();
             }
-            catch (SqlException ex)
-            {
 
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
+            #region This is old sql connection and command. Marked for delete Oct 15 2019
+            //SqlConnection connection = ValcomDB.GetConnection();
+            //string deleteStatement = "DELETE FROM Drawings WHERE ID = @ID";
+            //SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
+            //deleteCommand.Parameters.AddWithValue("@ID", Id);
+
+            //try
+            //{
+            //    connection.Open();
+            //    deleteCommand.ExecuteNonQuery();
+            //}
+            //catch (SqlException ex)
+            //{
+
+            //    throw ex;
+            //}
+            //finally
+            //{
+            //    connection.Close();
+            //}
+            #endregion
 
         }
     }

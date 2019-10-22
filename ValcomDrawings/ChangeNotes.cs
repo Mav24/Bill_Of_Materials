@@ -32,29 +32,33 @@ namespace ValcomDrawings
             {
                 if (!string.IsNullOrWhiteSpace(txtChangeList.Text))
                 {
-                    string changeNotes = $"{DateTime.Now} {txtAddChanges.Text}";
-                    Drawing newDrawing = new Drawing();
-                    newDrawing.Changes = txtChangeList.Text += Environment.NewLine + changeNotes + Environment.NewLine;
-                    newDrawing.AddedBy = drawing.AddedBy;
-                    newDrawing.BOMDescription = drawing.BOMDescription;
-                    newDrawing.DateCreated = drawing.DateCreated;
-                    newDrawing.DateModifedNotNull = DateTime.Now;
-                    newDrawing.NSN = drawing.NSN;
+                    string changeNotes = $"{DateTime.Now.ToShortDateString()}{Environment.NewLine}User: {Environment.UserName.ToUpper()}{Environment.NewLine}Note: {txtAddChanges.Text}";
+                    Drawing newDrawing = new Drawing
+                    {
+                        Changes = txtChangeList.Text += Environment.NewLine + changeNotes + Environment.NewLine,
+                        AddedBy = drawing.AddedBy,
+                        BOMDescription = drawing.BOMDescription,
+                        DateCreated = drawing.DateCreated,
+                        DateModifedNotNull = DateTime.Now,
+                        NSN = drawing.NSN
+                    };
 
                     DrawingDB.UpdateDrawing(drawing, newDrawing);
                     this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
-                    string changeNotes = $"{DateTime.Now} {txtAddChanges.Text}";
-                    Drawing newDrawing = new Drawing();
-                    newDrawing.Changes = txtChangeList.Text = changeNotes + Environment.NewLine;
-                    newDrawing.AddedBy = drawing.AddedBy;
-                    newDrawing.BOMDescription = drawing.BOMDescription;
-                    newDrawing.DateCreated = drawing.DateCreated;
-                    newDrawing.DateModifedNotNull = DateTime.Now;
-                    newDrawing.NSN = drawing.NSN;
-                    newDrawing.ID = drawing.ID;
+                    string changeNotes = $"{DateTime.Now.ToShortDateString()}{Environment.NewLine}User: {Environment.UserName.ToUpper()}{Environment.NewLine}Note: {txtAddChanges.Text}";
+                    Drawing newDrawing = new Drawing
+                    {
+                        Changes = txtChangeList.Text = changeNotes + Environment.NewLine,
+                        AddedBy = drawing.AddedBy,
+                        BOMDescription = drawing.BOMDescription,
+                        DateCreated = drawing.DateCreated,
+                        DateModifedNotNull = DateTime.Now,
+                        NSN = drawing.NSN,
+                        ID = drawing.ID
+                    };
 
                     DrawingDB.UpdateDrawing(drawing, newDrawing);
                     this.DialogResult = DialogResult.OK;

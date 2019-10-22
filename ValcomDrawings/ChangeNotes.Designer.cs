@@ -42,6 +42,7 @@
             this.txtChangeList.Location = new System.Drawing.Point(12, 81);
             this.txtChangeList.Multiline = true;
             this.txtChangeList.Name = "txtChangeList";
+            this.txtChangeList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtChangeList.Size = new System.Drawing.Size(427, 124);
             this.txtChangeList.TabIndex = 3;
             // 
@@ -72,9 +73,9 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 15);
+            this.label1.Size = new System.Drawing.Size(365, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "List all changes made to drawing";
+            this.label1.Text = "List all changes made to drawing. Date automatically added to note!";
             // 
             // txtAddChanges
             // 
