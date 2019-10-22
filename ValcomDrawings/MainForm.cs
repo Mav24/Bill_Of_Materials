@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +24,27 @@ namespace ValcomDrawings
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            #region Testing of creating connection xml file
+            //string connection = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n " +
+            //    "<Connection>data source=SHELDONHP\\SQLEXPRESSTEST;initial catalog=ValcomPos;integrated security=True </Connection> ";
+            //string path = "csValcom.xml";
+            //if (!File.Exists(path))
+            //{
+            //    MessageBox.Show("File doesn't exist but will be created!");
+            //    using (StreamWriter file = new StreamWriter("csValcom.xml"))
+            //    {
+
+            //        file.WriteLine(connection);
+            //    }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("File Exist");
+            //    Process.Start("notepad.exe", path);
+            //}
+            #endregion
+
             GetDrawings();
             GetDrawingLineItems();
         }

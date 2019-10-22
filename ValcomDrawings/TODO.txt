@@ -81,3 +81,6 @@ Oct 15 2019
 Oct 16 2019
 - Work done in the DrawingDB class to convert methods in to the using statements.
 
+Oct 22 2019
+Add in a feature that will create the xml file if it doesn't already exist.
+
