@@ -14,6 +14,7 @@ namespace ValcomData
         public string Country { get; set; }
         public string PhoneNumber { get; set; }
         public string FaxNumber { get; set; }
+        public string Email { get; set; }
         public string PaymentTerms { get; set; }
         public string Notes { get; set; }
     }

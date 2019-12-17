@@ -184,5 +184,11 @@ namespace ValcomDrawings
         {
             e.KeyChar = char.ToUpper(e.KeyChar);
         }
+
+        private void suppliersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SuppliersPage suppliersPage = new SuppliersPage();
+            suppliersPage.ShowDialog();
+        }
     }
 }

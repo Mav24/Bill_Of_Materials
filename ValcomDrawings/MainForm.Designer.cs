@@ -71,6 +71,7 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolMnuOpenParts = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.suppliersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +80,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCreateJob = new System.Windows.Forms.Button();
             this.btnAddLineItems = new System.Windows.Forms.Button();
+            this.suppliersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             txtAddedBy = new System.Windows.Forms.Label();
             bOMDescriptionLabel = new System.Windows.Forms.Label();
             dateModifiedLabel = new System.Windows.Forms.Label();
@@ -363,6 +365,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
+            this.suppliersToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -378,7 +381,8 @@
             this.toolStripSeparator1,
             this.printToolStripMenuItem,
             this.toolStripSeparator2,
-            this.toolmnuExit});
+            this.toolmnuExit,
+            this.suppliersToolStripMenuItem1});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
@@ -459,6 +463,12 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(159, 6);
             // 
+            // suppliersToolStripMenuItem
+            // 
+            this.suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
+            this.suppliersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.suppliersToolStripMenuItem.Text = "Suppliers";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -535,6 +545,13 @@
             this.btnAddLineItems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAddLineItems.UseVisualStyleBackColor = true;
             this.btnAddLineItems.Click += new System.EventHandler(this.btnAddLineItems_Click);
+            // 
+            // suppliersToolStripMenuItem1
+            // 
+            this.suppliersToolStripMenuItem1.Name = "suppliersToolStripMenuItem1";
+            this.suppliersToolStripMenuItem1.Size = new System.Drawing.Size(197, 22);
+            this.suppliersToolStripMenuItem1.Text = "Suppliers";
+            this.suppliersToolStripMenuItem1.Click += new System.EventHandler(this.suppliersToolStripMenuItem1_Click);
             // 
             // MainForm
             // 
@@ -627,6 +644,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Comment;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suppliersToolStripMenuItem1;
     }
 }
 
